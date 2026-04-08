@@ -482,8 +482,8 @@
         <div class="config-section-title"><span>📌</span> Foco da Semana</div>
         <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Selecione setores e regiões para priorizar na pesquisa desta semana. Se nada for selecionado, a rotina buscará em todos os setores e regiões.</p>
 
-        <div style="margin-bottom:16px">
-          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Lista</div>
+        <div style="margin-bottom:16px;opacity:0.4;pointer-events:none" title="Classificação automática por faturamento">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Lista <span style="font-style:italic;text-transform:none;font-weight:400">(automática por faturamento)</span></div>
           <div class="lista-chips">
             <div class="lista-chip" id="lc-all" onclick="setListaFoco('all')">Ambas</div>
             <div class="lista-chip" id="lc-grande" onclick="setListaFoco('grande')">Grande</div>
@@ -848,7 +848,7 @@ function renderAprovacao() {
         <div>
           <div class="lead-card-nome">${p.nome}</div>
           <div class="lead-card-meta">
-            <span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}" style="margin-right:6px">${p.lista==='grande'?'Grande':'Midmarket'}</span>
+            <span class="badge ${listaBadge(getListaAuto(p))}" style="margin-right:6px">${listaLabel(getListaAuto(p))}</span>
             ${p.setor} · ${p.subsetor||''} · ${p.regiao} · ${p.fat||'—'} · ${p.plantas||'?'} plantas
           </div>
         </div>
@@ -1076,6 +1076,32 @@ function salvarConfiguracoes() {
   document.getElementById('save-btn').classList.add('visible');
 }
 
+
+// ═══════════════════════════════════════════════ AUTO LISTA ════════════════
+function parseFat(fatStr) {
+  // Converts "R$ 45B" → 45000, "R$ 500M" → 500, "R$ 1.5B" → 1500 (in millions)
+  if (!fatStr) return null;
+  const s = fatStr.toUpperCase().replace(/[R$\s\.]/g,'').replace(',','.');
+  const num = parseFloat(s);
+  if (isNaN(num)) return null;
+  if (s.includes('B')) return num * 1000;
+  if (s.includes('M')) return num;
+  if (s.includes('K')) return num / 1000;
+  return num; // assume millions
+}
+
+function getListaAuto(p) {
+  const fat = parseFat(p.fat);
+  if (fat === null) return p.lista || 'midmarket'; // fallback to stored value
+  const cfg = DATA.config && DATA.config.listas;
+  const grandeMin = cfg ? parseFat(cfg.grande.fat_min) : 5000;
+  if (fat >= (grandeMin || 5000)) return 'grande';
+  return 'midmarket';
+}
+
+function listaLabel(lista) { return lista === 'grande' ? 'Grande' : 'Midmarket'; }
+function listaBadge(lista) { return lista === 'grande' ? 'badge-purple' : 'badge-teal'; }
+
 // ═══════════════════════════════════════════════ CONTACT TRACKING ═══════════
 function getContactStatus(p) {
   const execs = [p.ceo_n ? p.ceo_ct : null, p.op_n ? p.op_ct : null, p.sc_n ? p.sc_ct : null].filter(x => x !== null);
@@ -1133,7 +1159,7 @@ function renderICP() {
   const regiao = document.getElementById('icp-regiao').value;
 
   let list = DATA.icp.filter(p => {
-    if (lista !== 'all' && p.lista !== lista) return false;
+    if (lista !== 'all' && getListaAuto(p) !== lista) return false;
     if (score !== 'all' && p.s !== parseInt(score)) return false;
     if (setor !== 'all' && p.setor !== setor) return false;
     if (regiao !== 'all' && p.regiao !== regiao) return false;
@@ -1151,8 +1177,10 @@ function renderICP() {
 
   const score5 = DATA.icp.filter(p=>p.s===5).length;
   const score4 = DATA.icp.filter(p=>p.s===4).length;
+  const totalGrande = DATA.icp.filter(p=>getListaAuto(p)==='grande').length;
+  const totalMid = DATA.icp.filter(p=>getListaAuto(p)==='midmarket').length;
   document.getElementById('icp-cards').innerHTML = `
-    <div class="card card-blue"><div class="card-label">Total ICP</div><div class="card-value">${DATA.icp.length}</div><div class="card-sub">empresas na base</div></div>
+    <div class="card card-blue"><div class="card-label">Total ICP</div><div class="card-value">${DATA.icp.length}</div><div class="card-sub">${totalGrande} Grande · ${totalMid} Midmarket</div></div>
     <div class="card card-red"><div class="card-label">Score 5 · Crítico</div><div class="card-value">${score5}</div><div class="card-sub">dor crítica</div></div>
     <div class="card card-orange"><div class="card-label">Score 4 · Alto</div><div class="card-value">${score4}</div><div class="card-sub">dor alta</div></div>
     <div class="card card-yellow"><div class="card-label">Mostrando</div><div class="card-value">${list.length}</div><div class="card-sub">com filtros ativos</div></div>
@@ -1161,7 +1189,7 @@ function renderICP() {
   document.getElementById('icp-table-body').innerHTML = list.map(p => `
     <tr style="cursor:pointer" onclick="openICPDetail(${p.id})">
       <td class="nome-col">${p.nome}<div style="font-size:11px;color:var(--text3);font-weight:400">${p.subsetor||''}</div></td>
-      <td><span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}">${p.lista==='grande'?'Grande':'Midmarket'}</span></td>
+      <td><span class="badge ${listaBadge(getListaAuto(p))}">${listaLabel(getListaAuto(p))}</span></td>
       <td>${p.setor}</td>
       <td style="color:var(--text2)">${p.fat}</td>
       <td style="color:var(--text2)">${p.plantas} plantas</td>
@@ -1180,7 +1208,7 @@ function openICPDetail(id) {
     <div class="detail-nome">${p.nome}</div>
     <div class="detail-setor">${p.setor} · ${p.subsetor||''}</div>
     <div class="tag-row">
-      <span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}">${p.lista==='grande'?'Grande':'Midmarket'}</span>
+      <span class="badge ${listaBadge(getListaAuto(p))}">${listaLabel(getListaAuto(p))}</span>
       <span class="score score-${p.s}"><span class="score-dot"></span>Score ${p.s} — ${scoreLabels[p.s]||''}</span>
       <span class="badge badge-indigo">${p.regiao}</span>
     </div>
