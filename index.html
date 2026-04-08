@@ -156,6 +156,31 @@
   .detail-exec-name { font-size: 13px; font-weight: 500; color: var(--text); }
   .detail-exec-links { display: flex; gap: 8px; align-items: center; margin-top: 2px; }
 
+
+  /* LISTA CONFIG */
+  .lista-def-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+  .lista-def-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; cursor: pointer; user-select: none; }
+  .lista-def-title { font-size: 14px; font-weight: 700; }
+  .lista-def-toggle { margin-left: auto; font-size: 12px; color: var(--text3); }
+  .lista-def-body { display: block; }
+  .lista-def-body.collapsed { display: none; }
+  .cfg-field-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .cfg-field { display: flex; flex-direction: column; gap: 5px; }
+  .cfg-field label { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; }
+  .cfg-field input { background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 7px 10px; border-radius: 6px; font-size: 13px; font-family: inherit; }
+  .cfg-field input:focus { outline: none; border-color: var(--blue); }
+  .cfg-field input::placeholder { color: var(--text3); }
+  .cfg-field .cfg-optional { font-size: 10px; color: var(--text3); font-style: italic; }
+  .lista-setores-title { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+  .lista-sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; }
+  .lista-sector-chip { display: flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 5px; background: var(--bg2); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text2); transition: all .12s; user-select: none; }
+  .lista-sector-chip:hover { border-color: var(--blue); color: var(--text); }
+  .lista-sector-chip.selected-g { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.4); color: #c084fc; }
+  .lista-sector-chip.selected-m { background: rgba(20,184,166,0.12); border-color: rgba(20,184,166,0.4); color: #2dd4bf; }
+  .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-g { background: #a855f7; }
+  .dot-m { background: #14b8a6; }
+
   /* CONFIGURAÇÕES */
   .config-section { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
   .config-section-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
@@ -336,6 +361,119 @@
         <div class="score-config-row">
           <div class="score-label-cfg"><span class="score score-1"><span class="score-dot"></span>Score 1</span></div>
           <textarea class="config-textarea" id="cfg-score-1" placeholder="Descrição do Score 1..."></textarea>
+        </div>
+      </div>
+
+
+      <!-- Definição das Listas -->
+      <div class="config-section">
+        <div class="config-section-title"><span>📋</span> Definição das Listas</div>
+        <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Configure os critérios de porte e os setores de cada lista. As rotinas usam essas definições para qualificar e classificar novos leads.</p>
+
+        <!-- Lista Grande -->
+        <div class="lista-def-card">
+          <div class="lista-def-header" onclick="toggleListaDef('grande')">
+            <span class="badge badge-purple">Grande</span>
+            <span class="lista-def-title">Critérios da Lista Grande</span>
+            <span class="lista-def-toggle" id="toggle-grande">▼</span>
+          </div>
+          <div class="lista-def-body" id="body-grande">
+            <div class="cfg-field-row">
+              <div class="cfg-field">
+                <label>Faturamento mínimo</label>
+                <input type="text" id="cfg-g-fat" placeholder="ex: R$ 5B">
+              </div>
+              <div class="cfg-field">
+                <label>Plantas mínimas</label>
+                <input type="number" id="cfg-g-plantas" placeholder="ex: 2" min="1">
+              </div>
+              <div class="cfg-field">
+                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
+                <input type="text" id="cfg-g-func" placeholder="ex: 1000">
+              </div>
+            </div>
+            <div class="lista-setores-title">Setores desta lista</div>
+            <div class="lista-sector-grid">
+            <div class="lista-sector-chip" id="lsc-grande-Aeronautica" onclick="toggleListaSector('grande','Aeronáutica')"><span class="chip-dot dot-g"></span>Aeronáutica</div>
+            <div class="lista-sector-chip" id="lsc-grande-Agronegocio" onclick="toggleListaSector('grande','Agronegócio')"><span class="chip-dot dot-g"></span>Agronegócio</div>
+            <div class="lista-sector-chip" id="lsc-grande-Alimentos" onclick="toggleListaSector('grande','Alimentos')"><span class="chip-dot dot-g"></span>Alimentos</div>
+            <div class="lista-sector-chip" id="lsc-grande-Automotivo" onclick="toggleListaSector('grande','Automotivo')"><span class="chip-dot dot-g"></span>Automotivo</div>
+            <div class="lista-sector-chip" id="lsc-grande-Bebidas" onclick="toggleListaSector('grande','Bebidas')"><span class="chip-dot dot-g"></span>Bebidas</div>
+            <div class="lista-sector-chip" id="lsc-grande-Calcados" onclick="toggleListaSector('grande','Calçados')"><span class="chip-dot dot-g"></span>Calçados</div>
+            <div class="lista-sector-chip" id="lsc-grande-Cerâmica" onclick="toggleListaSector('grande','Cerâmica')"><span class="chip-dot dot-g"></span>Cerâmica</div>
+            <div class="lista-sector-chip" id="lsc-grande-Cimento" onclick="toggleListaSector('grande','Cimento')"><span class="chip-dot dot-g"></span>Cimento</div>
+            <div class="lista-sector-chip" id="lsc-grande-Construcao" onclick="toggleListaSector('grande','Construção')"><span class="chip-dot dot-g"></span>Construção</div>
+            <div class="lista-sector-chip" id="lsc-grande-Cosmeticos" onclick="toggleListaSector('grande','Cosméticos')"><span class="chip-dot dot-g"></span>Cosméticos</div>
+            <div class="lista-sector-chip" id="lsc-grande-Distribuicao" onclick="toggleListaSector('grande','Distribuição')"><span class="chip-dot dot-g"></span>Distribuição</div>
+            <div class="lista-sector-chip" id="lsc-grande-Eletroeletronico" onclick="toggleListaSector('grande','Eletroeletrônico')"><span class="chip-dot dot-g"></span>Eletroeletrônico</div>
+            <div class="lista-sector-chip" id="lsc-grande-Embalagens" onclick="toggleListaSector('grande','Embalagens')"><span class="chip-dot dot-g"></span>Embalagens</div>
+            <div class="lista-sector-chip" id="lsc-grande-Energia" onclick="toggleListaSector('grande','Energia')"><span class="chip-dot dot-g"></span>Energia</div>
+            <div class="lista-sector-chip" id="lsc-grande-Farmaceutico" onclick="toggleListaSector('grande','Farmacêutico')"><span class="chip-dot dot-g"></span>Farmacêutico</div>
+            <div class="lista-sector-chip" id="lsc-grande-Logistica" onclick="toggleListaSector('grande','Logística')"><span class="chip-dot dot-g"></span>Logística</div>
+            <div class="lista-sector-chip" id="lsc-grande-Metalurgia" onclick="toggleListaSector('grande','Metalurgia')"><span class="chip-dot dot-g"></span>Metalurgia</div>
+            <div class="lista-sector-chip" id="lsc-grande-Mineracao" onclick="toggleListaSector('grande','Mineração')"><span class="chip-dot dot-g"></span>Mineração</div>
+            <div class="lista-sector-chip" id="lsc-grande-Papel_e_Celulose" onclick="toggleListaSector('grande','Papel e Celulose')"><span class="chip-dot dot-g"></span>Papel e Celulose</div>
+            <div class="lista-sector-chip" id="lsc-grande-Quimico" onclick="toggleListaSector('grande','Químico')"><span class="chip-dot dot-g"></span>Químico</div>
+            <div class="lista-sector-chip" id="lsc-grande-Saneamento" onclick="toggleListaSector('grande','Saneamento')"><span class="chip-dot dot-g"></span>Saneamento</div>
+            <div class="lista-sector-chip" id="lsc-grande-Saude" onclick="toggleListaSector('grande','Saúde')"><span class="chip-dot dot-g"></span>Saúde</div>
+            <div class="lista-sector-chip" id="lsc-grande-Telecomunicacões" onclick="toggleListaSector('grande','Telecomunicações')"><span class="chip-dot dot-g"></span>Telecomunicações</div>
+            <div class="lista-sector-chip" id="lsc-grande-Textil" onclick="toggleListaSector('grande','Têxtil')"><span class="chip-dot dot-g"></span>Têxtil</div>
+            <div class="lista-sector-chip" id="lsc-grande-Varejo" onclick="toggleListaSector('grande','Varejo')"><span class="chip-dot dot-g"></span>Varejo</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista Midmarket -->
+        <div class="lista-def-card">
+          <div class="lista-def-header" onclick="toggleListaDef('midmarket')">
+            <span class="badge badge-teal">Midmarket</span>
+            <span class="lista-def-title">Critérios da Lista Midmarket</span>
+            <span class="lista-def-toggle" id="toggle-midmarket">▼</span>
+          </div>
+          <div class="lista-def-body" id="body-midmarket">
+            <div class="cfg-field-row">
+              <div class="cfg-field">
+                <label>Faturamento mínimo</label>
+                <input type="text" id="cfg-m-fat" placeholder="ex: R$ 500M">
+              </div>
+              <div class="cfg-field">
+                <label>Plantas mínimas</label>
+                <input type="number" id="cfg-m-plantas" placeholder="ex: 2" min="1">
+              </div>
+              <div class="cfg-field">
+                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
+                <input type="text" id="cfg-m-func" placeholder="ex: 200">
+              </div>
+            </div>
+            <div class="lista-setores-title">Setores desta lista</div>
+            <div class="lista-sector-grid">
+            <div class="lista-sector-chip" id="lsc-midmarket-Aeronautica" onclick="toggleListaSector('midmarket','Aeronáutica')"><span class="chip-dot dot-m"></span>Aeronáutica</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Agronegocio" onclick="toggleListaSector('midmarket','Agronegócio')"><span class="chip-dot dot-m"></span>Agronegócio</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Alimentos" onclick="toggleListaSector('midmarket','Alimentos')"><span class="chip-dot dot-m"></span>Alimentos</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Automotivo" onclick="toggleListaSector('midmarket','Automotivo')"><span class="chip-dot dot-m"></span>Automotivo</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Bebidas" onclick="toggleListaSector('midmarket','Bebidas')"><span class="chip-dot dot-m"></span>Bebidas</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Calcados" onclick="toggleListaSector('midmarket','Calçados')"><span class="chip-dot dot-m"></span>Calçados</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Cerâmica" onclick="toggleListaSector('midmarket','Cerâmica')"><span class="chip-dot dot-m"></span>Cerâmica</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Cimento" onclick="toggleListaSector('midmarket','Cimento')"><span class="chip-dot dot-m"></span>Cimento</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Construcao" onclick="toggleListaSector('midmarket','Construção')"><span class="chip-dot dot-m"></span>Construção</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Cosmeticos" onclick="toggleListaSector('midmarket','Cosméticos')"><span class="chip-dot dot-m"></span>Cosméticos</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Distribuicao" onclick="toggleListaSector('midmarket','Distribuição')"><span class="chip-dot dot-m"></span>Distribuição</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Eletroeletronico" onclick="toggleListaSector('midmarket','Eletroeletrônico')"><span class="chip-dot dot-m"></span>Eletroeletrônico</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Embalagens" onclick="toggleListaSector('midmarket','Embalagens')"><span class="chip-dot dot-m"></span>Embalagens</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Energia" onclick="toggleListaSector('midmarket','Energia')"><span class="chip-dot dot-m"></span>Energia</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Farmaceutico" onclick="toggleListaSector('midmarket','Farmacêutico')"><span class="chip-dot dot-m"></span>Farmacêutico</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Logistica" onclick="toggleListaSector('midmarket','Logística')"><span class="chip-dot dot-m"></span>Logística</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Metalurgia" onclick="toggleListaSector('midmarket','Metalurgia')"><span class="chip-dot dot-m"></span>Metalurgia</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Mineracao" onclick="toggleListaSector('midmarket','Mineração')"><span class="chip-dot dot-m"></span>Mineração</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Papel_e_Celulose" onclick="toggleListaSector('midmarket','Papel e Celulose')"><span class="chip-dot dot-m"></span>Papel e Celulose</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Quimico" onclick="toggleListaSector('midmarket','Químico')"><span class="chip-dot dot-m"></span>Químico</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Saneamento" onclick="toggleListaSector('midmarket','Saneamento')"><span class="chip-dot dot-m"></span>Saneamento</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Saude" onclick="toggleListaSector('midmarket','Saúde')"><span class="chip-dot dot-m"></span>Saúde</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Telecomunicacões" onclick="toggleListaSector('midmarket','Telecomunicações')"><span class="chip-dot dot-m"></span>Telecomunicações</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Textil" onclick="toggleListaSector('midmarket','Têxtil')"><span class="chip-dot dot-m"></span>Têxtil</div>
+            <div class="lista-sector-chip" id="lsc-midmarket-Varejo" onclick="toggleListaSector('midmarket','Varejo')"><span class="chip-dot dot-m"></span>Varejo</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -659,7 +797,21 @@ const DATA = {
     setores_foco: [],
     regioes_foco: [],
     lista_foco: "all",
-    obs_semana: ""
+    obs_semana: "",
+    listas: {
+      grande: {
+        fat_min: "R$ 5B",
+        plantas_min: 2,
+        funcionarios_min: "",
+        setores: ["Automotivo","Alimentos","Bebidas","Metalurgia","Mineração","Químico","Papel e Celulose","Energia","Aeronáutica","Farmacêutico","Cimento","Construção"]
+      },
+      midmarket: {
+        fat_min: "R$ 500M",
+        plantas_min: 2,
+        funcionarios_min: "",
+        setores: ["Agronegócio","Logística","Distribuição","Têxtil","Calçados","Cosméticos","Saúde","Telecomunicações","Varejo","Embalagens","Eletroeletrônico","Cerâmica","Saneamento"]
+      }
+    }
   }
 };
 
@@ -802,6 +954,25 @@ function salvarDashboard() {
 
 
 // ═══════════════════════════════════════════════ CONFIGURAÇÕES ════════════
+
+function toggleListaDef(lista) {
+  const body = document.getElementById('body-' + lista);
+  const toggle = document.getElementById('toggle-' + lista);
+  const collapsed = body.classList.toggle('collapsed');
+  toggle.textContent = collapsed ? '▶' : '▼';
+}
+
+function toggleListaSector(lista, setor) {
+  if (!DATA.config.listas) DATA.config.listas = { grande: { setores: [] }, midmarket: { setores: [] } };
+  const arr = DATA.config.listas[lista].setores;
+  const idx = arr.indexOf(setor);
+  if (idx >= 0) arr.splice(idx, 1);
+  else arr.push(setor);
+  const safe = setor.replace(/[ áãéêçíóôú]/g, c => ({' ':'_','á':'a','ã':'a','é':'e','ê':'e','ç':'c','í':'i','ó':'o','ô':'o','ú':'u'}[c]||c));
+  const el = document.getElementById(`lsc-${lista}-${safe}`);
+  if (el) el.className = 'lista-sector-chip' + (arr.includes(setor) ? (lista==='grande'?' selected-g':' selected-m') : '');
+}
+
 function renderConfiguracoes() {
   const cfg = DATA.config;
   // Score descriptions
@@ -822,11 +993,31 @@ function renderConfiguracoes() {
     const el = document.getElementById('rc-' + r);
     if (el) el.classList.toggle('selected', (cfg.regioes_foco||[]).includes(r));
   });
-  // Setores
+  // Setores foco semana
   document.querySelectorAll('.sector-chip').forEach(chip => {
     const setor = chip.textContent.trim();
     chip.classList.toggle('selected', (cfg.setores_foco||[]).includes(setor));
   });
+  // Listas definition
+  if (cfg.listas) {
+    ['grande','midmarket'].forEach(lista => {
+      const l = cfg.listas[lista];
+      if (!l) return;
+      const prefix = lista === 'grande' ? 'g' : 'm';
+      const fatEl = document.getElementById(`cfg-${prefix}-fat`);
+      const plantasEl = document.getElementById(`cfg-${prefix}-plantas`);
+      const funcEl = document.getElementById(`cfg-${prefix}-func`);
+      if (fatEl) fatEl.value = l.fat_min || '';
+      if (plantasEl) plantasEl.value = l.plantas_min || '';
+      if (funcEl) funcEl.value = l.funcionarios_min || '';
+      // Sector chips
+      (l.setores || []).forEach(setor => {
+        const safe = setor.replace(/[ áãéêçíóôú]/g, c => ({' ':'_','á':'a','ã':'a','é':'e','ê':'e','ç':'c','í':'i','ó':'o','ô':'o','ú':'u'}[c]||c));
+        const el = document.getElementById(`lsc-${lista}-${safe}`);
+        if (el) el.className = 'lista-sector-chip' + (lista==='grande'?' selected-g':' selected-m');
+      });
+    });
+  }
 }
 
 function toggleSector(setor) {
@@ -866,6 +1057,18 @@ function salvarConfiguracoes() {
   // Obs
   const obsEl = document.getElementById('cfg-obs');
   if (obsEl) DATA.config.obs_semana = obsEl.value.trim();
+  // Listas definition
+  if (!DATA.config.listas) DATA.config.listas = { grande: { setores: [] }, midmarket: { setores: [] } };
+  ['grande','midmarket'].forEach(lista => {
+    const prefix = lista === 'grande' ? 'g' : 'm';
+    const fatEl = document.getElementById(`cfg-${prefix}-fat`);
+    const plantasEl = document.getElementById(`cfg-${prefix}-plantas`);
+    const funcEl = document.getElementById(`cfg-${prefix}-func`);
+    if (fatEl) DATA.config.listas[lista].fat_min = fatEl.value.trim();
+    if (plantasEl) DATA.config.listas[lista].plantas_min = parseInt(plantasEl.value) || 2;
+    if (funcEl) DATA.config.listas[lista].funcionarios_min = funcEl.value.trim();
+    // setores already updated by toggleListaSector
+  });
 
   // Show saved message and trigger dashboard save
   const msg = document.getElementById('cfg-saved-msg');
