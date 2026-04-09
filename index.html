@@ -505,11 +505,11 @@
         <div style="margin-bottom:16px">
           <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Lista</div>
           <div class="lista-chips" style="flex-wrap:wrap;gap:8px">
-            <div class="lista-chip" id="lc-all" onclick="setListaFoco('all')">Todas</div>
-            <div class="lista-chip" id="lc-enterprise" onclick="setListaFoco('enterprise')">🔴 Enterprise</div>
-            <div class="lista-chip" id="lc-grande" onclick="setListaFoco('grande')">🟣 Grande</div>
-            <div class="lista-chip" id="lc-midmarket" onclick="setListaFoco('midmarket')">🩵 Midmarket</div>
-            <div class="lista-chip" id="lc-emergente" onclick="setListaFoco('emergente')">🔵 Emergente</div>
+            <div class="lista-chip" id="lc-all" onclick="clearListasFoco()">Todas</div>
+            <div class="lista-chip" id="lc-enterprise" onclick="toggleListaFoco('enterprise')">🔴 Enterprise</div>
+            <div class="lista-chip" id="lc-grande" onclick="toggleListaFoco('grande')">🟣 Grande</div>
+            <div class="lista-chip" id="lc-midmarket" onclick="toggleListaFoco('midmarket')">🩵 Midmarket</div>
+            <div class="lista-chip" id="lc-emergente" onclick="toggleListaFoco('emergente')">🔵 Emergente</div>
           </div>
         </div>
 
@@ -924,7 +924,7 @@ const DATA = {
     },
     setores_foco: [],
     regioes_foco: [],
-    lista_foco: "all",
+    listas_foco: [],
     obs_semana: "",
     listas: {
       enterprise: {
@@ -988,8 +988,9 @@ function renderAprovacao() {
   if (focoEl && focoContent) {
     const cfg = DATA.config;
     const parts = [];
-    const listaLabels = {all:'Todas as listas',enterprise:'Enterprise',grande:'Grande',midmarket:'Midmarket',emergente:'Emergente'};
-    parts.push('<div><strong style="color:var(--text)">Lista:</strong> ' + (listaLabels[cfg.lista_foco] || 'Todas') + '</div>');
+    const listaLabels = {enterprise:'Enterprise',grande:'Grande',midmarket:'Midmarket',emergente:'Emergente'};
+    const listasAtivas = (cfg.listas_foco||[]).map(v => listaLabels[v]||v);
+    parts.push('<div><strong style="color:var(--text)">Listas:</strong> ' + (listasAtivas.length > 0 ? listasAtivas.join(', ') : 'Todas') + '</div>');
     if (cfg.regioes_foco && cfg.regioes_foco.length > 0)
       parts.push('<div><strong style="color:var(--text)">Regiões:</strong> ' + cfg.regioes_foco.join(', ') + '</div>');
     else
@@ -1145,10 +1146,12 @@ function renderConfiguracoes() {
   // Obs
   const obsEl = document.getElementById('cfg-obs');
   if (obsEl) obsEl.value = cfg.obs_semana || '';
-  // Lista foco
-  ['all','enterprise','grande','midmarket','emergente'].forEach(v => {
+  // Lista foco (multi-select)
+  const lf = cfg.listas_foco || [];
+  document.getElementById('lc-all').classList.toggle('selected', lf.length === 0);
+  ['enterprise','grande','midmarket','emergente'].forEach(v => {
     const el = document.getElementById('lc-' + v);
-    if (el) el.classList.toggle('selected', cfg.lista_foco === v);
+    if (el) el.classList.toggle('selected', lf.includes(v));
   });
   // Regioes
   ['Sudeste','Sul','Nordeste','Centro-Oeste','Norte'].forEach(r => {
@@ -1203,11 +1206,25 @@ function toggleRegiao(regiao) {
   if (el) el.classList.toggle('selected', DATA.config.regioes_foco.includes(regiao));
 }
 
-function setListaFoco(val) {
-  DATA.config.lista_foco = val;
-  ['all','enterprise','grande','midmarket','emergente'].forEach(v => {
+function toggleListaFoco(val) {
+  if (!DATA.config.listas_foco) DATA.config.listas_foco = [];
+  const arr = DATA.config.listas_foco;
+  const idx = arr.indexOf(val);
+  if (idx >= 0) arr.splice(idx, 1); else arr.push(val);
+  // Update visuals
+  document.getElementById('lc-all').classList.toggle('selected', arr.length === 0);
+  ['enterprise','grande','midmarket','emergente'].forEach(v => {
     const el = document.getElementById('lc-' + v);
-    if (el) el.classList.toggle('selected', v === val);
+    if (el) el.classList.toggle('selected', arr.includes(v));
+  });
+}
+
+function clearListasFoco() {
+  DATA.config.listas_foco = [];
+  document.getElementById('lc-all').classList.add('selected');
+  ['enterprise','grande','midmarket','emergente'].forEach(v => {
+    const el = document.getElementById('lc-' + v);
+    if (el) el.classList.remove('selected');
   });
 }
 
