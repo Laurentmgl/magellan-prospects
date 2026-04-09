@@ -482,15 +482,15 @@
             <div class="cfg-field-row">
               <div class="cfg-field">
                 <label>Faturamento mínimo</label>
-                <input type="text" id="cfg-e-fat" placeholder="ex: R$ 100M">
+                <input type="text" id="cfg-em-fat" placeholder="ex: R$ 100M">
               </div>
               <div class="cfg-field">
                 <label>Plantas mínimas</label>
-                <input type="number" id="cfg-e-plantas" placeholder="ex: 1" min="0">
+                <input type="number" id="cfg-em-plantas" placeholder="ex: 1" min="0">
               </div>
               <div class="cfg-field">
                 <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
-                <input type="text" id="cfg-e-func" placeholder="">
+                <input type="text" id="cfg-em-func" placeholder="">
               </div>
             </div>
           </div>
@@ -1161,8 +1161,8 @@ function renderConfiguracoes() {
     chip.classList.toggle('selected', (cfg.setores_foco||[]).includes(setor));
   });
   // Listas definition - 4 tiers
-  const tierColors = { enterprise:'selected-e', grande:'selected-g', midmarket:'selected-m', emergente:'selected-x' };
-  const tierPfx    = { enterprise:'e', grande:'g', midmarket:'m', emergente:'x' };
+  const tierColors = { enterprise:'selected-e', grande:'selected-g', midmarket:'selected-m', emergente:'selected-em' };
+  const tierPfx    = { enterprise:'e', grande:'g', midmarket:'m', emergente:'em' };
   if (cfg.listas) {
     ['enterprise','grande','midmarket','emergente'].forEach(lista => {
       const l = cfg.listas[lista];
@@ -1223,7 +1223,7 @@ function salvarConfiguracoes() {
   // Listas definition
   if (!DATA.config.listas) DATA.config.listas = { grande: { setores: [] }, midmarket: { setores: [] } };
   ['enterprise','grande','midmarket','emergente'].forEach(lista => {
-    const pfxMap = {enterprise:'e',grande:'g',midmarket:'m',emergente:'x'};
+    const pfxMap = {enterprise:'e',grande:'g',midmarket:'m',emergente:'em'};
     const prefix = pfxMap[lista];
     const fatEl = document.getElementById(`cfg-${prefix}-fat`);
     const plantasEl = document.getElementById(`cfg-${prefix}-plantas`);
