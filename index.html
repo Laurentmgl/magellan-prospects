@@ -155,6 +155,74 @@
   .detail-exec-role { font-size: 10px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; }
   .detail-exec-name { font-size: 13px; font-weight: 500; color: var(--text); }
   .detail-exec-links { display: flex; gap: 8px; align-items: center; margin-top: 2px; }
+
+
+
+  .badge-enterprise { background: rgba(239,68,68,0.15); color: #f87171; }
+  .badge-emergente  { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .badge-nacional   { background: rgba(34,197,94,0.12); color: #4ade80; }
+  .badge-multi      { background: rgba(245,158,11,0.12); color: #fbbf24; }
+  .badge-familiar   { background: rgba(168,85,247,0.12); color: #c084fc; }
+  .badge-bolsa      { background: rgba(20,184,166,0.12); color: #2dd4bf; }
+  .badge-estatal    { background: rgba(99,102,241,0.12); color: #818cf8; }
+  .company-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+  /* LISTA CONFIG */
+  .lista-def-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+  .lista-def-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; cursor: pointer; user-select: none; }
+  .lista-def-title { font-size: 14px; font-weight: 700; }
+  .lista-def-toggle { margin-left: auto; font-size: 12px; color: var(--text3); }
+  .lista-def-body { display: block; }
+  .lista-def-body.collapsed { display: none; }
+  .cfg-field-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .cfg-field { display: flex; flex-direction: column; gap: 5px; }
+  .cfg-field label { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; }
+  .cfg-field input { background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 7px 10px; border-radius: 6px; font-size: 13px; font-family: inherit; }
+  .cfg-field input:focus { outline: none; border-color: var(--blue); }
+  .cfg-field input::placeholder { color: var(--text3); }
+  .cfg-field .cfg-optional { font-size: 10px; color: var(--text3); font-style: italic; }
+  .lista-setores-title { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+  .lista-sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; }
+  .lista-sector-chip { display: flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 5px; background: var(--bg2); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text2); transition: all .12s; user-select: none; }
+  .lista-sector-chip:hover { border-color: var(--blue); color: var(--text); }
+  .lista-sector-chip.selected-g { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.4); color: #c084fc; }
+  .lista-sector-chip.selected-m { background: rgba(20,184,166,0.12); border-color: rgba(20,184,166,0.4); color: #2dd4bf; }
+  .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-g { background: #a855f7; }
+  .dot-m { background: #14b8a6; }
+  .dot-e { background: #ef4444; }
+  .dot-x { background: #3b82f6; }
+  .selected-e { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.4); color: #f87171; }
+  .selected-g { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.4); color: #c084fc; }
+  .selected-m { background: rgba(20,184,166,0.12); border-color: rgba(20,184,166,0.4); color: #2dd4bf; }
+  .selected-x { background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.4); color: #60a5fa; }
+  .dot-m { background: #14b8a6; }
+
+  /* CONFIGURAÇÕES */
+  .config-section { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+  .config-section-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .config-section-title span { font-size: 16px; }
+  .score-config-row { display: grid; grid-template-columns: 80px 1fr; gap: 12px; align-items: start; margin-bottom: 12px; }
+  .score-label-cfg { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding-top: 8px; }
+  .config-textarea { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 6px; font-size: 12px; width: 100%; resize: vertical; min-height: 60px; font-family: inherit; line-height: 1.5; }
+  .config-textarea:focus { outline: none; border-color: var(--blue); }
+  .sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
+  .sector-chip { display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 6px; background: var(--bg3); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text2); transition: all .15s; user-select: none; }
+  .sector-chip:hover { border-color: var(--blue); color: var(--text); }
+  .sector-chip.selected, .sector-chip.active { background: rgba(59,130,246,0.15); border-color: var(--blue); color: #60a5fa; }
+  .sector-chip input { display: none; }
+  .region-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .region-chip { padding: 6px 16px; border-radius: 20px; background: var(--bg3); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text2); transition: all .15s; user-select: none; }
+  .region-chip:hover { border-color: var(--blue); color: var(--text); }
+  .region-chip.selected, .region-chip.active { background: rgba(99,102,241,0.15); border-color: var(--accent); color: #818cf8; }
+  .lista-chips { display: flex; gap: 10px; }
+  .lista-chip { padding: 7px 20px; border-radius: 6px; background: var(--bg3); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 600; color: var(--text2); transition: all .15s; }
+  .lista-chip.selected, .lista-chip.active { background: rgba(59,130,246,0.15); border-color: var(--blue); color: #60a5fa; }
+  .config-save-row { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+  .btn-config-save { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 10px 24px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s; }
+  .btn-config-save:hover { background: var(--blue-dim); }
+  .config-saved-msg { font-size: 12px; color: #4ade80; display: none; }
+  .config-obs { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 6px; font-size: 12px; width: 100%; resize: vertical; min-height: 50px; font-family: inherit; }
+  .config-obs:focus { outline: none; border-color: var(--blue); }
   .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
 
   /* APPROVAL */
@@ -178,28 +246,23 @@
   /* LOGIN SCREEN */
   #login-screen { display:flex; align-items:center; justify-content:center; min-height:100vh; background:var(--bg); }
   .login-card { background:var(--bg2); border:1px solid var(--border); border-radius:16px; padding:48px 40px; text-align:center; max-width:400px; width:100%; }
-  .login-logo { font-size:32px; margin-bottom:8px; }
+  .login-logo { font-size:40px; margin-bottom:8px; }
   .login-title { font-size:22px; font-weight:700; margin-bottom:6px; }
-  .login-sub { font-size:13px; color:var(--text2); margin-bottom:32px; }
+  .login-sub { font-size:13px; color:var(--text2); margin-bottom:32px; line-height:1.6; }
   .login-btn { background:#0078d4; color:#fff; border:none; border-radius:8px; padding:12px 28px; font-size:14px; font-weight:600; cursor:pointer; display:flex; align-items:center; gap:10px; margin:0 auto; transition:all .15s; }
   .login-btn:hover { background:#106ebe; }
   .login-btn:disabled { opacity:0.6; cursor:not-allowed; }
   .login-footer { margin-top:24px; font-size:11px; color:var(--text3); }
-
   /* TOP BAR */
-  .top-bar { background:var(--bg2); border-bottom:1px solid var(--border); padding:8px 20px; display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--text2); }
-  .top-bar-user { display:flex; align-items:center; gap:10px; }
+  .top-bar { background:var(--bg2); border-bottom:1px solid var(--border); padding:8px 20px; display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--text2); flex-shrink:0; }
   .top-bar-logout { background:transparent; border:1px solid var(--border); color:var(--text2); padding:4px 12px; border-radius:5px; font-size:11px; cursor:pointer; transition:all .15s; }
   .top-bar-logout:hover { border-color:var(--red); color:#f87171; }
-
   /* LOADING + ERROR */
   #loading-bar { display:none; position:fixed; top:0; left:0; right:0; height:3px; background:var(--blue); z-index:9999; animation:loading-anim 1.5s infinite; }
-  @keyframes loading-anim { 0%{width:0;opacity:1} 70%{width:100%;opacity:1} 100%{width:100%;opacity:0} }
+  @keyframes loading-anim { 0%{width:0;left:0} 50%{width:60%;left:20%} 100%{width:0;left:100%} }
   #error-toast { display:none; position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:#ef4444; color:#fff; padding:12px 20px; border-radius:8px; font-size:13px; font-weight:600; z-index:9999; box-shadow:0 4px 20px rgba(0,0,0,.4); }
-
-  /* APP LAYOUT — wrap sidebar+main in column */
   #app { display:flex; flex-direction:column; min-height:100vh; }
-  #app .app { flex:1; }
+  #app > .app { flex:1; }
 
 </style>
 </head>
@@ -210,27 +273,23 @@
   <div class="login-card">
     <div class="login-logo">⚡</div>
     <div class="login-title">Magellan Sales Dashboard</div>
-    <div class="login-sub">Acesso restrito · Use sua conta Microsoft corporativa</div>
+    <div class="login-sub">Acesso restrito a membros da organização Magellan.<br>Use sua conta Microsoft corporativa.</div>
     <button class="login-btn" id="login-btn" onclick="loginMicrosoft()">
-      <svg width="20" height="20" viewBox="0 0 21 21" fill="none"><rect x="1" y="1" width="9" height="9" fill="#f25022"/><rect x="11" y="1" width="9" height="9" fill="#7fba00"/><rect x="1" y="11" width="9" height="9" fill="#00a4ef"/><rect x="11" y="11" width="9" height="9" fill="#ffb900"/></svg>
+      <svg width="20" height="20" viewBox="0 0 21 21"><rect x="1" y="1" width="9" height="9" fill="#f25022"/><rect x="11" y="1" width="9" height="9" fill="#7fba00"/><rect x="1" y="11" width="9" height="9" fill="#00a4ef"/><rect x="11" y="11" width="9" height="9" fill="#ffb900"/></svg>
       Entrar com Microsoft
     </button>
     <div class="login-footer">Apenas membros da organização Magellan têm acesso</div>
   </div>
 </div>
 
-<!-- LOADING BAR -->
 <div id="loading-bar"></div>
-<!-- ERROR TOAST -->
 <div id="error-toast"></div>
 
-<!-- MAIN APP (shown after auth) -->
 <div id="app" style="display:none">
-  <!-- TOP BAR -->
   <div class="top-bar">
-    <span>⚡ Magellan Sales Dashboard · <span style="color:var(--blue)">Dados em tempo real via Supabase</span></span>
-    <div class="top-bar-user">
-      <span id="user-name"></span>
+    <span>⚡ Magellan Sales Dashboard &nbsp;·&nbsp; <span style="color:var(--blue)">Dados em tempo real · Supabase</span></span>
+    <div style="display:flex;align-items:center;gap:12px">
+      <span id="user-name" style="color:var(--text)"></span>
       <button class="top-bar-logout" onclick="logout()">Sair</button>
     </div>
   </div>
@@ -250,6 +309,9 @@
       </div>
       <div class="nav-item" onclick="showPage('monitoradas')">
         <span class="nav-icon">📡</span><span>Monitoradas</span>
+      </div>
+      <div class="nav-item" id="nav-configuracoes" onclick="showPage('configuracoes')">
+        <span class="nav-icon">⚙️</span><span>Configurações</span>
       </div>
       <div class="nav-item" id="nav-aprovacao" onclick="showPage('aprovacao')">
         <span class="nav-icon">✅</span><span>Aprovação <span class="pending-badge" id="pending-count" style="display:none">0</span></span>
@@ -271,8 +333,10 @@
         <input class="search-input" id="icp-search" placeholder="🔍 Buscar empresa, setor..." oninput="renderICP()" style="width:280px">
         <select class="search-input" id="icp-lista" onchange="renderICP()" style="width:140px">
           <option value="all">Todas listas</option>
-          <option value="grande">Grande</option>
-          <option value="midmarket">Midmarket</option>
+          <option value="enterprise">🔴 Enterprise</option>
+          <option value="grande">🟣 Grande</option>
+          <option value="midmarket">🩵 Midmarket</option>
+          <option value="emergente">🔵 Emergente</option>
         </select>
         <select class="search-input" id="icp-score" onchange="renderICP()" style="width:140px">
           <option value="all">Todos scores</option>
@@ -301,6 +365,17 @@
           <option value="none">Sem contato</option>
           <option value="partial">Contato parcial</option>
           <option value="full">Todos contatados</option>
+        </select>
+        <select class="search-input" id="icp-tipo" onchange="renderICP()" style="width:160px">
+          <option value="all">Nacional + Multi</option>
+          <option value="nacional">🇧🇷 Nacional</option>
+          <option value="multinacional">🌎 Multinacional</option>
+        </select>
+        <select class="search-input" id="icp-controle" onchange="renderICP()" style="width:170px">
+          <option value="all">Todos controles</option>
+          <option value="familiar">👨‍👩‍👧 Familiar/Fundador</option>
+          <option value="bolsa">📈 Capital aberto</option>
+          <option value="estatal">🏛️ Estatal</option>
         </select>
       </div>
       <div class="table-wrap">
@@ -334,6 +409,216 @@
       </div>
     </div>
 
+    <!-- ══════════════════════════════════════════════ CONFIGURAÇÕES ══ -->
+    <div id="page-configuracoes" class="page">
+      <div class="page-header">
+        <div class="page-title">Configurações</div>
+        <div class="page-sub">Critérios de score e foco semanal de prospecção · Lidos automaticamente pelas rotinas</div>
+      </div>
+
+      <!-- Critérios de Score -->
+      <div class="config-section">
+        <div class="config-section-title"><span>🎯</span> Critérios de Score de Dor</div>
+        <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Descreva o que caracteriza cada nível de score. As rotinas automáticas usam esses textos como referência para classificar novos leads.</p>
+        <div class="score-config-row">
+          <div class="score-label-cfg"><span class="score score-5"><span class="score-dot"></span>Score 5</span></div>
+          <textarea class="config-textarea" id="cfg-score-5" placeholder="Descrição do Score 5..."></textarea>
+        </div>
+        <div class="score-config-row">
+          <div class="score-label-cfg"><span class="score score-4"><span class="score-dot"></span>Score 4</span></div>
+          <textarea class="config-textarea" id="cfg-score-4" placeholder="Descrição do Score 4..."></textarea>
+        </div>
+        <div class="score-config-row">
+          <div class="score-label-cfg"><span class="score score-3"><span class="score-dot"></span>Score 3</span></div>
+          <textarea class="config-textarea" id="cfg-score-3" placeholder="Descrição do Score 3..."></textarea>
+        </div>
+        <div class="score-config-row">
+          <div class="score-label-cfg"><span class="score score-2"><span class="score-dot"></span>Score 2</span></div>
+          <textarea class="config-textarea" id="cfg-score-2" placeholder="Descrição do Score 2..."></textarea>
+        </div>
+        <div class="score-config-row">
+          <div class="score-label-cfg"><span class="score score-1"><span class="score-dot"></span>Score 1</span></div>
+          <textarea class="config-textarea" id="cfg-score-1" placeholder="Descrição do Score 1..."></textarea>
+        </div>
+      </div>
+
+
+
+      <!-- Definição das Listas -->
+      <div class="config-section">
+        <div class="config-section-title"><span>📋</span> Definição das Listas</div>
+        <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Configure os critérios de porte e os setores de cada lista. A classificação é automática — baseada no faturamento de cada empresa.</p>
+        
+        <div class="lista-def-card">
+          <div class="lista-def-header" onclick="toggleListaDef('enterprise')">
+            <span class="badge badge-enterprise">Enterprise</span>
+            <span class="lista-def-title">Critérios da Lista Enterprise</span>
+            <span class="lista-def-toggle" id="toggle-enterprise">▼</span>
+          </div>
+          <div class="lista-def-body collapsed" id="body-enterprise">
+            <div class="cfg-field-row">
+              <div class="cfg-field">
+                <label>Faturamento mínimo</label>
+                <input type="text" id="cfg-e-fat" placeholder="ex: R$ 15B">
+              </div>
+              <div class="cfg-field">
+                <label>Plantas mínimas</label>
+                <input type="number" id="cfg-e-plantas" placeholder="ex: 3" min="0">
+              </div>
+              <div class="cfg-field">
+                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
+                <input type="text" id="cfg-e-func" placeholder="ex: 5000">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lista-def-card">
+          <div class="lista-def-header" onclick="toggleListaDef('grande')">
+            <span class="badge badge-purple">Grande</span>
+            <span class="lista-def-title">Critérios da Lista Grande</span>
+            <span class="lista-def-toggle" id="toggle-grande">▼</span>
+          </div>
+          <div class="lista-def-body collapsed" id="body-grande">
+            <div class="cfg-field-row">
+              <div class="cfg-field">
+                <label>Faturamento mínimo</label>
+                <input type="text" id="cfg-g-fat" placeholder="ex: R$ 3B">
+              </div>
+              <div class="cfg-field">
+                <label>Plantas mínimas</label>
+                <input type="number" id="cfg-g-plantas" placeholder="ex: 2" min="0">
+              </div>
+              <div class="cfg-field">
+                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
+                <input type="text" id="cfg-g-func" placeholder="ex: 1000">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lista-def-card">
+          <div class="lista-def-header" onclick="toggleListaDef('midmarket')">
+            <span class="badge badge-teal">Midmarket</span>
+            <span class="lista-def-title">Critérios da Lista Midmarket</span>
+            <span class="lista-def-toggle" id="toggle-midmarket">▼</span>
+          </div>
+          <div class="lista-def-body collapsed" id="body-midmarket">
+            <div class="cfg-field-row">
+              <div class="cfg-field">
+                <label>Faturamento mínimo</label>
+                <input type="text" id="cfg-m-fat" placeholder="ex: R$ 500M">
+              </div>
+              <div class="cfg-field">
+                <label>Plantas mínimas</label>
+                <input type="number" id="cfg-m-plantas" placeholder="ex: 2" min="0">
+              </div>
+              <div class="cfg-field">
+                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
+                <input type="text" id="cfg-m-func" placeholder="ex: 200">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lista-def-card">
+          <div class="lista-def-header" onclick="toggleListaDef('emergente')">
+            <span class="badge badge-emergente">Emergente</span>
+            <span class="lista-def-title">Critérios da Lista Emergente</span>
+            <span class="lista-def-toggle" id="toggle-emergente">▼</span>
+          </div>
+          <div class="lista-def-body collapsed" id="body-emergente">
+            <div class="cfg-field-row">
+              <div class="cfg-field">
+                <label>Faturamento mínimo</label>
+                <input type="text" id="cfg-em-fat" placeholder="ex: R$ 100M">
+              </div>
+              <div class="cfg-field">
+                <label>Plantas mínimas</label>
+                <input type="number" id="cfg-em-plantas" placeholder="ex: 1" min="0">
+              </div>
+              <div class="cfg-field">
+                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
+                <input type="text" id="cfg-em-func" placeholder="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Foco Semanal -->
+      <div class="config-section">
+        <div class="config-section-title"><span>📌</span> Foco da Semana <span style="font-size:10px;font-weight:500;color:var(--text3);text-transform:none;letter-spacing:0;background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;margin-left:6px">usado apenas pela rotina automática de segunda · não afeta a aba ICP</span></div>
+        <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Direciona a pesquisa de novos prospects desta semana. Se nada for selecionado, a rotina buscará em todos os setores e regiões. A aba ICP Prospects sempre mostra todos os leads, independentemente do que estiver configurado aqui.</p>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Lista</div>
+          <div class="lista-chips" style="flex-wrap:wrap;gap:8px">
+            <div class="lista-chip" id="lc-all" onclick="clearListasFoco()">Todas</div>
+            <div class="lista-chip" id="lc-enterprise" onclick="toggleListaFoco('enterprise')">🔴 Enterprise</div>
+            <div class="lista-chip" id="lc-grande" onclick="toggleListaFoco('grande')">🟣 Grande</div>
+            <div class="lista-chip" id="lc-midmarket" onclick="toggleListaFoco('midmarket')">🩵 Midmarket</div>
+            <div class="lista-chip" id="lc-emergente" onclick="toggleListaFoco('emergente')">🔵 Emergente</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Regiões prioritárias</div>
+          <div class="region-row">
+            <div class="region-chip" id="rc-Sudeste" onclick="toggleRegiao('Sudeste')">Sudeste</div>
+            <div class="region-chip" id="rc-Sul" onclick="toggleRegiao('Sul')">Sul</div>
+            <div class="region-chip" id="rc-Nordeste" onclick="toggleRegiao('Nordeste')">Nordeste</div>
+            <div class="region-chip" id="rc-Centro-Oeste" onclick="toggleRegiao('Centro-Oeste')">Centro-Oeste</div>
+            <div class="region-chip" id="rc-Norte" onclick="toggleRegiao('Norte')">Norte</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Setores prioritários</div>
+          <div class="sector-grid">
+          <div class="sector-chip" onclick="toggleSector('Aeronáutica')" id="sc-Aeronautica">Aeronáutica</div>
+          <div class="sector-chip" onclick="toggleSector('Agronegócio')" id="sc-Agronegocio">Agronegócio</div>
+          <div class="sector-chip" onclick="toggleSector('Alimentos')" id="sc-Alimentos">Alimentos</div>
+          <div class="sector-chip" onclick="toggleSector('Automotivo')" id="sc-Automotivo">Automotivo</div>
+          <div class="sector-chip" onclick="toggleSector('Bebidas')" id="sc-Bebidas">Bebidas</div>
+          <div class="sector-chip" onclick="toggleSector('Calçados')" id="sc-Calcados">Calçados</div>
+          <div class="sector-chip" onclick="toggleSector('Cerâmica')" id="sc-Ceramica">Cerâmica</div>
+          <div class="sector-chip" onclick="toggleSector('Cimento')" id="sc-Cimento">Cimento</div>
+          <div class="sector-chip" onclick="toggleSector('Construção')" id="sc-Construcao">Construção</div>
+          <div class="sector-chip" onclick="toggleSector('Cosméticos')" id="sc-Cosmeticos">Cosméticos</div>
+          <div class="sector-chip" onclick="toggleSector('Distribuição')" id="sc-Distribuicao">Distribuição</div>
+          <div class="sector-chip" onclick="toggleSector('Eletroeletrônico')" id="sc-Eletroeletronico">Eletroeletrônico</div>
+          <div class="sector-chip" onclick="toggleSector('Embalagens')" id="sc-Embalagens">Embalagens</div>
+          <div class="sector-chip" onclick="toggleSector('Energia')" id="sc-Energia">Energia</div>
+          <div class="sector-chip" onclick="toggleSector('Entretenimento')" id="sc-Entretenimento">Entretenimento</div>
+          <div class="sector-chip" onclick="toggleSector('Farmacêutico')" id="sc-Farmaceutico">Farmacêutico</div>
+          <div class="sector-chip" onclick="toggleSector('Financeiro')" id="sc-Financeiro">Financeiro</div>
+          <div class="sector-chip" onclick="toggleSector('Logística')" id="sc-Logistica">Logística</div>
+          <div class="sector-chip" onclick="toggleSector('Metalurgia')" id="sc-Metalurgia">Metalurgia</div>
+          <div class="sector-chip" onclick="toggleSector('Mineração')" id="sc-Mineracao">Mineração</div>
+          <div class="sector-chip" onclick="toggleSector('Papel e Celulose')" id="sc-Papel_e_Celulose">Papel e Celulose</div>
+          <div class="sector-chip" onclick="toggleSector('Químico')" id="sc-Quimico">Químico</div>
+          <div class="sector-chip" onclick="toggleSector('Saneamento')" id="sc-Saneamento">Saneamento</div>
+          <div class="sector-chip" onclick="toggleSector('Saúde')" id="sc-Saude">Saúde</div>
+          <div class="sector-chip" onclick="toggleSector('Telecomunicações')" id="sc-Telecomunicacoes">Telecomunicações</div>
+          <div class="sector-chip" onclick="toggleSector('Têxtil')" id="sc-Textil">Têxtil</div>
+          <div class="sector-chip" onclick="toggleSector('Varejo')" id="sc-Varejo">Varejo</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Observação / instrução extra para a rotina desta semana</div>
+          <textarea class="config-obs" id="cfg-obs" placeholder="Ex: Foque em empresas que anunciaram expansão de planta em 2026. Evite empresas do grupo X..."></textarea>
+        </div>
+      </div>
+
+      <div class="config-save-row">
+        <button class="btn-config-save" onclick="salvarConfiguracoes()">💾 Salvar configurações</button>
+        <span class="config-saved-msg" id="cfg-saved-msg">✅ Configurações salvas! Clique em 💾 Salvar dashboard para publicar.</span>
+      </div>
+    </div>
+
+
     <!-- ══════════════════════════════════════════════ APROVAÇÃO ══ -->
     <div id="page-aprovacao" class="page">
       <div class="page-header">
@@ -341,13 +626,15 @@
         <div class="page-sub">Leads gerados automaticamente · Revise e aprove para incluir na lista ICP</div>
       </div>
       <div class="cards-row" id="aprov-cards"></div>
+      <div id="aprov-foco" style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:20px;display:none">
+        <div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px">🎯 Foco da Semana — Configurações utilizadas na busca</div>
+        <div id="aprov-foco-content" style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--text2)"></div>
+      </div>
       <div id="aprov-list"></div>
     </div>
 
   </main>
 </div>
-
-
 
 <!-- DETAIL OVERLAY -->
 <div class="detail-overlay" id="detail-overlay" onclick="closeDetail(event)">
@@ -357,38 +644,25 @@
   </div>
 </div>
 
-
-<!-- SUPABASE + MICROSOFT AUTH -->
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// ═══════════════════════════════════════════════ CONFIG ═══════════════════
-const SUPABASE_URL = 'https://vqlmtkaqoqrxunmmpktu.supabase.co';
+// ══════════════════════════════════════════ CONFIG ══════════════════════════
+const SUPABASE_URL     = 'https://vqlmtkaqoqrxunmmpktu.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxbG10a2Fxb3FyeHVubW1wa3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4Njc0NTcsImV4cCI6MjA4NzQ0MzQ1N30.F9kiC3SgTkgSgRlTXMQ01wep8EdK_phMRYw_MXrjEeI';
-
 const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// ═══════════════════════════════════════════════ AUTH ═════════════════════
+// ══════════════════════════════════════════ AUTH ════════════════════════════
 let currentUser = null;
 
 async function initAuth() {
-  // Check existing session
   const { data: { session } } = await db.auth.getSession();
-  if (session) {
-    currentUser = session.user;
-    showApp();
-  } else {
-    showLogin();
-  }
+  if (session) { currentUser = session.user; showApp(); }
+  else { showLogin(); }
 
-  // Listen for auth changes
   db.auth.onAuthStateChange((_event, session) => {
-    if (session) {
-      currentUser = session.user;
-      showApp();
-    } else {
-      currentUser = null;
-      showLogin();
-    }
+    if (session) { currentUser = session.user; showApp(); }
+    else { currentUser = null; showLogin(); }
   });
 }
 
@@ -398,10 +672,7 @@ async function loginMicrosoft() {
   btn.disabled = true;
   const { error } = await db.auth.signInWithOAuth({
     provider: 'azure',
-    options: {
-      scopes: 'email profile openid',
-      redirectTo: window.location.href
-    }
+    options: { scopes: 'email profile openid', redirectTo: window.location.href }
   });
   if (error) {
     alert('Erro ao fazer login: ' + error.message);
@@ -427,35 +698,7 @@ function showApp() {
   loadAllData();
 }
 
-// ═══════════════════════════════════════════════ DATA LAYER ═══════════════
-let DATA = { icp: [], pendentes: [], monitoradas: [] };
-
-async function loadAllData() {
-  showLoading(true);
-  try {
-    const [icpRes, pendRes, monRes] = await Promise.all([
-      db.from('magellan_icp').select('*').order('s', { ascending: false }).order('nome'),
-      db.from('magellan_leads_pendentes').select('*').order('s', { ascending: false }),
-      db.from('magellan_monitoradas').select('*').order('score', { ascending: false })
-    ]);
-    if (icpRes.error) throw icpRes.error;
-    if (pendRes.error) throw pendRes.error;
-    if (monRes.error) throw monRes.error;
-
-    DATA.icp = icpRes.data || [];
-    DATA.pendentes = pendRes.data || [];
-    DATA.monitoradas = monRes.data || [];
-
-    renderICP();
-    renderMonitoradas();
-    renderAprovacao();
-  } catch (err) {
-    showError('Erro ao carregar dados: ' + err.message);
-  } finally {
-    showLoading(false);
-  }
-}
-
+// ══════════════════════════════════════════ LOADING / ERRORS ════════════════
 function showLoading(v) {
   const el = document.getElementById('loading-bar');
   if (el) el.style.display = v ? 'block' : 'none';
@@ -467,13 +710,316 @@ function showError(msg) {
   if (el) { el.textContent = msg; el.style.display = 'block'; setTimeout(() => el.style.display = 'none', 5000); }
 }
 
-// ═══════════════════════════════════════════════ HELPERS ═══════════════════
-const STATUS_LABEL = { nao_iniciado:"Não iniciado", em_pesquisa:"Em pesquisa", contato_enviado:"Contato enviado", resposta_recebida:"Resposta recebida", reuniao_agendada:"Reunião agendada", descartado:"Descartado", em_negociacao:"Em negociação" };
-const STATUS_BADGE = { nao_iniciado:"badge-gray", em_pesquisa:"badge-blue", contato_enviado:"badge-yellow", resposta_recebida:"badge-green", reuniao_agendada:"badge-teal", descartado:"badge-red", em_negociacao:"badge-purple" };
+// ══════════════════════════════════════════ DATA LAYER ══════════════════════
+let DATA = {
+  icp: [], pendentes: [], monitoradas: [],
+  config: {
+    scores: { 1:'', 2:'', 3:'', 4:'', 5:'' },
+    listas: {
+      enterprise: { fat_min:'R$ 15B', setores:[], plantas_min:3, funcionarios_min:'5000' },
+      grande:     { fat_min:'R$ 3B',  setores:[], plantas_min:2, funcionarios_min:'1000' },
+      midmarket:  { fat_min:'R$ 500M',setores:[], plantas_min:2, funcionarios_min:'200'  },
+      emergente:  { fat_min:'R$ 100M',setores:[], plantas_min:1, funcionarios_min:''     }
+    },
+    setores_foco: [], regioes_foco: [], listas_foco: [], obs_semana: ''
+  }
+};
 
-let monFilter = "all";
+async function loadAllData() {
+  showLoading(true);
+  try {
+    const [icpRes, pendRes, monRes, cfgRes] = await Promise.all([
+      db.from('magellan_icp').select('*').order('s', { ascending: false }).order('nome'),
+      db.from('magellan_leads_pendentes').select('*').order('s', { ascending: false }),
+      db.from('magellan_monitoradas').select('*').order('score', { ascending: false }),
+      db.from('magellan_config').select('*').eq('id', 1).single()
+    ]);
+    if (icpRes.error)  throw icpRes.error;
+    if (pendRes.error) throw pendRes.error;
+    if (monRes.error)  throw monRes.error;
 
-// ═══════════════════════════════════════════════ APROVAÇÃO ════════════════
+    DATA.icp        = icpRes.data  || [];
+    DATA.pendentes  = pendRes.data || [];
+    DATA.monitoradas= monRes.data  || [];
+    if (!cfgRes.error && cfgRes.data) {
+      const c = cfgRes.data;
+      DATA.config = {
+        scores: c.scores || DATA.config.scores,
+        listas: c.listas || DATA.config.listas,
+        setores_foco: c.setores_foco || [],
+        regioes_foco: c.regioes_foco || [],
+        listas_foco:  c.listas_foco  || [],
+        obs_semana:   c.obs_semana   || ''
+      };
+    }
+
+    renderICP();
+    renderMonitoradas();
+    renderAprovacao();
+    renderConfiguracoes();
+  } catch (err) {
+    showError('Erro ao carregar dados: ' + err.message);
+  } finally {
+    showLoading(false);
+  }
+}
+
+// ══════════════════════════════════════════ CONFIG SAVE/LOAD ═════════════════
+// Map HTML field IDs to lista keys
+const LISTA_FIELD_MAP = {
+  enterprise: { fat:'cfg-e-fat',  pl:'cfg-e-plantas',  fn:'cfg-e-func'  },
+  grande:     { fat:'cfg-g-fat',  pl:'cfg-g-plantas',  fn:'cfg-g-func'  },
+  midmarket:  { fat:'cfg-m-fat',  pl:'cfg-m-plantas',  fn:'cfg-m-func'  },
+  emergente:  { fat:'cfg-em-fat', pl:'cfg-em-plantas', fn:'cfg-em-func' }
+};
+
+async function salvarConfiguracoes() {
+  // Coleta valores dos campos de score
+  for (let i = 1; i <= 5; i++) {
+    const el = document.getElementById('cfg-score-' + i);
+    if (el) DATA.config.scores[i] = el.value;
+  }
+
+  // Coleta fat/plantas/funcionarios por lista
+  Object.entries(LISTA_FIELD_MAP).forEach(([lista, ids]) => {
+    const fatEl = document.getElementById(ids.fat);
+    const plEl  = document.getElementById(ids.pl);
+    const fnEl  = document.getElementById(ids.fn);
+    if (!DATA.config.listas[lista]) DATA.config.listas[lista] = {};
+    if (fatEl) DATA.config.listas[lista].fat_min = fatEl.value;
+    if (plEl)  DATA.config.listas[lista].plantas_min = parseInt(plEl.value) || 0;
+    if (fnEl)  DATA.config.listas[lista].funcionarios_min = fnEl.value;
+  });
+
+  // obs_semana
+  const obsEl = document.getElementById('cfg-obs');
+  if (obsEl) DATA.config.obs_semana = obsEl.value;
+
+  const payload = {
+    id: 1,
+    scores:       DATA.config.scores,
+    listas:       DATA.config.listas,
+    setores_foco: DATA.config.setores_foco,
+    regioes_foco: DATA.config.regioes_foco,
+    listas_foco:  DATA.config.listas_foco,
+    obs_semana:   DATA.config.obs_semana,
+    updated_by:   currentUser?.email || '',
+    updated_at:   new Date().toISOString()
+  };
+
+  const { error } = await db.from('magellan_config').upsert(payload);
+  if (error) { showError('Erro ao salvar configurações: ' + error.message); return; }
+
+  await db.from('magellan_audit_log').insert({
+    user_email: currentUser?.email,
+    user_name:  currentUser?.user_metadata?.full_name,
+    acao: 'config_salvo', empresa_id: null, empresa_nome: null,
+    detalhe: 'Configurações atualizadas'
+  });
+
+  const msg = document.getElementById('cfg-saved-msg');
+  if (msg) {
+    msg.textContent = '✅ Configurações salvas no Supabase!';
+    msg.style.display = 'inline';
+    setTimeout(() => { msg.style.display = 'none'; }, 3000);
+  }
+}
+
+const ALL_SECTORS = ['Aeronáutica','Agronegócio','Alimentos','Automotivo','Bebidas','Calçados','Cerâmica',
+  'Cimento','Construção','Cosméticos','Distribuição','Eletroeletrônico','Embalagens','Energia',
+  'Entretenimento','Farmacêutico','Financeiro','Logística','Metalurgia','Mineração','Papel e Celulose',
+  'Químico','Saneamento','Saúde','Telecomunicações','Têxtil','Varejo'];
+
+// ══════════════════════════════════════════ CONFIGURAÇÕES UI ═════════════════
+function renderConfiguracoes() {
+  const c = DATA.config;
+
+  // Score textareas
+  for (let i = 1; i <= 5; i++) {
+    const el = document.getElementById('cfg-score-' + i);
+    if (el) el.value = c.scores[i] || '';
+  }
+
+  // Listas: fat_min, plantas_min, funcionarios_min + sector chips
+  Object.entries(LISTA_FIELD_MAP).forEach(([lista, ids]) => {
+    const l = c.listas[lista] || {};
+    const fatEl = document.getElementById(ids.fat);
+    const plEl  = document.getElementById(ids.pl);
+    const fnEl  = document.getElementById(ids.fn);
+    if (fatEl) fatEl.value = l.fat_min || '';
+    if (plEl)  plEl.value  = l.plantas_min || '';
+    if (fnEl)  fnEl.value  = l.funcionarios_min || '';
+
+    // Inject sector chips into lista-def-body if not already present
+    const body = document.getElementById('body-' + lista);
+    if (body && !body.querySelector('.lista-sector-chips')) {
+      const chipsDiv = document.createElement('div');
+      chipsDiv.className = 'lista-sector-chips';
+      chipsDiv.style.cssText = 'margin-top:12px;';
+      chipsDiv.innerHTML = `<div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Setores desta lista</div><div class="sector-grid" id="chips-${lista}"></div>`;
+      body.appendChild(chipsDiv);
+    }
+
+    // Render sector chips
+    const container = document.getElementById('chips-' + lista);
+    if (container) {
+      const setores = l.setores || [];
+      container.innerHTML = ALL_SECTORS.map(s => {
+        const active = setores.includes(s);
+        const sid = s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'_');
+        return `<div class="sector-chip${active?' active':''}" id="lsc-${lista}-${sid}" onclick="toggleListaSector('${lista}','${s}')">${s}</div>`;
+      }).join('');
+    }
+  });
+
+  // Foco da semana
+  const obsEl = document.getElementById('cfg-obs');
+  if (obsEl) obsEl.value = c.obs_semana || '';
+
+  // Listas foco chips
+  const allListas = ['enterprise','grande','midmarket','emergente'];
+  allListas.forEach(l => {
+    const el = document.getElementById('lc-' + l);
+    if (el) el.classList.toggle('active', (c.listas_foco||[]).includes(l));
+  });
+  const lcAll = document.getElementById('lc-all');
+  if (lcAll) lcAll.classList.toggle('active', (c.listas_foco||[]).length === 0);
+
+  // Regiões foco chips
+  ['Sudeste','Sul','Nordeste','Centro-Oeste','Norte'].forEach(r => {
+    const el = document.getElementById('rc-' + r);
+    if (el) el.classList.toggle('active', (c.regioes_foco||[]).includes(r));
+  });
+
+  // Setores foco chips
+  ['Aeronáutica','Agronegócio','Alimentos','Automotivo','Bebidas','Calçados','Cerâmica',
+   'Cimento','Construção','Cosméticos','Distribuição','Eletroeletrônico','Embalagens','Energia',
+   'Entretenimento','Farmacêutico','Financeiro','Logística','Metalurgia','Mineração','Papel e Celulose',
+   'Químico','Saneamento','Saúde','Telecomunicações','Têxtil','Varejo'].forEach(s => {
+    const sid = s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'_');
+    const el = document.getElementById('sc-' + sid);
+    if (el) el.classList.toggle('active', (c.setores_foco||[]).includes(s));
+  });
+}
+
+function toggleListaSector(lista, setor) {
+  const l = DATA.config.listas[lista];
+  if (!l.setores) l.setores = [];
+  const idx = l.setores.indexOf(setor);
+  if (idx >= 0) l.setores.splice(idx, 1);
+  else l.setores.push(setor);
+  const sid = setor.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'_');
+  const el = document.getElementById('lsc-' + lista + '-' + sid);
+  if (el) el.classList.toggle('active', l.setores.includes(setor));
+}
+
+function toggleSector(setor) {
+  const arr = DATA.config.setores_foco;
+  const idx = arr.indexOf(setor);
+  if (idx >= 0) arr.splice(idx, 1);
+  else arr.push(setor);
+  const sid = setor.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,'_');
+  const el = document.getElementById('sc-' + sid);
+  if (el) el.classList.toggle('active', arr.includes(setor));
+}
+
+function toggleRegiao(regiao) {
+  const arr = DATA.config.regioes_foco;
+  const idx = arr.indexOf(regiao);
+  if (idx >= 0) arr.splice(idx, 1);
+  else arr.push(regiao);
+  const el = document.getElementById('rc-' + regiao);
+  if (el) el.classList.toggle('active', arr.includes(regiao));
+}
+
+function toggleListaFoco(lista) {
+  const arr = DATA.config.listas_foco;
+  const idx = arr.indexOf(lista);
+  if (idx >= 0) arr.splice(idx, 1);
+  else arr.push(lista);
+  const el = document.getElementById('lc-' + lista);
+  if (el) el.classList.toggle('active', arr.includes(lista));
+  const lcAll = document.getElementById('lc-all');
+  if (lcAll) lcAll.classList.toggle('active', arr.length === 0);
+}
+
+function clearListasFoco() {
+  DATA.config.listas_foco = [];
+  ['enterprise','grande','midmarket','emergente'].forEach(l => {
+    const el = document.getElementById('lc-' + l);
+    if (el) el.classList.remove('active');
+  });
+  const lcAll = document.getElementById('lc-all');
+  if (lcAll) lcAll.classList.add('active');
+}
+
+function toggleListaDef(lista) {
+  const el = document.getElementById('body-' + lista);
+  const toggle = document.getElementById('toggle-' + lista);
+  if (!el) return;
+  const isCollapsed = el.classList.contains('collapsed');
+  if (isCollapsed) {
+    el.classList.remove('collapsed');
+    if (toggle) toggle.textContent = '▲';
+    // Render chips if now visible
+    renderConfiguracoes();
+  } else {
+    el.classList.add('collapsed');
+    if (toggle) toggle.textContent = '▼';
+  }
+}
+
+// ══════════════════════════════════════════ HELPERS ══════════════════════════
+const STATUS_LABEL = {
+  nao_iniciado:     'Não iniciado',
+  em_pesquisa:      'Em pesquisa',
+  contato_enviado:  'Contato enviado',
+  resposta_recebida:'Resposta recebida',
+  reuniao_agendada: 'Reunião agendada',
+  descartado:       'Descartado',
+  em_negociacao:    'Em negociação'
+};
+const STATUS_BADGE = {
+  nao_iniciado:     'badge-gray',
+  em_pesquisa:      'badge-blue',
+  contato_enviado:  'badge-yellow',
+  resposta_recebida:'badge-green',
+  reuniao_agendada: 'badge-teal',
+  descartado:       'badge-red',
+  em_negociacao:    'badge-purple'
+};
+
+function getListaAuto(p) {
+  const fat = parseFloat((p.fat||'').replace(/[^0-9,.]/g,'').replace(',','.')) || 0;
+  const fatB = fat; // assume value is already in billions (R$ B)
+  const plantas = parseInt(p.plantas) || 0;
+  const setor = p.setor || '';
+  const c = DATA.config.listas;
+
+  // Helper: parse fat_min string like "R$ 15B" → number
+  function parseFat(str) {
+    if (!str) return 0;
+    const n = parseFloat(str.replace(/[^0-9,.]/g,'').replace(',','.')) || 0;
+    if (str.toUpperCase().includes('B')) return n;
+    if (str.toUpperCase().includes('M') && !str.toUpperCase().includes('MI')) return n / 1000;
+    return n / 1000; // assume M = milhões → convert to B
+  }
+
+  const tiers = ['enterprise','grande','midmarket','emergente'];
+  for (const tier of tiers) {
+    const def = c[tier] || {};
+    const fatMinB = parseFat(def.fat_min);
+    const setoresOk = !def.setores || def.setores.length === 0 || def.setores.includes(setor);
+    if (fatB >= fatMinB && setoresOk && plantas >= (def.plantas_min || 0)) {
+      return tier;
+    }
+  }
+  return 'emergente';
+}
+
+let monFilter = 'all';
+
+// ══════════════════════════════════════════ APROVAÇÃO ════════════════════════
 function renderAprovacao() {
   const total = DATA.pendentes.length;
   const badge = document.getElementById('pending-count');
@@ -481,8 +1027,8 @@ function renderAprovacao() {
 
   document.getElementById('aprov-cards').innerHTML = `
     <div class="card card-blue"><div class="card-label">Aguardando revisão</div><div class="card-value">${total}</div><div class="card-sub">leads pendentes</div></div>
-    <div class="card card-green"><div class="card-label">Aprovados esta sessão</div><div class="card-value" id="aprov-count">0</div><div class="card-sub">serão adicionados ao ICP</div></div>
-    <div class="card card-red"><div class="card-label">Rejeitados esta sessão</div><div class="card-value" id="reject-count">0</div><div class="card-sub">serão removidos da fila</div></div>
+    <div class="card card-green"><div class="card-label">Aprovados esta sessão</div><div class="card-value" id="aprov-count">0</div><div class="card-sub">adicionados ao ICP</div></div>
+    <div class="card card-red"><div class="card-label">Rejeitados esta sessão</div><div class="card-value" id="reject-count">0</div><div class="card-sub">removidos da fila</div></div>
   `;
 
   if (total === 0) {
@@ -491,13 +1037,16 @@ function renderAprovacao() {
   }
 
   const scoreLabels = {5:'Crítica',4:'Alta',3:'Média',2:'Moderada',1:'Baixa'};
-  document.getElementById('aprov-list').innerHTML = DATA.pendentes.map(p => `
+  document.getElementById('aprov-list').innerHTML = DATA.pendentes.map(p => {
+    const listaLabel = { enterprise:'🔴 Enterprise', grande:'🟣 Grande', midmarket:'🩵 Midmarket', emergente:'🔵 Emergente' };
+    const listaBadge = { enterprise:'badge-red', grande:'badge-purple', midmarket:'badge-teal', emergente:'badge-blue' };
+    return `
     <div class="lead-card" id="lcard-${p.id}">
       <div class="lead-card-header">
         <div>
           <div class="lead-card-nome">${p.nome}</div>
           <div class="lead-card-meta">
-            <span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}" style="margin-right:6px">${p.lista==='grande'?'Grande':'Midmarket'}</span>
+            <span class="badge ${listaBadge[p.lista]||'badge-gray'}" style="margin-right:6px">${listaLabel[p.lista]||p.lista}</span>
             ${p.setor||''} · ${p.subsetor||''} · ${p.regiao||''} · ${p.fat||'—'} · ${p.plantas||'?'} plantas
           </div>
         </div>
@@ -513,8 +1062,8 @@ function renderAprovacao() {
         <button class="btn-approve" onclick="aprovarLead(${p.id})">✅ Aprovar → ICP</button>
         <button class="btn-reject" onclick="rejeitarLead(${p.id})">✕ Rejeitar</button>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 let _aprovados = 0, _rejeitados = 0;
@@ -522,18 +1071,15 @@ let _aprovados = 0, _rejeitados = 0;
 async function aprovarLead(id) {
   const lead = DATA.pendentes.find(p => p.id === id);
   if (!lead) return;
-
   const card = document.getElementById('lcard-' + id);
   if (card) card.style.opacity = '0.5';
 
-  // Move to ICP in Supabase
   const { error: insErr } = await db.from('magellan_icp').upsert({ ...lead, st: lead.st || 'nao_iniciado' });
   if (insErr) { showError('Erro ao aprovar: ' + insErr.message); if (card) card.style.opacity = '1'; return; }
 
   const { error: delErr } = await db.from('magellan_leads_pendentes').delete().eq('id', id);
   if (delErr) { showError('Erro ao remover da fila: ' + delErr.message); return; }
 
-  // Log
   await db.from('magellan_audit_log').insert({
     user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
     acao: 'aprovado', empresa_id: id, empresa_nome: lead.nome
@@ -542,13 +1088,11 @@ async function aprovarLead(id) {
   DATA.pendentes = DATA.pendentes.filter(p => p.id !== id);
   DATA.icp.push({ ...lead, st: lead.st || 'nao_iniciado' });
   DATA.icp.sort((a,b) => b.s - a.s || a.nome.localeCompare(b.nome));
-
   _aprovados++;
-  document.getElementById('aprov-count') && (document.getElementById('aprov-count').textContent = _aprovados);
+  if (document.getElementById('aprov-count')) document.getElementById('aprov-count').textContent = _aprovados;
   const badge = document.getElementById('pending-count');
   if (badge) { badge.textContent = DATA.pendentes.length; badge.style.display = DATA.pendentes.length > 0 ? 'inline' : 'none'; }
-
-  if (card) { card.style.opacity = '0.4'; card.style.pointerEvents = 'none'; card.querySelector('.lead-card-actions').innerHTML = '<span style="color:#4ade80;font-size:12px;font-weight:600">✅ Aprovado e salvo no Supabase</span>'; }
+  if (card) { card.style.opacity = '0.4'; card.style.pointerEvents = 'none'; card.querySelector('.lead-card-actions').innerHTML = '<span style="color:#4ade80;font-size:12px;font-weight:600">✅ Aprovado e salvo</span>'; }
   renderICP();
 }
 
@@ -566,29 +1110,27 @@ async function rejeitarLead(id) {
 
   DATA.pendentes = DATA.pendentes.filter(p => p.id !== id);
   _rejeitados++;
-  document.getElementById('reject-count') && (document.getElementById('reject-count').textContent = _rejeitados);
+  if (document.getElementById('reject-count')) document.getElementById('reject-count').textContent = _rejeitados;
   const badge = document.getElementById('pending-count');
   if (badge) { badge.textContent = DATA.pendentes.length; badge.style.display = DATA.pendentes.length > 0 ? 'inline' : 'none'; }
-
   const card = document.getElementById('lcard-' + id);
   if (card) { card.style.opacity = '0.3'; card.style.pointerEvents = 'none'; card.querySelector('.lead-card-actions').innerHTML = '<span style="color:#f87171;font-size:12px;font-weight:600">✕ Rejeitado</span>'; }
 }
 
-// ═══════════════════════════════════════════════ CONTACT TRACKING ═══════════
+// ══════════════════════════════════════════ CONTACT TRACKING ════════════════
 function getContactStatus(p) {
   const execs = [p.ceo_n ? p.ceo_ct : null, p.op_n ? p.op_ct : null, p.sc_n ? p.sc_ct : null].filter(x => x !== null);
   const total = execs.length;
   const done  = execs.filter(Boolean).length;
-  if (total === 0) return { label: 'Sem decisores', short: '—',    cls: 'badge-gray' };
-  if (done === 0)  return { label: 'Sem contato',   short: '0/'+total, cls: 'badge-ct-none' };
-  if (done < total)return { label: 'Contato parcial',short: done+'/'+total, cls: 'badge-ct-part' };
-  return               { label: 'Todos contatados', short: done+'/'+total, cls: 'badge-ct-full' };
+  if (total === 0) return { label:'Sem decisores',   short:'—',          cls:'badge-gray' };
+  if (done  === 0) return { label:'Sem contato',     short:'0/'+total,   cls:'badge-ct-none' };
+  if (done < total)return { label:'Contato parcial', short:done+'/'+total,cls:'badge-ct-part' };
+  return               { label:'Todos contatados', short:done+'/'+total,cls:'badge-ct-full' };
 }
 
 async function toggleContact(id, field) {
   const p = DATA.icp.find(x => x.id === id);
   if (!p) return;
-
   const newVal = !p[field];
   p[field] = newVal;
 
@@ -602,23 +1144,17 @@ async function toggleContact(id, field) {
   });
 
   openICPDetail(id);
-  renderICPContactCell(id, p);
-}
-
-function renderICPContactCell(id, p) {
+  // Update contact cell in table row
   const rows = document.querySelectorAll('#icp-table-body tr');
   rows.forEach(row => {
-    if (row.getAttribute('onclick') && row.getAttribute('onclick').includes('(' + id + ')')) {
+    if ((row.getAttribute('onclick')||'').includes('(' + id + ')')) {
       const cells = row.querySelectorAll('td');
-      if (cells[7]) {
-        const cs = getContactStatus(p);
-        cells[7].innerHTML = '<span class="badge ' + cs.cls + '">' + cs.short + '</span>';
-      }
+      if (cells[7]) { const cs = getContactStatus(p); cells[7].innerHTML = '<span class="badge '+cs.cls+'">'+cs.short+'</span>'; }
     }
   });
 }
 
-// ═══════════════════════════════════════════════ STATUS UPDATE ═══════════════
+// ══════════════════════════════════════════ STATUS UPDATE ════════════════════
 async function updateStatus(id, newStatus) {
   const p = DATA.icp.find(x => x.id === id);
   if (!p) return;
@@ -638,21 +1174,21 @@ async function updateStatus(id, newStatus) {
   renderICP();
 }
 
-// ═══════════════════════════════════════════════ PAGES ════════════════════
+// ══════════════════════════════════════════ PAGES ════════════════════════════
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
-  event.currentTarget.classList.add('active');
+  if (event && event.currentTarget) event.currentTarget.classList.add('active');
 }
 
-// ═══════════════════════════════════════════════ ICP ═════════════════════
+// ══════════════════════════════════════════ ICP ══════════════════════════════
 function renderICP() {
-  const q = (document.getElementById('icp-search')?.value || '').toLowerCase();
-  const lista = document.getElementById('icp-lista')?.value || 'all';
-  const score = document.getElementById('icp-score')?.value || 'all';
-  const setor = document.getElementById('icp-setor')?.value || 'all';
-  const regiao = document.getElementById('icp-regiao')?.value || 'all';
+  const q           = (document.getElementById('icp-search')?.value || '').toLowerCase();
+  const lista       = document.getElementById('icp-lista')?.value  || 'all';
+  const score       = document.getElementById('icp-score')?.value  || 'all';
+  const setor       = document.getElementById('icp-setor')?.value  || 'all';
+  const regiao      = document.getElementById('icp-regiao')?.value || 'all';
   const contatoFilter = document.getElementById('icp-contato')?.value || 'all';
 
   let list = DATA.icp.filter(p => {
@@ -666,7 +1202,9 @@ function renderICP() {
       if (contatoFilter === 'partial' && cs.label !== 'Contato parcial') return false;
       if (contatoFilter === 'full'    && cs.label !== 'Todos contatados')return false;
     }
-    if (q && !p.nome.toLowerCase().includes(q) && !(p.setor||'').toLowerCase().includes(q) && !(p.subsetor||'').toLowerCase().includes(q)) return false;
+    if (q && !p.nome.toLowerCase().includes(q) &&
+        !(p.setor||'').toLowerCase().includes(q) &&
+        !(p.subsetor||'').toLowerCase().includes(q)) return false;
     return true;
   });
   list.sort((a,b) => b.s - a.s || a.nome.localeCompare(b.nome));
@@ -680,10 +1218,13 @@ function renderICP() {
     <div class="card card-yellow"><div class="card-label">Mostrando</div><div class="card-value">${list.length}</div><div class="card-sub">com filtros ativos</div></div>
   `;
 
+  const listaLabel = { enterprise:'Enterprise', grande:'Grande', midmarket:'Midmarket', emergente:'Emergente' };
+  const listaBadge = { enterprise:'badge-red', grande:'badge-purple', midmarket:'badge-teal', emergente:'badge-blue' };
+
   document.getElementById('icp-table-body').innerHTML = list.map(p => `
     <tr style="cursor:pointer" onclick="openICPDetail(${p.id})">
       <td class="nome-col">${p.nome}<div style="font-size:11px;color:var(--text3);font-weight:400">${p.subsetor||''}</div></td>
-      <td><span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}">${p.lista==='grande'?'Grande':'Midmarket'}</span></td>
+      <td><span class="badge ${listaBadge[p.lista]||'badge-gray'}">${listaLabel[p.lista]||p.lista}</span></td>
       <td>${p.setor||''}</td>
       <td style="color:var(--text2)">${p.fat||'—'}</td>
       <td style="color:var(--text2)">${p.plantas||'—'} plantas</td>
@@ -698,11 +1239,13 @@ function openICPDetail(id) {
   const p = DATA.icp.find(x => x.id === id);
   if (!p) return;
   const scoreLabels = {5:'Crítica',4:'Alta',3:'Média',2:'Moderada',1:'Baixa'};
+  const listaLabel = { enterprise:'🔴 Enterprise', grande:'🟣 Grande', midmarket:'🩵 Midmarket', emergente:'🔵 Emergente' };
+  const listaBadge = { enterprise:'badge-red', grande:'badge-purple', midmarket:'badge-teal', emergente:'badge-blue' };
   document.getElementById('detail-content').innerHTML = `
     <div class="detail-nome">${p.nome}</div>
     <div class="detail-setor">${p.setor||''} · ${p.subsetor||''}</div>
     <div class="tag-row">
-      <span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}">${p.lista==='grande'?'Grande':'Midmarket'}</span>
+      <span class="badge ${listaBadge[p.lista]||'badge-gray'}">${listaLabel[p.lista]||p.lista}</span>
       <span class="score score-${p.s}"><span class="score-dot"></span>Score ${p.s} — ${scoreLabels[p.s]||''}</span>
       <span class="badge badge-indigo">${p.regiao||'—'}</span>
     </div>
@@ -765,7 +1308,7 @@ function openICPDetail(id) {
   document.getElementById('detail-overlay').classList.add('open');
 }
 
-// ═══════════════════════════════════════════════ MONITORADAS ══════════════
+// ══════════════════════════════════════════ MONITORADAS ══════════════════════
 function setMonFilter(val, btn) {
   monFilter = val;
   document.querySelectorAll('#page-monitoradas .filter-btn').forEach(b => b.classList.remove('active'));
@@ -774,7 +1317,7 @@ function setMonFilter(val, btn) {
 }
 
 function renderMonitoradas() {
-  const q = (document.getElementById('mon-search')?.value || '').toLowerCase();
+  const q    = (document.getElementById('mon-search')?.value || '').toLowerCase();
   let list = DATA.monitoradas.filter(m => {
     if (monFilter !== 'all' && m.score !== parseInt(monFilter)) return false;
     if (q && !m.empresa.toLowerCase().includes(q) && !(m.setor||'').toLowerCase().includes(q)) return false;
@@ -799,16 +1342,16 @@ function renderMonitoradas() {
     </tr>`).join('');
 }
 
-// ═══════════════════════════════════════════════ DETAIL ══════════════════
+// ══════════════════════════════════════════ DETAIL OVERLAY ═══════════════════
 function closeDetail(e) {
   if (!e || e.target === document.getElementById('detail-overlay')) {
     document.getElementById('detail-overlay').classList.remove('open');
   }
 }
 
-// ═══════════════════════════════════════════════ INIT ════════════════════
+// ══════════════════════════════════════════ INIT ══════════════════════════════
 initAuth();
 </script>
-
 </body>
 </html>
+
