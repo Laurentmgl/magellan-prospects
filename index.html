@@ -155,74 +155,6 @@
   .detail-exec-role { font-size: 10px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; }
   .detail-exec-name { font-size: 13px; font-weight: 500; color: var(--text); }
   .detail-exec-links { display: flex; gap: 8px; align-items: center; margin-top: 2px; }
-
-
-
-  .badge-enterprise { background: rgba(239,68,68,0.15); color: #f87171; }
-  .badge-emergente  { background: rgba(59,130,246,0.15); color: #60a5fa; }
-  .badge-nacional   { background: rgba(34,197,94,0.12); color: #4ade80; }
-  .badge-multi      { background: rgba(245,158,11,0.12); color: #fbbf24; }
-  .badge-familiar   { background: rgba(168,85,247,0.12); color: #c084fc; }
-  .badge-bolsa      { background: rgba(20,184,166,0.12); color: #2dd4bf; }
-  .badge-estatal    { background: rgba(99,102,241,0.12); color: #818cf8; }
-  .company-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
-  /* LISTA CONFIG */
-  .lista-def-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
-  .lista-def-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; cursor: pointer; user-select: none; }
-  .lista-def-title { font-size: 14px; font-weight: 700; }
-  .lista-def-toggle { margin-left: auto; font-size: 12px; color: var(--text3); }
-  .lista-def-body { display: block; }
-  .lista-def-body.collapsed { display: none; }
-  .cfg-field-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
-  .cfg-field { display: flex; flex-direction: column; gap: 5px; }
-  .cfg-field label { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; }
-  .cfg-field input { background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 7px 10px; border-radius: 6px; font-size: 13px; font-family: inherit; }
-  .cfg-field input:focus { outline: none; border-color: var(--blue); }
-  .cfg-field input::placeholder { color: var(--text3); }
-  .cfg-field .cfg-optional { font-size: 10px; color: var(--text3); font-style: italic; }
-  .lista-setores-title { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
-  .lista-sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 6px; }
-  .lista-sector-chip { display: flex; align-items: center; gap: 7px; padding: 6px 10px; border-radius: 5px; background: var(--bg2); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text2); transition: all .12s; user-select: none; }
-  .lista-sector-chip:hover { border-color: var(--blue); color: var(--text); }
-  .lista-sector-chip.selected-g { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.4); color: #c084fc; }
-  .lista-sector-chip.selected-m { background: rgba(20,184,166,0.12); border-color: rgba(20,184,166,0.4); color: #2dd4bf; }
-  .chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .dot-g { background: #a855f7; }
-  .dot-m { background: #14b8a6; }
-  .dot-e { background: #ef4444; }
-  .dot-x { background: #3b82f6; }
-  .selected-e { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.4); color: #f87171; }
-  .selected-g { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.4); color: #c084fc; }
-  .selected-m { background: rgba(20,184,166,0.12); border-color: rgba(20,184,166,0.4); color: #2dd4bf; }
-  .selected-x { background: rgba(59,130,246,0.12); border-color: rgba(59,130,246,0.4); color: #60a5fa; }
-  .dot-m { background: #14b8a6; }
-
-  /* CONFIGURAÇÕES */
-  .config-section { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
-  .config-section-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-  .config-section-title span { font-size: 16px; }
-  .score-config-row { display: grid; grid-template-columns: 80px 1fr; gap: 12px; align-items: start; margin-bottom: 12px; }
-  .score-label-cfg { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; padding-top: 8px; }
-  .config-textarea { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 6px; font-size: 12px; width: 100%; resize: vertical; min-height: 60px; font-family: inherit; line-height: 1.5; }
-  .config-textarea:focus { outline: none; border-color: var(--blue); }
-  .sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; }
-  .sector-chip { display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 6px; background: var(--bg3); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text2); transition: all .15s; user-select: none; }
-  .sector-chip:hover { border-color: var(--blue); color: var(--text); }
-  .sector-chip.selected { background: rgba(59,130,246,0.15); border-color: var(--blue); color: #60a5fa; }
-  .sector-chip input { display: none; }
-  .region-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .region-chip { padding: 6px 16px; border-radius: 20px; background: var(--bg3); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text2); transition: all .15s; user-select: none; }
-  .region-chip:hover { border-color: var(--blue); color: var(--text); }
-  .region-chip.selected { background: rgba(99,102,241,0.15); border-color: var(--accent); color: #818cf8; }
-  .lista-chips { display: flex; gap: 10px; }
-  .lista-chip { padding: 7px 20px; border-radius: 6px; background: var(--bg3); border: 1px solid var(--border); cursor: pointer; font-size: 12px; font-weight: 600; color: var(--text2); transition: all .15s; }
-  .lista-chip.selected { background: rgba(59,130,246,0.15); border-color: var(--blue); color: #60a5fa; }
-  .config-save-row { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
-  .btn-config-save { background: var(--blue); color: #fff; border: none; border-radius: 7px; padding: 10px 24px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s; }
-  .btn-config-save:hover { background: var(--blue-dim); }
-  .config-saved-msg { font-size: 12px; color: #4ade80; display: none; }
-  .config-obs { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 6px; font-size: 12px; width: 100%; resize: vertical; min-height: 50px; font-family: inherit; }
-  .config-obs:focus { outline: none; border-color: var(--blue); }
   .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
 
   /* APPROVAL */
@@ -261,9 +193,6 @@
       <div class="nav-item" onclick="showPage('monitoradas')">
         <span class="nav-icon">📡</span><span>Monitoradas</span>
       </div>
-      <div class="nav-item" id="nav-configuracoes" onclick="showPage('configuracoes')">
-        <span class="nav-icon">⚙️</span><span>Configurações</span>
-      </div>
       <div class="nav-item" id="nav-aprovacao" onclick="showPage('aprovacao')">
         <span class="nav-icon">✅</span><span>Aprovação <span class="pending-badge" id="pending-count" style="display:none">0</span></span>
       </div>
@@ -284,10 +213,8 @@
         <input class="search-input" id="icp-search" placeholder="🔍 Buscar empresa, setor..." oninput="renderICP()" style="width:280px">
         <select class="search-input" id="icp-lista" onchange="renderICP()" style="width:140px">
           <option value="all">Todas listas</option>
-          <option value="enterprise">🔴 Enterprise</option>
-          <option value="grande">🟣 Grande</option>
-          <option value="midmarket">🩵 Midmarket</option>
-          <option value="emergente">🔵 Emergente</option>
+          <option value="grande">Grande</option>
+          <option value="midmarket">Midmarket</option>
         </select>
         <select class="search-input" id="icp-score" onchange="renderICP()" style="width:140px">
           <option value="all">Todos scores</option>
@@ -316,17 +243,6 @@
           <option value="none">Sem contato</option>
           <option value="partial">Contato parcial</option>
           <option value="full">Todos contatados</option>
-        </select>
-        <select class="search-input" id="icp-tipo" onchange="renderICP()" style="width:160px">
-          <option value="all">Nacional + Multi</option>
-          <option value="nacional">🇧🇷 Nacional</option>
-          <option value="multinacional">🌎 Multinacional</option>
-        </select>
-        <select class="search-input" id="icp-controle" onchange="renderICP()" style="width:170px">
-          <option value="all">Todos controles</option>
-          <option value="familiar">👨‍👩‍👧 Familiar/Fundador</option>
-          <option value="bolsa">📈 Capital aberto</option>
-          <option value="estatal">🏛️ Estatal</option>
         </select>
       </div>
       <div class="table-wrap">
@@ -360,216 +276,6 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════ CONFIGURAÇÕES ══ -->
-    <div id="page-configuracoes" class="page">
-      <div class="page-header">
-        <div class="page-title">Configurações</div>
-        <div class="page-sub">Critérios de score e foco semanal de prospecção · Lidos automaticamente pelas rotinas</div>
-      </div>
-
-      <!-- Critérios de Score -->
-      <div class="config-section">
-        <div class="config-section-title"><span>🎯</span> Critérios de Score de Dor</div>
-        <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Descreva o que caracteriza cada nível de score. As rotinas automáticas usam esses textos como referência para classificar novos leads.</p>
-        <div class="score-config-row">
-          <div class="score-label-cfg"><span class="score score-5"><span class="score-dot"></span>Score 5</span></div>
-          <textarea class="config-textarea" id="cfg-score-5" placeholder="Descrição do Score 5..."></textarea>
-        </div>
-        <div class="score-config-row">
-          <div class="score-label-cfg"><span class="score score-4"><span class="score-dot"></span>Score 4</span></div>
-          <textarea class="config-textarea" id="cfg-score-4" placeholder="Descrição do Score 4..."></textarea>
-        </div>
-        <div class="score-config-row">
-          <div class="score-label-cfg"><span class="score score-3"><span class="score-dot"></span>Score 3</span></div>
-          <textarea class="config-textarea" id="cfg-score-3" placeholder="Descrição do Score 3..."></textarea>
-        </div>
-        <div class="score-config-row">
-          <div class="score-label-cfg"><span class="score score-2"><span class="score-dot"></span>Score 2</span></div>
-          <textarea class="config-textarea" id="cfg-score-2" placeholder="Descrição do Score 2..."></textarea>
-        </div>
-        <div class="score-config-row">
-          <div class="score-label-cfg"><span class="score score-1"><span class="score-dot"></span>Score 1</span></div>
-          <textarea class="config-textarea" id="cfg-score-1" placeholder="Descrição do Score 1..."></textarea>
-        </div>
-      </div>
-
-
-
-      <!-- Definição das Listas -->
-      <div class="config-section">
-        <div class="config-section-title"><span>📋</span> Definição das Listas</div>
-        <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Configure os critérios de porte e os setores de cada lista. A classificação é automática — baseada no faturamento de cada empresa.</p>
-        
-        <div class="lista-def-card">
-          <div class="lista-def-header" onclick="toggleListaDef('enterprise')">
-            <span class="badge badge-enterprise">Enterprise</span>
-            <span class="lista-def-title">Critérios da Lista Enterprise</span>
-            <span class="lista-def-toggle" id="toggle-enterprise">▼</span>
-          </div>
-          <div class="lista-def-body collapsed" id="body-enterprise">
-            <div class="cfg-field-row">
-              <div class="cfg-field">
-                <label>Faturamento mínimo</label>
-                <input type="text" id="cfg-e-fat" placeholder="ex: R$ 15B">
-              </div>
-              <div class="cfg-field">
-                <label>Plantas mínimas</label>
-                <input type="number" id="cfg-e-plantas" placeholder="ex: 3" min="0">
-              </div>
-              <div class="cfg-field">
-                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
-                <input type="text" id="cfg-e-func" placeholder="ex: 5000">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lista-def-card">
-          <div class="lista-def-header" onclick="toggleListaDef('grande')">
-            <span class="badge badge-purple">Grande</span>
-            <span class="lista-def-title">Critérios da Lista Grande</span>
-            <span class="lista-def-toggle" id="toggle-grande">▼</span>
-          </div>
-          <div class="lista-def-body collapsed" id="body-grande">
-            <div class="cfg-field-row">
-              <div class="cfg-field">
-                <label>Faturamento mínimo</label>
-                <input type="text" id="cfg-g-fat" placeholder="ex: R$ 3B">
-              </div>
-              <div class="cfg-field">
-                <label>Plantas mínimas</label>
-                <input type="number" id="cfg-g-plantas" placeholder="ex: 2" min="0">
-              </div>
-              <div class="cfg-field">
-                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
-                <input type="text" id="cfg-g-func" placeholder="ex: 1000">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lista-def-card">
-          <div class="lista-def-header" onclick="toggleListaDef('midmarket')">
-            <span class="badge badge-teal">Midmarket</span>
-            <span class="lista-def-title">Critérios da Lista Midmarket</span>
-            <span class="lista-def-toggle" id="toggle-midmarket">▼</span>
-          </div>
-          <div class="lista-def-body collapsed" id="body-midmarket">
-            <div class="cfg-field-row">
-              <div class="cfg-field">
-                <label>Faturamento mínimo</label>
-                <input type="text" id="cfg-m-fat" placeholder="ex: R$ 500M">
-              </div>
-              <div class="cfg-field">
-                <label>Plantas mínimas</label>
-                <input type="number" id="cfg-m-plantas" placeholder="ex: 2" min="0">
-              </div>
-              <div class="cfg-field">
-                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
-                <input type="text" id="cfg-m-func" placeholder="ex: 200">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lista-def-card">
-          <div class="lista-def-header" onclick="toggleListaDef('emergente')">
-            <span class="badge badge-emergente">Emergente</span>
-            <span class="lista-def-title">Critérios da Lista Emergente</span>
-            <span class="lista-def-toggle" id="toggle-emergente">▼</span>
-          </div>
-          <div class="lista-def-body collapsed" id="body-emergente">
-            <div class="cfg-field-row">
-              <div class="cfg-field">
-                <label>Faturamento mínimo</label>
-                <input type="text" id="cfg-em-fat" placeholder="ex: R$ 100M">
-              </div>
-              <div class="cfg-field">
-                <label>Plantas mínimas</label>
-                <input type="number" id="cfg-em-plantas" placeholder="ex: 1" min="0">
-              </div>
-              <div class="cfg-field">
-                <label>Funcionários mínimos <span class="cfg-optional">(opcional)</span></label>
-                <input type="text" id="cfg-em-func" placeholder="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Foco Semanal -->
-      <div class="config-section">
-        <div class="config-section-title"><span>📌</span> Foco da Semana <span style="font-size:10px;font-weight:500;color:var(--text3);text-transform:none;letter-spacing:0;background:var(--bg3);border:1px solid var(--border);padding:2px 8px;border-radius:4px;margin-left:6px">usado apenas pela rotina automática de segunda · não afeta a aba ICP</span></div>
-        <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Direciona a pesquisa de novos prospects desta semana. Se nada for selecionado, a rotina buscará em todos os setores e regiões. A aba ICP Prospects sempre mostra todos os leads, independentemente do que estiver configurado aqui.</p>
-
-        <div style="margin-bottom:16px">
-          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Lista</div>
-          <div class="lista-chips" style="flex-wrap:wrap;gap:8px">
-            <div class="lista-chip" id="lc-all" onclick="clearListasFoco()">Todas</div>
-            <div class="lista-chip" id="lc-enterprise" onclick="toggleListaFoco('enterprise')">🔴 Enterprise</div>
-            <div class="lista-chip" id="lc-grande" onclick="toggleListaFoco('grande')">🟣 Grande</div>
-            <div class="lista-chip" id="lc-midmarket" onclick="toggleListaFoco('midmarket')">🩵 Midmarket</div>
-            <div class="lista-chip" id="lc-emergente" onclick="toggleListaFoco('emergente')">🔵 Emergente</div>
-          </div>
-        </div>
-
-        <div style="margin-bottom:16px">
-          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Regiões prioritárias</div>
-          <div class="region-row">
-            <div class="region-chip" id="rc-Sudeste" onclick="toggleRegiao('Sudeste')">Sudeste</div>
-            <div class="region-chip" id="rc-Sul" onclick="toggleRegiao('Sul')">Sul</div>
-            <div class="region-chip" id="rc-Nordeste" onclick="toggleRegiao('Nordeste')">Nordeste</div>
-            <div class="region-chip" id="rc-Centro-Oeste" onclick="toggleRegiao('Centro-Oeste')">Centro-Oeste</div>
-            <div class="region-chip" id="rc-Norte" onclick="toggleRegiao('Norte')">Norte</div>
-          </div>
-        </div>
-
-        <div style="margin-bottom:16px">
-          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Setores prioritários</div>
-          <div class="sector-grid">
-          <div class="sector-chip" onclick="toggleSector('Aeronáutica')" id="sc-Aeronautica">Aeronáutica</div>
-          <div class="sector-chip" onclick="toggleSector('Agronegócio')" id="sc-Agronegocio">Agronegócio</div>
-          <div class="sector-chip" onclick="toggleSector('Alimentos')" id="sc-Alimentos">Alimentos</div>
-          <div class="sector-chip" onclick="toggleSector('Automotivo')" id="sc-Automotivo">Automotivo</div>
-          <div class="sector-chip" onclick="toggleSector('Bebidas')" id="sc-Bebidas">Bebidas</div>
-          <div class="sector-chip" onclick="toggleSector('Calçados')" id="sc-Calcados">Calçados</div>
-          <div class="sector-chip" onclick="toggleSector('Cerâmica')" id="sc-Cerâmica">Cerâmica</div>
-          <div class="sector-chip" onclick="toggleSector('Cimento')" id="sc-Cimento">Cimento</div>
-          <div class="sector-chip" onclick="toggleSector('Construção')" id="sc-Construcao">Construção</div>
-          <div class="sector-chip" onclick="toggleSector('Cosméticos')" id="sc-Cosmeticos">Cosméticos</div>
-          <div class="sector-chip" onclick="toggleSector('Distribuição')" id="sc-Distribuicao">Distribuição</div>
-          <div class="sector-chip" onclick="toggleSector('Eletroeletrônico')" id="sc-Eletroeletronico">Eletroeletrônico</div>
-          <div class="sector-chip" onclick="toggleSector('Embalagens')" id="sc-Embalagens">Embalagens</div>
-          <div class="sector-chip" onclick="toggleSector('Energia')" id="sc-Energia">Energia</div>
-          <div class="sector-chip" onclick="toggleSector('Entretenimento')" id="sc-Entretenimento">Entretenimento</div>
-          <div class="sector-chip" onclick="toggleSector('Farmacêutico')" id="sc-Farmaceutico">Farmacêutico</div>
-          <div class="sector-chip" onclick="toggleSector('Financeiro')" id="sc-Financeiro">Financeiro</div>
-          <div class="sector-chip" onclick="toggleSector('Logística')" id="sc-Logistica">Logística</div>
-          <div class="sector-chip" onclick="toggleSector('Metalurgia')" id="sc-Metalurgia">Metalurgia</div>
-          <div class="sector-chip" onclick="toggleSector('Mineração')" id="sc-Mineracao">Mineração</div>
-          <div class="sector-chip" onclick="toggleSector('Papel e Celulose')" id="sc-Papel_e_Celulose">Papel e Celulose</div>
-          <div class="sector-chip" onclick="toggleSector('Químico')" id="sc-Quimico">Químico</div>
-          <div class="sector-chip" onclick="toggleSector('Saneamento')" id="sc-Saneamento">Saneamento</div>
-          <div class="sector-chip" onclick="toggleSector('Saúde')" id="sc-Saude">Saúde</div>
-          <div class="sector-chip" onclick="toggleSector('Telecomunicações')" id="sc-Telecomunicacões">Telecomunicações</div>
-          <div class="sector-chip" onclick="toggleSector('Têxtil')" id="sc-Textil">Têxtil</div>
-          <div class="sector-chip" onclick="toggleSector('Varejo')" id="sc-Varejo">Varejo</div>
-          </div>
-        </div>
-
-        <div style="margin-bottom:16px">
-          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Observação / instrução extra para a rotina desta semana</div>
-          <textarea class="config-obs" id="cfg-obs" placeholder="Ex: Foque em empresas que anunciaram expansão de planta em 2026. Evite empresas do grupo X..."></textarea>
-        </div>
-      </div>
-
-      <div class="config-save-row">
-        <button class="btn-config-save" onclick="salvarConfiguracoes()">💾 Salvar configurações</button>
-        <span class="config-saved-msg" id="cfg-saved-msg">✅ Configurações salvas! Clique em 💾 Salvar dashboard para publicar.</span>
-      </div>
-    </div>
-
-
     <!-- ══════════════════════════════════════════════ APROVAÇÃO ══ -->
     <div id="page-aprovacao" class="page">
       <div class="page-header">
@@ -577,10 +283,6 @@
         <div class="page-sub">Leads gerados automaticamente · Revise e aprove para incluir na lista ICP</div>
       </div>
       <div class="cards-row" id="aprov-cards"></div>
-      <div id="aprov-foco" style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:20px;display:none">
-        <div style="font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px">🎯 Foco da Semana — Configurações utilizadas na busca</div>
-        <div id="aprov-foco-content" style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--text2)"></div>
-      </div>
       <div id="aprov-list"></div>
     </div>
 
@@ -601,33 +303,33 @@
 // ═══════════════════════════════════════════════ DATA ═══════════════════════
 const DATA = {
   icp: [
-{id:30001,nome:"Volkswagen do Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 45B",plantas:2,regiao:"Sudeste",s:5,dor:"Reestruturação global com corte de 35.000 empregos",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/volkswagen-do-brasil",ceo_n:"Ciro Possobom",ceo_li:"linkedin.com/in/ciro-possobom",op_n:"Miguel Sanches",op_c:"VP de Operações",sc_n:"Luiz Eduardo Alvarez",sc_c:"VP de Suprimentos",sc_li:"linkedin.com/in/luiz-eduardo-alvarez-8a53701",hq:"São Bernardo do Campo, SP",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
-{id:30002,nome:"Stellantis Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 30B",plantas:3,regiao:"Sudeste",s:5,dor:"CEO global demitido em 2024; revisão completa de operações",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/stellantis",ceo_n:"Herlander Zola",ceo_li:"linkedin.com/in/herlanderz",sc_n:"Matias Pablo Merino",sc_c:"VP de Supply Chain América do Sul",sc_li:"linkedin.com/in/matias-pablo-merino-349980143",hq:"Betim, MG",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
-{id:30003,nome:"Toyota do Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 20B",plantas:2,regiao:"Sudeste",s:3,dor:"Expansão de capacidade produtiva com investimento de R$ 11B",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/toyota-do-brasil",ceo_n:"Evandro Maggio",ceo_li:"linkedin.com/company/toyota-do-brasil",hq:"Sorocaba, SP",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
-{id:30004,nome:"General Motors do Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 18B",plantas:2,regiao:"Sudeste",s:4,dor:"Transição para veículos elétricos",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/general-motors-brasil",ceo_n:"Carlos Zarlenga",ceo_li:"linkedin.com/company/generalmotors-south-america",hq:"São Caetano do Sul, SP",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
-{id:30005,nome:"Honda do Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 8B",plantas:1,regiao:"Sudeste",s:3,dor:"Planta única com pressão de produtividade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/honda-do-brasil",ceo_n:"Arata Ichinose",ceo_li:"linkedin.com/company/honda-do-brasil",hq:"Sumaré, SP",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
-{id:30006,nome:"Iochpe-Maxion",setor:"Automotivo",subsetor:"Autopeças",lista:"grande",fat:"R$ 16B",plantas:8,regiao:"Sudeste",s:5,dor:"8 plantas com pressão de margem severa",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/iochpe-maxion",ceo_n:"Pieter Klinkers",ceo_li:"linkedin.com/in/pieter-klinkers-95676064",hq:"Porto Alegre, RS",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30007,nome:"Tupy S.A.",setor:"Automotivo",subsetor:"Autopeças",lista:"grande",fat:"R$ 10B",plantas:4,regiao:"Sudeste",s:5,dor:"4 plantas; clientes em reestruturação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tupy",ceo_n:"Rafael Lucchesi",ceo_li:"linkedin.com/in/rafael-lucchesi",op_n:"Luciano Prestes Boiko",op_c:"VP de Operações",hq:"Joinville, SC",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
+{id:30001,nome:"Volkswagen do Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 45B",plantas:2,regiao:"Sudeste",s:5,dor:"Reestruturação global com corte de 35.000 empregos",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/volkswagen-do-brasil",ceo_n:"Ciro Possobom",ceo_li:"linkedin.com/in/ciro-possobom",op_n:"Miguel Sanches",op_c:"VP de Operações",sc_n:"Luiz Eduardo Alvarez",sc_c:"VP de Suprimentos",sc_li:"linkedin.com/in/luiz-eduardo-alvarez-8a53701"},
+{id:30002,nome:"Stellantis Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 30B",plantas:3,regiao:"Sudeste",s:5,dor:"CEO global demitido em 2024; revisão completa de operações",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/stellantis",ceo_n:"Herlander Zola",ceo_li:"linkedin.com/in/herlanderz",sc_n:"Matias Pablo Merino",sc_c:"VP de Supply Chain América do Sul",sc_li:"linkedin.com/in/matias-pablo-merino-349980143"},
+{id:30003,nome:"Toyota do Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 20B",plantas:2,regiao:"Sudeste",s:3,dor:"Expansão de capacidade produtiva com investimento de R$ 11B",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/toyota-do-brasil",ceo_n:"Evandro Maggio",ceo_li:"linkedin.com/company/toyota-do-brasil"},
+{id:30004,nome:"General Motors do Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 18B",plantas:2,regiao:"Sudeste",s:4,dor:"Transição para veículos elétricos",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/general-motors-brasil",ceo_n:"Carlos Zarlenga",ceo_li:"linkedin.com/company/generalmotors-south-america"},
+{id:30005,nome:"Honda do Brasil",setor:"Automotivo",subsetor:"Montadora",lista:"grande",fat:"R$ 8B",plantas:1,regiao:"Sudeste",s:3,dor:"Planta única com pressão de produtividade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/honda-do-brasil",ceo_n:"Arata Ichinose",ceo_li:"linkedin.com/company/honda-do-brasil"},
+{id:30006,nome:"Iochpe-Maxion",setor:"Automotivo",subsetor:"Autopeças",lista:"grande",fat:"R$ 16B",plantas:8,regiao:"Sudeste",s:5,dor:"8 plantas com pressão de margem severa",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/iochpe-maxion",ceo_n:"Pieter Klinkers",ceo_li:"linkedin.com/in/pieter-klinkers-95676064"},
+{id:30007,nome:"Tupy S.A.",setor:"Automotivo",subsetor:"Autopeças",lista:"grande",fat:"R$ 10B",plantas:4,regiao:"Sudeste",s:5,dor:"4 plantas; clientes em reestruturação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tupy",ceo_n:"Rafael Lucchesi",ceo_li:"linkedin.com/in/rafael-lucchesi",op_n:"Luciano Prestes Boiko",op_c:"VP de Operações",sc_n:"Toni Marcelo Zampieri Bueno",sc_c:"VP de Compras e Logística",sc_li:"linkedin.com/in/tonizampieri"},
 {id:30008,nome:"Natura &Co",setor:"Cosméticos",subsetor:"Higiene e Beleza",lista:"grande",fat:"R$ 40B",plantas:8,regiao:"Sudeste",s:3,dor:"Multinacional; 8 plantas; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/natura",ceo_n:"João Paulo Ferreira",ceo_li:"linkedin.com/posts/jo%C3%A3o-paulo-ferreira",op_n:"João Paulo Ferreira",op_c:"CEO / ex-VP de Supply Chain Unilever"},
 {id:30009,nome:"Embraer S.A.",setor:"Aeronáutica",subsetor:"Aviões Comerciais",lista:"grande",fat:"R$ 25B",plantas:5,regiao:"Sudeste",s:4,dor:"5 plantas; pressão de eficiência em produção",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/embraer",ceo_n:"Francisco Gomes Neto",ceo_li:"linkedin.com/in/francisco-gomes-neto",op_n:"Luís Marinho",op_c:"VP de Operações"},
-{id:30010,nome:"Petrobras",setor:"Energia",subsetor:"Petróleo e Gás",lista:"grande",fat:"R$ 400B",plantas:50,regiao:"Sudeste",s:3,dor:"50 operações; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/petrobras",ceo_n:"Magda Chambriard",ceo_li:"linkedin.com/in/magda-chambriard",hq:"Rio de Janeiro, RJ",multinacional:false,familiar:false,capital_aberto:true,estatal:true},
-{id:30011,nome:"Eletrobras",setor:"Energia",subsetor:"Energia Elétrica",lista:"grande",fat:"R$ 50B",plantas:30,regiao:"Centro-Oeste",s:3,dor:"30 unidades; modernização de rede",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/eletrobras",ceo_n:"Ivan de Souza Monteiro",ceo_li:"linkedin.com/company/eletrobras",op_n:"Antonio Varejão de Godoy",op_c:"VP de Operações e Segurança",hq:"Rio de Janeiro, RJ",multinacional:false,familiar:false,capital_aberto:true,estatal:true},
-{id:30012,nome:"Vale S.A.",setor:"Mineração",subsetor:"Minério de Ferro",lista:"grande",fat:"R$ 60B",plantas:20,regiao:"Sudeste",s:3,dor:"20 operações; eficiência operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/vale",ceo_n:"Gustavo Pimenta",ceo_li:"linkedin.com/in/pimenta-gustavo",hq:"Rio de Janeiro, RJ",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
+{id:30010,nome:"Petrobras",setor:"Energia",subsetor:"Petróleo e Gás",lista:"grande",fat:"R$ 400B",plantas:50,regiao:"Sudeste",s:3,dor:"50 operações; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/petrobras",ceo_n:"Magda Chambriard",ceo_li:"linkedin.com/in/magda-chambriard"},
+{id:30011,nome:"Eletrobras",setor:"Energia",subsetor:"Energia Elétrica",lista:"grande",fat:"R$ 50B",plantas:30,regiao:"Centro-Oeste",s:3,dor:"30 unidades; modernização de rede",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/eletrobras",ceo_n:"Ivan de Souza Monteiro",ceo_li:"linkedin.com/company/eletrobras",op_n:"Antonio Varejão de Godoy",op_c:"VP de Operações e Segurança"},
+{id:30012,nome:"Vale S.A.",setor:"Mineração",subsetor:"Minério de Ferro",lista:"grande",fat:"R$ 60B",plantas:20,regiao:"Sudeste",s:3,dor:"20 operações; eficiência operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/vale",ceo_n:"Gustavo Pimenta",ceo_li:"linkedin.com/in/pimenta-gustavo"},
 {id:30013,nome:"Gerdau S.A.",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 50B",plantas:15,regiao:"Sudeste",s:3,dor:"15 plantas; eficiência siderúrgica",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/gerdau",ceo_n:"Gustavo Werneck da Cunha",ceo_li:"linkedin.com/in/gustavowerneck"},
-{id:30014,nome:"Usiminas",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 30B",plantas:5,regiao:"Sudeste",s:3,dor:"5 plantas; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/usiminas",ceo_n:"Marcelo Chara",ceo_li:"linkedin.com/in/marcelo-chara-11556030",hq:"Belo Horizonte, MG",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30015,nome:"ArcelorMittal Brasil",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 40B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; eficiência operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/arcelormittal",ceo_n:"Jorge Oliveira",ceo_li:"linkedin.com/company/arcelormittal",hq:"Belo Horizonte, MG",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
+{id:30014,nome:"Usiminas",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 30B",plantas:5,regiao:"Sudeste",s:3,dor:"5 plantas; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/usiminas",ceo_n:"Marcelo Chara",ceo_li:"linkedin.com/in/marcelo-chara-11556030"},
+{id:30015,nome:"ArcelorMittal Brasil",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 40B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; eficiência operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/arcelormittal",ceo_n:"Jorge Oliveira",ceo_li:"linkedin.com/company/arcelormittal"},
 {id:30016,nome:"Braskem S.A.",setor:"Químico",subsetor:"Petroquímica",lista:"grande",fat:"R$ 80B",plantas:12,regiao:"Nordeste",s:5,dor:"12 plantas; dívida de US$ 11B",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/braskem",ceo_n:"Roberto Prisco Paraiso Ramos",ceo_li:"linkedin.com/in/robertoprisco",op_n:"Stefan Lepecki",op_c:"VP Executivo de Operações Industriais",op_li:"linkedin.com/in/stefan-lepecki-66b1997"},
-{id:30017,nome:"Ultrapar",setor:"Distribuição",subsetor:"Combustíveis",lista:"grande",fat:"R$ 20B",plantas:10,regiao:"Sudeste",s:3,dor:"10 regiões; eficiência logística",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ultrapar",ceo_n:"Rodrigo Pizzinatto",ceo_li:"linkedin.com/company/ultrapar",hq:"São Paulo, SP",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30018,nome:"Ambev",setor:"Bebidas",subsetor:"Cerveja",lista:"grande",fat:"R$ 50B",plantas:15,regiao:"Sudeste",s:3,dor:"15 plantas; líder de mercado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ambev",ceo_n:"Carlos Lisboa",ceo_li:"linkedin.com/company/ambev",hq:"São Paulo, SP",multinacional:true,familiar:true,capital_aberto:true,estatal:false},
-{id:30019,nome:"Coca-Cola Brasil",setor:"Bebidas",subsetor:"Refrigerantes",lista:"grande",fat:"R$ 30B",plantas:10,regiao:"Sudeste",s:3,dor:"10 plantas; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coca-cola",ceo_n:"Fabio Oliveira",ceo_li:"linkedin.com/company/coca-cola",hq:"Rio de Janeiro, RJ",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
-{id:30020,nome:"JBS S.A.",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 100B",plantas:50,regiao:"Centro-Oeste",s:5,dor:"50 plantas; maior processadora de carnes",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/jbs",ceo_n:"Gilberto Tomazoni",ceo_li:"linkedin.com/in/gilberto-tomazoni",op_n:"Wesley Batista Filho",op_c:"Presidente de Operações LATAM",op_li:"linkedin.com/in/wesley-batista-filho",hq:"São Paulo, SP",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30021,nome:"BRF S.A.",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 60B",plantas:35,regiao:"Sul",s:5,dor:"35 plantas em turnaround operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/brf",ceo_n:"Miguel Gularte",ceo_li:"linkedin.com/in/miguel-gularte-3139b48a",op_n:"Artêmio Listoni",op_c:"VP de Operações Industriais e Logística",op_li:"linkedin.com/in/artemio-listoni-57417314b",hq:"Itajaí, SC",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30022,nome:"Marfrig",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 50B",plantas:30,regiao:"Centro-Oeste",s:4,dor:"30 plantas; processadora de carnes",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/marfrig",ceo_n:"Miguel Gularte",ceo_li:"linkedin.com/company/marfrig",op_n:"Miguel Gularte",op_c:"CEO / MBRF (fusão BRF+Marfrig)",hq:"São Paulo, SP",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30023,nome:"Minerva Foods",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 20B",plantas:15,regiao:"Centro-Oeste",s:3,dor:"15 plantas; processadora de carnes",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/minerva-foods",ceo_n:"Fernando de Queiroz",ceo_li:"linkedin.com/in/fernando-queiroz-minervafoods",hq:"Barretos, SP",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30024,nome:"Grupo Petrópolis",setor:"Alimentos",subsetor:"Bebidas",lista:"midmarket",fat:"R$ 8B",plantas:8,regiao:"Sudeste",s:5,dor:"Recuperação judicial em andamento",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/grupo-petropolis",ceo_n:"Walter Faria",op_c:"Fundador e Presidente",hq:"Petrópolis, RJ",multinacional:false,familiar:true,capital_aberto:false,estatal:false},
+{id:30017,nome:"Ultrapar",setor:"Distribuição",subsetor:"Combustíveis",lista:"grande",fat:"R$ 20B",plantas:10,regiao:"Sudeste",s:3,dor:"10 regiões; eficiência logística",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ultrapar",ceo_n:"Rodrigo Pizzinatto",ceo_li:"linkedin.com/company/ultrapar"},
+{id:30018,nome:"Ambev",setor:"Bebidas",subsetor:"Cerveja",lista:"grande",fat:"R$ 50B",plantas:15,regiao:"Sudeste",s:3,dor:"15 plantas; líder de mercado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ambev",ceo_n:"Carlos Lisboa",ceo_li:"linkedin.com/company/ambev"},
+{id:30019,nome:"Coca-Cola Brasil",setor:"Bebidas",subsetor:"Refrigerantes",lista:"grande",fat:"R$ 30B",plantas:10,regiao:"Sudeste",s:3,dor:"10 plantas; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coca-cola",ceo_n:"Fabio Oliveira",ceo_li:"linkedin.com/company/coca-cola"},
+{id:30020,nome:"JBS S.A.",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 100B",plantas:50,regiao:"Centro-Oeste",s:5,dor:"50 plantas; maior processadora de carnes",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/jbs",ceo_n:"Gilberto Tomazoni",ceo_li:"linkedin.com/in/gilberto-tomazoni",op_n:"Wesley Batista Filho",op_c:"Presidente de Operações LATAM",op_li:"linkedin.com/in/wesley-batista-filho",sc_n:"Gilmar Schumacher",sc_c:"Diretor de Logística",sc_li:"linkedin.com/in/gilmar-schumacher-8401143a"},
+{id:30021,nome:"BRF S.A.",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 60B",plantas:35,regiao:"Sul",s:5,dor:"35 plantas em turnaround operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/brf",ceo_n:"Miguel Gularte",ceo_li:"linkedin.com/in/miguel-gularte-3139b48a",op_n:"Artêmio Listoni",op_c:"VP de Operações Industriais e Logística",op_li:"linkedin.com/in/artemio-listoni-57417314b",sc_n:"Loriano Andre Rigo",sc_c:"Diretor de Logística",sc_li:"linkedin.com/in/loriano-andre-rigo-62b27a94"},
+{id:30022,nome:"Marfrig",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 50B",plantas:30,regiao:"Centro-Oeste",s:4,dor:"30 plantas; processadora de carnes",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/marfrig",ceo_n:"Miguel Gularte",ceo_li:"linkedin.com/company/marfrig",op_n:"Miguel Gularte",op_c:"CEO / MBRF (fusão BRF+Marfrig)"},
+{id:30023,nome:"Minerva Foods",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 20B",plantas:15,regiao:"Centro-Oeste",s:3,dor:"15 plantas; processadora de carnes",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/minerva-foods",ceo_n:"Fernando de Queiroz",ceo_li:"linkedin.com/in/fernando-queiroz-minervafoods"},
+{id:30024,nome:"Grupo Petrópolis",setor:"Alimentos",subsetor:"Bebidas",lista:"midmarket",fat:"R$ 8B",plantas:8,regiao:"Sudeste",s:5,dor:"Plano de RJ homologado; dívida R$4,4B com pagamento até 2035; venda de 2.926 caminhões para gerar R$576M",fonte:"https://www.grupopetropolis.com.br/justica-homologa-plano-de-recuperacao-judicial-do-grupo-petropolis/",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/grupo-petropolis",ceo_n:"Walter Faria",op_n:"Diego Gomes",op_c:"Diretor Industrial",op_li:"linkedin.com/in/diego-gomes-diretor-industrial",sc_n:"Fabio Medeiros",sc_c:"Vice-Presidente de Supply Chain",sc_li:""},
 {id:30025,nome:"Suzano S.A.",setor:"Papel e Celulose",subsetor:"Celulose",lista:"grande",fat:"R$ 20B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; sustentabilidade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/suzano",ceo_n:"Beto Abreu",ceo_li:"linkedin.com/in/beto-abreu"},
 {id:30026,nome:"Klabin S.A.",setor:"Papel e Celulose",subsetor:"Papel",lista:"grande",fat:"R$ 15B",plantas:6,regiao:"Sul",s:3,dor:"6 plantas; papel e celulose",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/klabin",ceo_n:"Cristiano Cardoso Teixeira",ceo_li:"linkedin.com/in/cristiano-c-teixeira-1a319a22"},
-{id:30027,nome:"Coteminas",setor:"Têxtil",subsetor:"Fios e Tecidos",lista:"midmarket",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:5,dor:"Plano de RJ aprovado; R$2B em dívidas e pagamento a 2.700 demitidos desbloqueado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coteminas",ceo_n:"Josué Gomes da Silva",fonte:"https://ndmais.com.br/justica/apos-demissoes-em-massa-plano-da-coteminas-destrava-pagamento-a-trabalhadores-de-blumenau/",hq:"Montes Claros, MG",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
+{id:30027,nome:"Coteminas",setor:"Têxtil",subsetor:"Fios e Tecidos",lista:"midmarket",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:5,dor:"Plano de RJ aprovado; R$2B em dívidas e pagamento a 2.700 demitidos desbloqueado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coteminas",ceo_n:"Josué Gomes da Silva",fonte:"https://ndmais.com.br/justica/apos-demissoes-em-massa-plano-da-coteminas-destrava-pagamento-a-trabalhadores-de-blumenau/"},
 {id:30028,nome:"Alpargatas",setor:"Calçados",subsetor:"Calçados",lista:"grande",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:3,dor:"5 plantas; marca Havaianas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/alpargatas",ceo_n:"Liel Miranda",ceo_li:"linkedin.com/in/lielmiranda"},
 {id:30029,nome:"Camargo Corrêa",setor:"Construção",subsetor:"Engenharia",lista:"grande",fat:"R$ 20B",plantas:10,regiao:"Sudeste",s:3,dor:"10 divisões; reestruturação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/camargo-correa",ceo_n:"Rogério Nora de Sá",ceo_li:"linkedin.com/company/camargo-correa"},
 {id:30030,nome:"Odebrecht",setor:"Construção",subsetor:"Engenharia",lista:"grande",fat:"R$ 30B",plantas:15,regiao:"Sudeste",s:3,dor:"15 divisões; recuperação judicial",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/odebrecht",ceo_n:"João Noronha",ceo_li:"linkedin.com/company/odebrecht"},
@@ -639,8 +341,8 @@ const DATA = {
 {id:30036,nome:"Caixa Econômica Federal",setor:"Financeiro",subsetor:"Banco",lista:"grande",fat:"R$ 200B",plantas:80,regiao:"Centro-Oeste",s:3,dor:"80 agências; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/caixa",ceo_n:"Rita Serrano",ceo_li:"linkedin.com/company/caixa"},
 {id:30037,nome:"Bradesco",setor:"Financeiro",subsetor:"Banco",lista:"grande",fat:"R$ 180B",plantas:60,regiao:"Sudeste",s:3,dor:"60 agências; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/bradesco",ceo_n:"Marcelo Noronha",ceo_li:"linkedin.com/company/bradesco"},
 {id:30038,nome:"BTG Pactual",setor:"Financeiro",subsetor:"Banco",lista:"grande",fat:"R$ 100B",plantas:20,regiao:"Sudeste",s:3,dor:"20 agências; banco de investimento",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/btg-pactual",ceo_n:"Roberto Sallouti",ceo_li:"linkedin.com/company/btg-pactual"},
-{id:30039,nome:"Plascar",setor:"Automotivo",subsetor:"Plásticos Automotivos",lista:"midmarket",fat:"R$ 800M",plantas:5,regiao:"Sudeste",s:5,dor:"Prejuízo dobrou em 2025",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/plascar",ceo_n:"Paulo Silvestri",ceo_li:"linkedin.com/in/paulo-silvestri-62505917",op_n:"Daniel Paulo Fossa",op_c:"Diretor de Operações",op_li:"linkedin.com/in/daniel-paulo-fossa-1591531b5",hq:"Jundiaí, SP",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30040,nome:"Wetzel S.A.",setor:"Automotivo",subsetor:"Fundição",lista:"midmarket",fat:"R$ 600M",plantas:2,regiao:"Sul",s:4,dor:"Vendeu unidade em novembro 2024",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/wetzel",ceo_n:"Rodrigo Moretti Ramalho Camara",ceo_li:"linkedin.com/company/wetzel",op_n:"Fernando Cesar Moreira",op_c:"Diretor"},
+{id:30039,nome:"Plascar",setor:"Automotivo",subsetor:"Plásticos Automotivos",lista:"midmarket",fat:"R$ 800M",plantas:5,regiao:"Sudeste",s:5,dor:"Prejuízo dobrou em 2025",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/plascar",ceo_n:"Paulo Silvestri",ceo_li:"linkedin.com/in/paulo-silvestri-62505917",op_n:"Daniel Paulo Fossa",op_c:"Diretor de Operações",op_li:"linkedin.com/in/daniel-paulo-fossa-1591531b5"},
+{id:30040,nome:"Wetzel S.A.",setor:"Automotivo",subsetor:"Fundição",lista:"midmarket",fat:"R$ 600M",plantas:2,regiao:"Sul",s:4,dor:"Receita cresceu 21% no 1T25 após venda da divisão Ferro; reestruturação em curso com foco em alumínio e eletrotécnica",fonte:"https://www.noticenter.com.br/n.php?ID=40086&T=wetzel-sa-divulga-resultados-do-1-trimestre-e-demonstra-recuperacao-apos-reestruturacao-estrategica",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/wetzel",ceo_n:"Rodrigo Moretti Ramalho Camara",ceo_li:"linkedin.com/company/wetzel",op_n:"Fernando Cesar Moreira",op_c:"Diretor"},
 {id:30041,nome:"Nadir Figueiredo",setor:"Alimentos",subsetor:"Embalagens Vidro",lista:"midmarket",fat:"R$ 1.2B",plantas:3,regiao:"Sudeste",s:4,dor:"Pressão de custo energético",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/nadir-figueiredo",ceo_n:"Denis Peres da Silva",ceo_li:"linkedin.com/company/nadir-figueiredo",op_n:"Patricio Figueiredo",op_c:"Diretor",op_li:"linkedin.com/in/patricio-figueiredo-4737541b"},
 {id:30042,nome:"Ourofino Saúde Animal",setor:"Farmacêutico",subsetor:"Saúde Animal",lista:"midmarket",fat:"R$ 800M",plantas:2,regiao:"Sudeste",s:4,dor:"Expansão em aves e suínos na América Latina com nova diretoria de negócios",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ourofino",fonte:"https://agrimidia.com.br/negocios/2026/03/25/ourofino-saude-animal-reforca-estrategia-e-amplia-atuacao-nos-mercados-de-aves-e-suinos/",ceo_n:"Kleber Cesar Silveira Gomes",ceo_li:"linkedin.com/in/kleber-gomes-5512a26b",op_n:"Milton Rizo",op_c:"Diretor Industrial / Supply Chain"},
 {id:30043,nome:"Cristália Produtos Químicos",setor:"Farmacêutico",subsetor:"Genéricos / Anestésicos",lista:"grande",fat:"R$ 3B",plantas:3,regiao:"Sudeste",s:4,dor:"Empresa familiar em crescimento",st:"nao_iniciado",resp:"",li:"",ceo_n:"Ogari de Castro Pacheco",ceo_li:"linkedin.com/company/laboratoriocristalia"},
@@ -653,17 +355,17 @@ const DATA = {
 {id:30050,nome:"COPACOL",setor:"Agronegócio",subsetor:"Proteína Animal",lista:"midmarket",fat:"R$ 4B",plantas:5,regiao:"Sul",s:4,dor:"5 plantas em expansão",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/copacol",ceo_n:"Valter Pitol",ceo_li:"linkedin.com/company/copacol"},
 {id:30051,nome:"Boa Safra Sementes",setor:"Agronegócio",subsetor:"Sementes",lista:"midmarket",fat:"R$ 800M",plantas:3,regiao:"Nordeste",s:5,dor:"Prejuízo no 4T25 e cortes para atravessar ciclo adverso de sementes",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/boa-safra",fonte:"https://www.cnnbrasil.com.br/agro/boa-safra-faz-cortes-para-atravessar-ciclo-adverso-de-sementes/",ceo_n:"Marino Colpo",ceo_li:"linkedin.com/in/marino-colpo",op_n:"Glaube Caldas",op_c:"COO / Diretor de Operações"},
 {id:30052,nome:"Irani Papel e Embalagem",setor:"Papel e Celulose",subsetor:"Embalagens Papel",lista:"midmarket",fat:"R$ 1.6B",plantas:4,regiao:"Sul",s:4,dor:"CEO Odivan Cargnin desde jan/2026; nova liderança no projeto Gaia",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/irani",fonte:"https://portalnovarejo.com.br/noticias/irani-papel-e-embalagem-tem-novo-presidente-a-partir-de-2026/",ceo_n:"Alexandros Apostolos Leite",ceo_li:"linkedin.com/company/irani_oficial"},
-{id:30053,nome:"Kepler Weber",setor:"Agronegócio",subsetor:"Armazenagem Grãos",lista:"midmarket",fat:"R$ 1.6B",plantas:3,regiao:"Sul",s:4,dor:"Lucro anual caiu 21,5% em 2025; EBITDA recuou 18% no 4T25",st:"nao_iniciado",resp:"Equipe Magellan",li:"",fonte:"https://safras.com.br/kepler-weber-tem-lucro-liquido-de-r-648-milhoes-no-quarto-trimestre-avanco-de-285-na-base-anual/",ceo_n:"Bernardo Nogueira",ceo_li:"linkedin.com/in/bernardo-nogueira",hq:"Panambi, RS",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30054,nome:"Tegma Gestão Logística",setor:"Logística",subsetor:"Logística Automotiva",lista:"midmarket",fat:"R$ 1.2B",plantas:8,regiao:"Sudeste",s:4,dor:"Alta dependência de montadoras",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tegma",ceo_n:"Nivaldo Tuba",ceo_li:"linkedin.com/company/tegmagestaologistica"},
+{id:30053,nome:"Kepler Weber",setor:"Agronegócio",subsetor:"Armazenagem Grãos",lista:"midmarket",fat:"R$ 1.6B",plantas:3,regiao:"Sul",s:4,dor:"Lucro anual caiu 21,5% em 2025; EBITDA recuou 18% no 4T25",st:"nao_iniciado",resp:"Equipe Magellan",li:"",fonte:"https://safras.com.br/kepler-weber-tem-lucro-liquido-de-r-648-milhoes-no-quarto-trimestre-avanco-de-285-na-base-anual/",ceo_n:"Bernardo Nogueira",ceo_li:"linkedin.com/in/bernardo-nogueira"},
+{id:30054,nome:"Tegma Gestão Logística",setor:"Logística",subsetor:"Logística Automotiva",lista:"midmarket",fat:"R$ 1.2B",plantas:8,regiao:"Sudeste",s:4,dor:"Lucro caiu 38,7% no 4T25; disrupção na cadeia Toyota e retração automotiva pressionam margens",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tegma",fonte:"https://br.advfn.com/jornal/2026/03/tegma-registra-lucro-de-r-52-2-milhoes-no-4t25-queda-de-38-7-com-pressao-no-setor-automotivo",ceo_n:"Nivaldo Tuba",ceo_li:"linkedin.com/company/tegmagestaologistica"},
 {id:30055,nome:"Nutriara Alimentos",setor:"Agronegócio",subsetor:"Nutrição Animal",lista:"midmarket",fat:"R$ 500M",plantas:3,regiao:"Sul",s:4,dor:"Crescimento acelerado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/nutriara",ceo_n:"José Marcos Calsavara",ceo_li:"linkedin.com/company/nutriara-alimentos"},
 {id:30056,nome:"Alcoa Brasil",setor:"Metalurgia",subsetor:"Alumínio",lista:"grande",fat:"R$ 7B",plantas:3,regiao:"Sudeste",s:4,dor:"Crescimento de 81",st:"7% na receita em 2023",resp:"nao_iniciado",li:"",ceo_n:"Daniel Santos",ceo_li:"linkedin.com/company/alcoa",op_n:"Daniel Santos",op_c:"Presidente e VP de Operações Brasil"},
 {id:30057,nome:"Aperam South America",setor:"Metalurgia",subsetor:"Aços Inoxidáveis",lista:"midmarket",fat:"R$ 5B",plantas:2,regiao:"Sudeste",s:5,dor:"Lucro global caiu 96% em 2025 (€9M vs €231M); investimentos suspensos por aço chinês",st:"contato_enviado",resp:"",li:"",fonte:"https://www.otempo.com.br/economia/2026/1/27/importacao-de-aco-da-china-deixa-investimentos-da-siderurgia-em-compasso-de-espera",ceo_n:"Rodrigo Villela",ceo_li:"linkedin.com/in/rodrigo-villela-15b4174a",op_n:"Edimar de Melo Cardoso",op_c:"Diretor Industrial",op_li:"linkedin.com/in/edimar-de-melo-cardoso-573a8144"},
 {id:30058,nome:"Aumovio (Grupo JSL)",setor:"Automotivo",subsetor:"Logística Automotiva",lista:"grande",fat:"R$ 3B",plantas:3,regiao:"Sudeste",s:5,dor:"JÁ NO PIPELINE MAGELLAN",st:"em_negociacao",resp:"Thiago",li:"",ceo_n:"Guilherme Sampaio",ceo_li:"linkedin.com/in/guilherme-sampaio-jsl"},
 {id:30059,nome:"Biolab Sanus Farmacêutica",setor:"Farmacêutico",subsetor:"Biológicos / Especialidades",lista:"grande",fat:"R$ 2B",plantas:2,regiao:"Sudeste",s:5,dor:"JÁ NO PIPELINE MAGELLAN",st:"em_negociacao",resp:"Thiago",li:"",ceo_n:"Fabio Amorosino",ceo_li:"linkedin.com/in/fabio-amorosino-a43899149",op_n:"Leandro Pavão",op_c:"Diretor de Operações Industriais",op_li:"linkedin.com/in/leandropavao"},
 {id:30060,nome:"Cecrisa/Portinari",setor:"Cerâmica",subsetor:"Revestimentos",lista:"grande",fat:"R$ 2B",plantas:4,regiao:"Sudeste",s:5,dor:"Grupo Dexco (controlador) fecha fábricas e reverte lucro com prejuízo R$48M 4T25",st:"nao_iniciado",resp:"",li:"",fonte:"https://istoedinheiro.com.br/dexco-reduz-linha-vende-fecha-fabricas-932026",ceo_n:"Antônio Joaquim de Oliveira",ceo_li:"linkedin.com/company/cecrisa-revestimentos-cer-micos",op_n:"Rodrigo Ghedin",op_c:"Diretor Industrial"},
-{id:30061,nome:"Coteminas",setor:"Têxtil",subsetor:"Fios e Tecidos",lista:"midmarket",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:5,dor:"Plano de RJ aprovado; R$2B em dívidas e pagamento a 2.700 demitidos desbloqueado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coteminas",fonte:"https://ndmais.com.br/justica/apos-demissoes-em-massa-plano-da-coteminas-destrava-pagamento-a-trabalhadores-de-blumenau/",ceo_n:"Josué Gomes da Silva",hq:"Montes Claros, MG",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30062,nome:"Plascar",setor:"Automotivo",subsetor:"Plásticos Automotivos",lista:"midmarket",fat:"R$ 800M",plantas:5,regiao:"Sudeste",s:5,dor:"Prejuízo dobrou de R$ 110M para R$ 204M",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/plascar",ceo_n:"Paulo Silvestri",ceo_li:"linkedin.com/in/paulo-silvestri-62505917",hq:"Jundiaí, SP",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30063,nome:"Grupo Petrópolis",setor:"Alimentos",subsetor:"Bebidas",lista:"midmarket",fat:"R$ 8B",plantas:8,regiao:"Sudeste",s:5,dor:"Recuperação judicial em andamento",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/grupo-petropolis",ceo_n:"Walter Faria",op_c:"Fundador e Presidente",hq:"Petrópolis, RJ",multinacional:false,familiar:true,capital_aberto:false,estatal:false},
+{id:30061,nome:"Coteminas",setor:"Têxtil",subsetor:"Fios e Tecidos",lista:"midmarket",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:5,dor:"Plano de RJ aprovado; R$2B em dívidas e pagamento a 2.700 demitidos desbloqueado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coteminas",fonte:"https://ndmais.com.br/justica/apos-demissoes-em-massa-plano-da-coteminas-destrava-pagamento-a-trabalhadores-de-blumenau/",ceo_n:"Josué Gomes da Silva"},
+{id:30062,nome:"Plascar",setor:"Automotivo",subsetor:"Plásticos Automotivos",lista:"midmarket",fat:"R$ 800M",plantas:5,regiao:"Sudeste",s:5,dor:"Prejuízo dobrou de R$ 110M para R$ 204M",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/plascar",ceo_n:"Paulo Silvestri",ceo_li:"linkedin.com/in/paulo-silvestri-62505917"},
+{id:30063,nome:"Grupo Petrópolis",setor:"Alimentos",subsetor:"Bebidas",lista:"midmarket",fat:"R$ 8B",plantas:8,regiao:"Sudeste",s:5,dor:"Plano de RJ homologado; dívida R$4,4B com pagamento até 2035; venda de 2.926 caminhões para gerar R$576M",fonte:"https://www.grupopetropolis.com.br/justica-homologa-plano-de-recuperacao-judicial-do-grupo-petropolis/",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/grupo-petropolis",ceo_n:"Walter Faria",op_c:"Fundador e Presidente",sc_n:"Fabio Medeiros",sc_c:"Vice-Presidente de Supply Chain",sc_li:""},
 {id:30064,nome:"COPACOL",setor:"Agronegócio",subsetor:"Proteína Animal",lista:"midmarket",fat:"R$ 4B",plantas:5,regiao:"Sul",s:4,dor:"5 plantas em expansão",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/copacol",ceo_n:"Valter Pitol",ceo_li:"linkedin.com/company/copacol"},
 {id:30065,nome:"Aché Laboratórios",setor:"Farmacêutico",subsetor:"Inovação / Especialidades",lista:"grande",fat:"R$ 5.4B",plantas:2,regiao:"Sudeste",s:4,dor:"Expansão de portfólio",st:"nao_iniciado",resp:"",li:"",ceo_n:"Jose Vicente Marino",ceo_li:"linkedin.com/company/ache-laboratorios"},
 {id:30066,nome:"Cristália Produtos Químicos",setor:"Farmacêutico",subsetor:"Genéricos / Anestésicos",lista:"grande",fat:"R$ 3B",plantas:3,regiao:"Sudeste",s:4,dor:"Empresa familiar em crescimento",st:"nao_iniciado",resp:"",li:"",ceo_n:"Ogari de Castro Pacheco",ceo_li:"linkedin.com/company/laboratoriocristalia"},
@@ -675,29 +377,29 @@ const DATA = {
 {id:30072,nome:"Nortec Química",setor:"Farmacêutico",subsetor:"IFAs",lista:"midmarket",fat:"R$ 500M",plantas:2,regiao:"Sudeste",s:4,dor:"Único fabricante nacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/nortec-quimica",ceo_n:"Marcelo Mansur",ceo_li:"linkedin.com/in/marcelo-mansur-"},
 {id:30073,nome:"Videolar-Innova",setor:"Químico",subsetor:"Poliestireno",lista:"midmarket",fat:"R$ 600M",plantas:2,regiao:"Norte",s:4,dor:"Pressão competitiva",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/videolar-innova",ceo_n:"Lirio Albino Parisotto",ceo_li:"linkedin.com/company/innova",op_n:"Flavio Barbosa",op_c:"Diretor-Presidente Executivo"},
 {id:30074,nome:"Irani Papel e Embalagem",setor:"Papel e Celulose",subsetor:"Embalagens Papel",lista:"midmarket",fat:"R$ 1.6B",plantas:4,regiao:"Sul",s:4,dor:"CEO Odivan Cargnin desde jan/2026; nova liderança no projeto Gaia",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/irani",fonte:"https://portalnovarejo.com.br/noticias/irani-papel-e-embalagem-tem-novo-presidente-a-partir-de-2026/",ceo_n:"Alexandros Apostolos Leite",ceo_li:"linkedin.com/company/irani_oficial"},
-{id:30075,nome:"Kepler Weber",setor:"Agronegócio",subsetor:"Armazenagem Grãos",lista:"midmarket",fat:"R$ 1.6B",plantas:3,regiao:"Sul",s:4,dor:"Lucro anual caiu 21,5% em 2025; EBITDA recuou 18% no 4T25",st:"nao_iniciado",resp:"Equipe Magellan",li:"",fonte:"https://safras.com.br/kepler-weber-tem-lucro-liquido-de-r-648-milhoes-no-quarto-trimestre-avanco-de-285-na-base-anual/",ceo_n:"Bernardo Nogueira",ceo_li:"linkedin.com/in/bernardo-nogueira",hq:"Panambi, RS",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
+{id:30075,nome:"Kepler Weber",setor:"Agronegócio",subsetor:"Armazenagem Grãos",lista:"midmarket",fat:"R$ 1.6B",plantas:3,regiao:"Sul",s:4,dor:"Lucro anual caiu 21,5% em 2025; EBITDA recuou 18% no 4T25",st:"nao_iniciado",resp:"Equipe Magellan",li:"",fonte:"https://safras.com.br/kepler-weber-tem-lucro-liquido-de-r-648-milhoes-no-quarto-trimestre-avanco-de-285-na-base-anual/",ceo_n:"Bernardo Nogueira",ceo_li:"linkedin.com/in/bernardo-nogueira"},
 {id:30076,nome:"Tegma Gestão Logística",setor:"Logística",subsetor:"Logística Automotiva",lista:"midmarket",fat:"R$ 1.2B",plantas:8,regiao:"Sudeste",s:4,dor:"Alta dependência de montadoras",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tegma",ceo_n:"Nivaldo Tuba",ceo_li:"linkedin.com/company/tegmagestaologistica"},
 {id:30077,nome:"Nutriara Alimentos",setor:"Agronegócio",subsetor:"Nutrição Animal",lista:"midmarket",fat:"R$ 500M",plantas:3,regiao:"Sul",s:4,dor:"Crescimento acelerado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/nutriara",ceo_n:"José Marcos Calsavara",ceo_li:"linkedin.com/company/nutriara-alimentos"},
-{id:30078,nome:"Wetzel S.A.",setor:"Automotivo",subsetor:"Fundição",lista:"midmarket",fat:"R$ 600M",plantas:2,regiao:"Sul",s:4,dor:"Vendeu unidade em novembro 2024",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/wetzel",ceo_n:"Rodrigo Moretti Ramalho Camara",ceo_li:"linkedin.com/company/wetzel",op_n:"Fernando Cesar Moreira",op_c:"Diretor"},
+{id:30078,nome:"Wetzel S.A.",setor:"Automotivo",subsetor:"Fundição",lista:"midmarket",fat:"R$ 600M",plantas:2,regiao:"Sul",s:4,dor:"Receita cresceu 21% no 1T25 após venda da divisão Ferro; reestruturação em curso com foco em alumínio e eletrotécnica",fonte:"https://www.noticenter.com.br/n.php?ID=40086&T=wetzel-sa-divulga-resultados-do-1-trimestre-e-demonstra-recuperacao-apos-reestruturacao-estrategica",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/wetzel",ceo_n:"Rodrigo Moretti Ramalho Camara",ceo_li:"linkedin.com/company/wetzel",op_n:"Fernando Cesar Moreira",op_c:"Diretor"},
 {id:30079,nome:"Braskem S.A.",setor:"Químico",subsetor:"Petroquímica",lista:"grande",fat:"R$ 80B",plantas:12,regiao:"Nordeste",s:5,dor:"Aprovação de investimento de R$ 4",st:"2B",resp:"nao_iniciado",li:"",ceo_n:"Roberto Prisco Paraiso Ramos",ceo_li:"linkedin.com/in/robertoprisco",op_n:"Stefan Lepecki",op_c:"VP Executivo de Operações Industriais",op_li:"linkedin.com/in/stefan-lepecki-66b1997"},
 {id:30080,nome:"Cecrisa/Portinari",setor:"Cerâmica",subsetor:"Revestimentos",lista:"grande",fat:"R$ 2B",plantas:4,regiao:"Sudeste",s:5,dor:"Grupo Dexco (controlador) fecha fábricas e reverte lucro com prejuízo R$48M 4T25",st:"nao_iniciado",resp:"",li:"",fonte:"https://istoedinheiro.com.br/dexco-reduz-linha-vende-fecha-fabricas-932026",ceo_n:"Antônio Joaquim de Oliveira",ceo_li:"linkedin.com/company/cecrisa-revestimentos-cer-micos",op_n:"Rodrigo Ghedin",op_c:"Diretor Industrial"},
-{id:30081,nome:"Coteminas",setor:"Têxtil",subsetor:"Fios e Tecidos",lista:"midmarket",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:5,dor:"Plano de RJ aprovado; R$2B em dívidas e pagamento a 2.700 demitidos desbloqueado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coteminas",fonte:"https://ndmais.com.br/justica/apos-demissoes-em-massa-plano-da-coteminas-destrava-pagamento-a-trabalhadores-de-blumenau/",ceo_n:"Josué Gomes da Silva",hq:"Montes Claros, MG",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30082,nome:"Plascar",setor:"Automotivo",subsetor:"Plásticos Automotivos",lista:"midmarket",fat:"R$ 800M",plantas:5,regiao:"Sudeste",s:5,dor:"Prejuízo dobrou em 2025",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/plascar",ceo_n:"Paulo Silvestri",ceo_li:"linkedin.com/in/paulo-silvestri-62505917",op_n:"Daniel Paulo Fossa",op_c:"Diretor de Operações",op_li:"linkedin.com/in/daniel-paulo-fossa-1591531b5",hq:"Jundiaí, SP",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30083,nome:"Grupo Petrópolis",setor:"Alimentos",subsetor:"Bebidas",lista:"midmarket",fat:"R$ 8B",plantas:8,regiao:"Sudeste",s:5,dor:"Recuperação judicial em andamento",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/grupo-petropolis",ceo_n:"Walter Faria",op_c:"Fundador e Presidente",hq:"Petrópolis, RJ",multinacional:false,familiar:true,capital_aberto:false,estatal:false},
-{id:30084,nome:"Iochpe-Maxion",setor:"Automotivo",subsetor:"Autopeças",lista:"grande",fat:"R$ 16B",plantas:8,regiao:"Sudeste",s:5,dor:"8 plantas com pressão de margem",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/iochpe-maxion",ceo_n:"Pieter Klinkers",ceo_li:"linkedin.com/in/pieter-klinkers-95676064",hq:"Porto Alegre, RS",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30085,nome:"Tupy S.A.",setor:"Automotivo",subsetor:"Autopeças",lista:"grande",fat:"R$ 10B",plantas:4,regiao:"Sudeste",s:5,dor:"4 plantas; clientes em reestruturação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tupy",ceo_n:"Rafael Lucchesi",ceo_li:"linkedin.com/in/rafael-lucchesi",op_n:"Luciano Prestes Boiko",op_c:"VP de Operações",hq:"Joinville, SC",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30086,nome:"BRF S.A.",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 60B",plantas:35,regiao:"Sul",s:5,dor:"35 plantas em turnaround",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/brf",ceo_n:"Miguel Gularte",ceo_li:"linkedin.com/in/miguel-gularte-3139b48a",op_n:"Artêmio Listoni",op_c:"VP de Operações Industriais e Logística",op_li:"linkedin.com/in/artemio-listoni-57417314b",hq:"Itajaí, SC",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30087,nome:"JBS S.A.",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 100B",plantas:50,regiao:"Centro-Oeste",s:5,dor:"50 plantas; maior processadora",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/jbs",ceo_n:"Gilberto Tomazoni",ceo_li:"linkedin.com/in/gilberto-tomazoni",op_n:"Wesley Batista Filho",op_c:"Presidente de Operações LATAM",op_li:"linkedin.com/in/wesley-batista-filho",hq:"São Paulo, SP",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30088,nome:"Marfrig",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 50B",plantas:30,regiao:"Centro-Oeste",s:4,dor:"30 plantas; processadora",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/marfrig",ceo_n:"Miguel Gularte",ceo_li:"linkedin.com/company/marfrig",op_n:"Miguel Gularte",op_c:"CEO / MBRF (fusão BRF+Marfrig)",hq:"São Paulo, SP",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
-{id:30089,nome:"Minerva Foods",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 20B",plantas:15,regiao:"Centro-Oeste",s:3,dor:"15 plantas; processadora",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/minerva-foods",ceo_n:"Fernando de Queiroz",ceo_li:"linkedin.com/in/fernando-queiroz-minervafoods",hq:"Barretos, SP",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
+{id:30081,nome:"Coteminas",setor:"Têxtil",subsetor:"Fios e Tecidos",lista:"midmarket",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:5,dor:"Plano de RJ aprovado; R$2B em dívidas e pagamento a 2.700 demitidos desbloqueado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coteminas",fonte:"https://ndmais.com.br/justica/apos-demissoes-em-massa-plano-da-coteminas-destrava-pagamento-a-trabalhadores-de-blumenau/",ceo_n:"Josué Gomes da Silva"},
+{id:30082,nome:"Plascar",setor:"Automotivo",subsetor:"Plásticos Automotivos",lista:"midmarket",fat:"R$ 800M",plantas:5,regiao:"Sudeste",s:5,dor:"Prejuízo dobrou em 2025",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/plascar",ceo_n:"Paulo Silvestri",ceo_li:"linkedin.com/in/paulo-silvestri-62505917",op_n:"Daniel Paulo Fossa",op_c:"Diretor de Operações",op_li:"linkedin.com/in/daniel-paulo-fossa-1591531b5"},
+{id:30083,nome:"Grupo Petrópolis",setor:"Alimentos",subsetor:"Bebidas",lista:"midmarket",fat:"R$ 8B",plantas:8,regiao:"Sudeste",s:5,dor:"Plano de RJ homologado; dívida R$4,4B com pagamento até 2035; venda de 2.926 caminhões para gerar R$576M",fonte:"https://www.grupopetropolis.com.br/justica-homologa-plano-de-recuperacao-judicial-do-grupo-petropolis/",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/grupo-petropolis",ceo_n:"Walter Faria",op_c:"Fundador e Presidente",sc_n:"Fabio Medeiros",sc_c:"Vice-Presidente de Supply Chain",sc_li:""},
+{id:30084,nome:"Iochpe-Maxion",setor:"Automotivo",subsetor:"Autopeças",lista:"grande",fat:"R$ 16B",plantas:8,regiao:"Sudeste",s:5,dor:"8 plantas com pressão de margem",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/iochpe-maxion",ceo_n:"Pieter Klinkers",ceo_li:"linkedin.com/in/pieter-klinkers-95676064"},
+{id:30085,nome:"Tupy S.A.",setor:"Automotivo",subsetor:"Autopeças",lista:"grande",fat:"R$ 10B",plantas:4,regiao:"Sudeste",s:5,dor:"4 plantas; clientes em reestruturação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tupy",ceo_n:"Rafael Lucchesi",ceo_li:"linkedin.com/in/rafael-lucchesi",op_n:"Luciano Prestes Boiko",op_c:"VP de Operações",sc_n:"Toni Marcelo Zampieri Bueno",sc_c:"VP de Compras e Logística",sc_li:"linkedin.com/in/tonizampieri"},
+{id:30086,nome:"BRF S.A.",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 60B",plantas:35,regiao:"Sul",s:5,dor:"35 plantas em turnaround",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/brf",ceo_n:"Miguel Gularte",ceo_li:"linkedin.com/in/miguel-gularte-3139b48a",op_n:"Artêmio Listoni",op_c:"VP de Operações Industriais e Logística",op_li:"linkedin.com/in/artemio-listoni-57417314b",sc_n:"Loriano Andre Rigo",sc_c:"Diretor de Logística",sc_li:"linkedin.com/in/loriano-andre-rigo-62b27a94"},
+{id:30087,nome:"JBS S.A.",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 100B",plantas:50,regiao:"Centro-Oeste",s:5,dor:"50 plantas; maior processadora",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/jbs",ceo_n:"Gilberto Tomazoni",ceo_li:"linkedin.com/in/gilberto-tomazoni",op_n:"Wesley Batista Filho",op_c:"Presidente de Operações LATAM",op_li:"linkedin.com/in/wesley-batista-filho",sc_n:"Gilmar Schumacher",sc_c:"Diretor de Logística",sc_li:"linkedin.com/in/gilmar-schumacher-8401143a"},
+{id:30088,nome:"Marfrig",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 50B",plantas:30,regiao:"Centro-Oeste",s:4,dor:"30 plantas; processadora",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/marfrig",ceo_n:"Miguel Gularte",ceo_li:"linkedin.com/company/marfrig",op_n:"Miguel Gularte",op_c:"CEO / MBRF (fusão BRF+Marfrig)"},
+{id:30089,nome:"Minerva Foods",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 20B",plantas:15,regiao:"Centro-Oeste",s:3,dor:"15 plantas; processadora",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/minerva-foods",ceo_n:"Fernando de Queiroz",ceo_li:"linkedin.com/in/fernando-queiroz-minervafoods"},
 {id:30090,nome:"Natura &Co",setor:"Cosméticos",subsetor:"Higiene e Beleza",lista:"grande",fat:"R$ 40B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; transformação digital",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/natura",ceo_n:"João Paulo Ferreira",ceo_li:"linkedin.com/posts/jo%C3%A3o-paulo-ferreira",op_n:"João Paulo Ferreira",op_c:"CEO / ex-VP de Supply Chain Unilever"},
 {id:30091,nome:"Embraer S.A.",setor:"Aeronáutica",subsetor:"Aviões Comerciais",lista:"grande",fat:"R$ 25B",plantas:5,regiao:"Sudeste",s:4,dor:"5 plantas; eficiência em produção",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/embraer",ceo_n:"Francisco Gomes Neto",ceo_li:"linkedin.com/in/francisco-gomes-neto",op_n:"Luís Marinho",op_c:"VP de Operações"},
-{id:30092,nome:"Petrobras",setor:"Energia",subsetor:"Petróleo e Gás",lista:"grande",fat:"R$ 400B",plantas:50,regiao:"Sudeste",s:3,dor:"50 operações; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/petrobras",ceo_n:"Magda Chambriard",ceo_li:"linkedin.com/in/magda-chambriard",hq:"Rio de Janeiro, RJ",multinacional:false,familiar:false,capital_aberto:true,estatal:true},
-{id:30093,nome:"Eletrobras",setor:"Energia",subsetor:"Energia Elétrica",lista:"grande",fat:"R$ 50B",plantas:30,regiao:"Centro-Oeste",s:3,dor:"30 unidades; modernização",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/eletrobras",ceo_n:"Ivan de Souza Monteiro",ceo_li:"linkedin.com/company/eletrobras",op_n:"Antonio Varejão de Godoy",op_c:"VP de Operações e Segurança",hq:"Rio de Janeiro, RJ",multinacional:false,familiar:false,capital_aberto:true,estatal:true},
-{id:30094,nome:"Vale S.A.",setor:"Mineração",subsetor:"Minério de Ferro",lista:"grande",fat:"R$ 60B",plantas:20,regiao:"Sudeste",s:3,dor:"20 operações; eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/vale",ceo_n:"Gustavo Pimenta",ceo_li:"linkedin.com/in/pimenta-gustavo",hq:"Rio de Janeiro, RJ",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
+{id:30092,nome:"Petrobras",setor:"Energia",subsetor:"Petróleo e Gás",lista:"grande",fat:"R$ 400B",plantas:50,regiao:"Sudeste",s:3,dor:"50 operações; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/petrobras",ceo_n:"Magda Chambriard",ceo_li:"linkedin.com/in/magda-chambriard"},
+{id:30093,nome:"Eletrobras",setor:"Energia",subsetor:"Energia Elétrica",lista:"grande",fat:"R$ 50B",plantas:30,regiao:"Centro-Oeste",s:3,dor:"30 unidades; modernização",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/eletrobras",ceo_n:"Ivan de Souza Monteiro",ceo_li:"linkedin.com/company/eletrobras",op_n:"Antonio Varejão de Godoy",op_c:"VP de Operações e Segurança"},
+{id:30094,nome:"Vale S.A.",setor:"Mineração",subsetor:"Minério de Ferro",lista:"grande",fat:"R$ 60B",plantas:20,regiao:"Sudeste",s:3,dor:"20 operações; eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/vale",ceo_n:"Gustavo Pimenta",ceo_li:"linkedin.com/in/pimenta-gustavo"},
 {id:30095,nome:"Gerdau S.A.",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 50B",plantas:15,regiao:"Sudeste",s:3,dor:"15 plantas; eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/gerdau",ceo_n:"Gustavo Werneck da Cunha",ceo_li:"linkedin.com/in/gustavowerneck"},
-{id:30096,nome:"Usiminas",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 30B",plantas:5,regiao:"Sudeste",s:3,dor:"5 plantas; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/usiminas",ceo_n:"Marcelo Chara",ceo_li:"linkedin.com/in/marcelo-chara-11556030",hq:"Belo Horizonte, MG",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30097,nome:"ArcelorMittal Brasil",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 40B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/arcelormittal",ceo_n:"Jorge Oliveira",ceo_li:"linkedin.com/company/arcelormittal",hq:"Belo Horizonte, MG",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
+{id:30096,nome:"Usiminas",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 30B",plantas:5,regiao:"Sudeste",s:3,dor:"5 plantas; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/usiminas",ceo_n:"Marcelo Chara",ceo_li:"linkedin.com/in/marcelo-chara-11556030"},
+{id:30097,nome:"ArcelorMittal Brasil",setor:"Metalurgia",subsetor:"Siderurgia",lista:"grande",fat:"R$ 40B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/arcelormittal",ceo_n:"Jorge Oliveira",ceo_li:"linkedin.com/company/arcelormittal"},
 {id:30098,nome:"Suzano S.A.",setor:"Papel e Celulose",subsetor:"Celulose",lista:"grande",fat:"R$ 20B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; sustentabilidade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/suzano",ceo_n:"Beto Abreu",ceo_li:"linkedin.com/in/beto-abreu"},
 {id:30099,nome:"Klabin S.A.",setor:"Papel e Celulose",subsetor:"Papel",lista:"grande",fat:"R$ 15B",plantas:6,regiao:"Sul",s:3,dor:"6 plantas; papel e celulose",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/klabin",ceo_n:"Cristiano Cardoso Teixeira",ceo_li:"linkedin.com/in/cristiano-c-teixeira-1a319a22"},
 {id:30100,nome:"Alpargatas",setor:"Calçados",subsetor:"Calçados",lista:"grande",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:3,dor:"5 plantas; marca Havaianas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/alpargatas",ceo_n:"Liel Miranda",ceo_li:"linkedin.com/in/lielmiranda"},
@@ -711,10 +413,10 @@ const DATA = {
 {id:30108,nome:"Caixa Econômica Federal",setor:"Financeiro",subsetor:"Banco",lista:"grande",fat:"R$ 200B",plantas:80,regiao:"Centro-Oeste",s:3,dor:"80 agências; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/caixa",ceo_n:"Rita Serrano",ceo_li:"linkedin.com/company/caixa"},
 {id:30109,nome:"Bradesco",setor:"Financeiro",subsetor:"Banco",lista:"grande",fat:"R$ 180B",plantas:60,regiao:"Sudeste",s:3,dor:"60 agências; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/bradesco",ceo_n:"Marcelo Noronha",ceo_li:"linkedin.com/company/bradesco"},
 {id:30110,nome:"BTG Pactual",setor:"Financeiro",subsetor:"Banco",lista:"grande",fat:"R$ 100B",plantas:20,regiao:"Sudeste",s:3,dor:"20 agências; banco de investimento",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/btg-pactual",ceo_n:"Roberto Sallouti",ceo_li:"linkedin.com/company/btg-pactual"},
-{id:30111,nome:"Ultrapar",setor:"Distribuição",subsetor:"Combustíveis",lista:"grande",fat:"R$ 20B",plantas:10,regiao:"Sudeste",s:3,dor:"10 regiões; eficiência logística",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ultrapar",ceo_n:"Rodrigo Pizzinatto",ceo_li:"linkedin.com/company/ultrapar",hq:"São Paulo, SP",multinacional:false,familiar:false,capital_aberto:true,estatal:false},
-{id:30112,nome:"Ambev",setor:"Bebidas",subsetor:"Cerveja",lista:"grande",fat:"R$ 50B",plantas:15,regiao:"Sudeste",s:3,dor:"15 plantas; líder de mercado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ambev",ceo_n:"Carlos Lisboa",ceo_li:"linkedin.com/company/ambev",hq:"São Paulo, SP",multinacional:true,familiar:true,capital_aberto:true,estatal:false},
-{id:30113,nome:"Coca-Cola Brasil",setor:"Bebidas",subsetor:"Refrigerantes",lista:"grande",fat:"R$ 30B",plantas:10,regiao:"Sudeste",s:3,dor:"10 plantas; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coca-cola",ceo_n:"Fabio Oliveira",ceo_li:"linkedin.com/company/coca-cola",hq:"Rio de Janeiro, RJ",multinacional:true,familiar:false,capital_aberto:false,estatal:false},
-{id:30114,nome:"Cosan",setor:"Energia",subsetor:"Combustíveis",lista:"grande",fat:"R$ 30B",plantas:12,regiao:"Sudeste",s:3,dor:"12 plantas; eficiência energética",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cosan",ceo_n:"Luis Henrique Guimarães",ceo_li:"linkedin.com/company/cosan",hq:"São Paulo, SP",multinacional:false,familiar:true,capital_aberto:true,estatal:false},
+{id:30111,nome:"Ultrapar",setor:"Distribuição",subsetor:"Combustíveis",lista:"grande",fat:"R$ 20B",plantas:10,regiao:"Sudeste",s:3,dor:"10 regiões; eficiência logística",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ultrapar",ceo_n:"Rodrigo Pizzinatto",ceo_li:"linkedin.com/company/ultrapar"},
+{id:30112,nome:"Ambev",setor:"Bebidas",subsetor:"Cerveja",lista:"grande",fat:"R$ 50B",plantas:15,regiao:"Sudeste",s:3,dor:"15 plantas; líder de mercado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ambev",ceo_n:"Carlos Lisboa",ceo_li:"linkedin.com/company/ambev"},
+{id:30113,nome:"Coca-Cola Brasil",setor:"Bebidas",subsetor:"Refrigerantes",lista:"grande",fat:"R$ 30B",plantas:10,regiao:"Sudeste",s:3,dor:"10 plantas; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coca-cola",ceo_n:"Fabio Oliveira",ceo_li:"linkedin.com/company/coca-cola"},
+{id:30114,nome:"Cosan",setor:"Energia",subsetor:"Combustíveis",lista:"grande",fat:"R$ 30B",plantas:12,regiao:"Sudeste",s:3,dor:"12 plantas; eficiência energética",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cosan",ceo_n:"Luis Henrique Guimarães",ceo_li:"linkedin.com/company/cosan"},
 {id:30115,nome:"Copasa",setor:"Saneamento",subsetor:"Água e Saneamento",lista:"grande",fat:"R$ 8B",plantas:5,regiao:"Sudeste",s:3,dor:"5 regiões; modernização",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/copasa",ceo_n:"Carlos Eduardo Guimarães",ceo_li:"linkedin.com/company/copasa"},
 {id:30116,nome:"Cemig",setor:"Energia",subsetor:"Energia Elétrica",lista:"grande",fat:"R$ 25B",plantas:20,regiao:"Sudeste",s:3,dor:"20 unidades; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cemig",ceo_n:"Reynaldo Passanezi Filho",ceo_li:"linkedin.com/in/reynaldopassanezi"},
 {id:30117,nome:"Copel",setor:"Energia",subsetor:"Energia Elétrica",lista:"grande",fat:"R$ 20B",plantas:15,regiao:"Sul",s:3,dor:"15 unidades; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/copel",ceo_n:"Daniel Pimentel Slaviero",ceo_li:"linkedin.com/company/copel"},
@@ -747,18 +449,17 @@ const DATA = {
 {id:30144,nome:"Cargill Brasil",setor:"Agronegócio",subsetor:"Grãos",lista:"grande",fat:"R$ 12B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; otimização",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cargill",ceo_n:"Frederico Logemann",ceo_li:"linkedin.com/company/cargill"},
 {id:30145,nome:"Cargill Proteína",setor:"Alimentos",subsetor:"Proteína Animal",lista:"grande",fat:"R$ 8B",plantas:5,regiao:"Sul",s:3,dor:"5 plantas; otimização",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cargill",ceo_n:"Frederico Logemann",ceo_li:"linkedin.com/company/cargill"},
 {id:30146,nome:"Cerâmica Brasital",setor:"Cerâmica",subsetor:"Revestimentos",lista:"grande",fat:"R$ 1.5B",plantas:4,regiao:"Sudeste",s:3,dor:"4 plantas; eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/brasital",ceo_n:"Diretor Geral",ceo_li:"linkedin.com/company/brasital"},
-{id:30147,nome:"Cerâmica Portobello",setor:"Cerâmica",subsetor:"Revestimentos",lista:"grande",fat:"R$ 1.2B",plantas:3,regiao:"Sul",s:3,dor:"3 plantas; inovação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/portobello",ceo_n:"Ricardo Moreira",ceo_li:"linkedin.com/company/portobello"},
+{id:30147,nome:"Cerâmica Portobello",setor:"Cerâmica",subsetor:"Revestimentos",lista:"grande",fat:"R$ 1.2B",plantas:3,regiao:"Sul",s:5,dor:"CEO resignou (abr/26); fundador César Gomes Júnior assume em mai/26 em meio a prejuízo de R$186M no 4T25",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/portobello",fonte:"https://br.advfn.com/jornal/2026/04/portobello-anuncia-troca-no-comando-fundador-assume-como-ceo-em-meio-a-reestruturacao-estrategica",ceo_n:"César Gomes Júnior",ceo_li:"linkedin.com/company/portobello"},
 {id:30148,nome:"Cervejaria Petrópolis",setor:"Bebidas",subsetor:"Cerveja",lista:"grande",fat:"R$ 8B",plantas:8,regiao:"Sudeste",s:3,dor:"8 plantas; recuperação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/petropolis",ceo_n:"Walter Faria",ceo_li:"linkedin.com/company/petropolis"},
 {id:30149,nome:"Companhia Paulista de Força e Luz",setor:"Energia",subsetor:"Energia Elétrica",lista:"grande",fat:"R$ 15B",plantas:8,regiao:"Sudeste",s:3,dor:"8 regiões; modernização",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cpfl",ceo_n:"Gustavo Estrella",ceo_li:"linkedin.com/company/cpfl-energia"},
 {id:30150,nome:"Cia Energética de Minas Gerais",setor:"Energia",subsetor:"Energia Elétrica",lista:"grande",fat:"R$ 15B",plantas:8,regiao:"Sudeste",s:3,dor:"8 regiões; transformação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cemig",ceo_n:"Reynaldo Passanezi Filho",ceo_li:"linkedin.com/in/reynaldopassanezi"},
 {id:30151,nome:"Saint-Gobain Brasil",setor:"Material de Construção",subsetor:"Vidro e Isolamento",lista:"grande",fat:"R$ 5B",plantas:58,regiao:"Sudeste",s:4,dor:"Fechamento Isover Santo Amaro 2026; reestruturação de 58 plantas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/saint-gobain-brasil",fonte:"https://ndmais.com.br/economia/empresa-do-grupo-saint-gobain-encerra-fabrica-no-brasil/",ceo_n:"Javier Gimeno",ceo_li:"linkedin.com/in/javier-gimeno-76575418"},
-{id:30152,nome:"Hypera Pharma",setor:"Farmacêutico",subsetor:"Medicamentos OTC e Genéricos",lista:"grande",fat:"R$ 8B",plantas:6,regiao:"Sudeste",s:4,dor:"OPA hostil EMS recusada; expansão agressiva Anápolis gera complexidade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/hypera-pharma",fonte:"https://neofeed.com.br/negocios/ems-recua-e-retira-oferta-de-fusao-com-hypera/",ceo_n:"Breno Oliveira",ceo_li:"linkedin.com/in/breno-oliveira-91a7ba",op_n:"Kleber Monteiro de Oliveira",op_c:"Diretor Industrial",op_li:"linkedin.com/in/kleber-monteiro-de-oliveira-825a4082"},
+{id:30152,nome:"Hypera Pharma",setor:"Farmacêutico",subsetor:"Medicamentos OTC e Genéricos",lista:"grande",fat:"R$ 8B",plantas:6,regiao:"Sudeste",s:4,dor:"Aumento de capital R$1,5B aprovado; aquisição de 10 marcas Sanofi concluída; genérica da semaglutida prevista para 2026",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/hypera-pharma",fonte:"https://neofeed.com.br/negocios/ems-recua-e-retira-oferta-de-fusao-com-hypera/",ceo_n:"Breno Oliveira",ceo_li:"linkedin.com/in/breno-oliveira-91a7ba",op_n:"Kleber Monteiro de Oliveira",op_c:"Diretor Industrial",op_li:"linkedin.com/in/kleber-monteiro-de-oliveira-825a4082"},
 {id:30153,nome:"Iveco Brasil",setor:"Automotivo",subsetor:"Veículos Comerciais",lista:"grande",fat:"R$ 5B",plantas:3,regiao:"Sudeste",s:3,dor:"R$1B investimento até 2028; modernização industrial complexo Sete Lagoas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/iveco-brasil",fonte:"https://www.otempo.com.br/economia/2026/3/11/iveco-anuncia-investimento-de-r-1-bilhao-em-sua-fabrica-em-sete-lagoas",ceo_n:"Márcio Querichelli",ceo_li:"linkedin.com/company/iveco-brasil"},
 {id:30154,nome:"WEG S.A.",setor:"Equipamentos Elétricos",subsetor:"Motores e Geradores",lista:"grande",fat:"R$ 32B",plantas:12,regiao:"Sul",s:3,dor:"R$1,1B nova fábrica SC; expansão em 3 cidades cria complexidade operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/weg",fonte:"https://agenciaal.alesc.sc.gov.br/index.php/gabinetes_single/weg-anuncia-nova-fabrica-em-jaragua-do-sul-com-investimento-de-r-11-bilhao",ceo_n:"Alberto Yoshikazu Kuba",ceo_li:"linkedin.com/company/weg-sa"},
 {id:30155,nome:"Bardella S.A. Indústrias Mecânicas",setor:"Equipamentos Industriais",subsetor:"Máquinas e Equipamentos Pesados",lista:"midmarket",fat:"R$ 500M",plantas:4,regiao:"Sudeste",s:4,dor:"Em recuperação judicial; faturamento +87% Q3/25 mas caixa ainda frágil",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/bardella",fonte:"https://smetal.org.br/imprensa/justica-homologa-o-plano-de-recuperacao-do-grupo-bardella/",ceo_n:"Eduardo Fantin",ceo_li:"linkedin.com/company/bardella"}
 ],
   pendentes: [
-
     {id:40001,nome:"Unigel",setor:"Química & Petroquímica",subsetor:"Petroquímica e Fertilizantes",lista:"grande",fat:"R$ 8B",plantas:5,regiao:"Sudeste",s:5,dor:"Recuperação judicial aprovada out/2025 com passivo de R$ 5,4B; operando a 60% da capacidade em estirenos com margens 70% abaixo; CEO saiu após 8 meses gerando instabilidade de gestão; crise severa por queda de preços internacionais e custo de gás",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/unigel",fonte:"https://agropujante.com.br/unigel-recuperacao-judicial-divida-bilionaria/",ceo_n:"Helena Ramos (interim)",ceo_li:"",op_n:"",op_c:"",op_li:"",sc_n:"",sc_c:"",sc_li:""},
     {id:40002,nome:"InterCement Brasil",setor:"Construção Civil",subsetor:"Cimento",lista:"grande",fat:"R$ 10B",plantas:6,regiao:"Sudeste",s:5,dor:"Recuperação judicial homologada dez/2025 com R$ 15,6B em dívidas; aprovada por 99,66% dos credores; venda da subsidiária argentina Loma Negra em andamento; reestruturação total da operação e supply chain em curso",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/intercement",fonte:"https://www.cnnbrasil.com.br/economia/negocios/intercement-apresenta-plano-de-recuperacao-judicial-e-r-156-bi-em-dividas/",ceo_n:"",ceo_li:"",op_n:"",op_c:"",op_li:"",sc_n:"Armando Silva",sc_c:"CFO e Diretor de Relações com Investidores",sc_li:""},
     {id:40003,nome:"Raízen",setor:"Energia",subsetor:"Etanol, Açúcar e Combustíveis",lista:"grande",fat:"R$ 165B",plantas:36,regiao:"Sudeste",s:5,dor:"Recuperação extrajudicial com R$ 65B em dívidas aprovada em 2026; CEO trocado nov/2024 (Nelson Gomes Neto); programa de desinvestimentos e corte radical de investimentos; nova VP de Supply Chain criada como sinal de prioridade operacional urgente",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/raizenoficial",fonte:"https://braziljournal.com/breaking-raizen-pede-recuperacao-extrajudicial-arrolando-dividas-de-r-65-bi/",ceo_n:"Nelson Gomes Neto",ceo_li:"",op_n:"",op_c:"",op_li:"",sc_n:"",sc_c:"Vice-Presidente de Supply Chain (cargo novo)",sc_li:""},
@@ -778,108 +479,7 @@ const DATA = {
     {id:40017,nome:"NTN Brasil Rolamentos",setor:"Automotivo",subsetor:"Autopeças Tier 1 (Rolamentos e Juntas)",lista:"midmarket",fat:"R$ 1B",plantas:2,regiao:"Sudeste",s:3,dor:"Expansão de 20-25% na capacidade produtiva aprovada pela matriz japonesa para 2026; portfólio de 3.000 itens crescerá para 5.000 em 3 anos; CEO Leonardo Araújo (set/2024) acelerando diversificação do aftermarket de 17% para 40% do faturamento global",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ntn-rolamentos-do-brasil",fonte:"https://transportemoderno.com.br/2025/04/28/ntn-brasil-planeja-ampliar-o-volume-de-fabricacao-de-autopecas-em-2026/",ceo_n:"Leonardo Araújo",ceo_li:"",op_n:"",op_c:"",op_li:"",sc_n:"",sc_c:"",sc_li:""},
     {id:40018,nome:"Vonixx",setor:"Cosméticos & Higiene",subsetor:"Estética Automotiva Industrial",lista:"midmarket",fat:"R$ 670M",plantas:2,regiao:"Nordeste",s:3,dor:"Crescimento anual médio de 50%; perdeu R$ 60M em receita potencial em 2025 por falta de capacidade produtiva; R$ 200M investidos em nova megafábrica em Fortaleza com operação parcial prevista mar/abr 2026; ramp-up de nova planta exige excelência operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/vonixx",fonte:"https://www.infomoney.com.br/consumo/empresa-de-fortaleza-mira-faturamento-de-r-700-mi-com-estetica-automotiva/",ceo_n:"Paulo Henrique Nobre",ceo_li:"",op_n:"",op_c:"",op_li:"",sc_n:"",sc_c:"",sc_li:""},
     {id:40019,nome:"Mosaic Fertilizantes",setor:"Química & Petroquímica",subsetor:"Fertilizantes e Mineração",lista:"grande",fat:"R$ 10B",plantas:10,regiao:"Centro-Oeste",s:3,dor:"R$ 400M investidos em nova unidade de blendagem em Palmeirante-TO inaugurada 2025 com meta de 1M t/ano; vendas crescendo 15% em 2025; venda da mina de potássio para VL Mineração altera mix do portfólio; logística do Matopiba como gargalo estratégico",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/mosaicbr",fonte:"https://agfeed.com.br/negocios/depois-de-ano-bom-mosaic-ve-crescimento-em-2025-mas-falta-destravar-os-bioinsumos/",ceo_n:"Eduardo Monteiro",ceo_li:"",op_n:"",op_c:"",op_li:"",sc_n:"",sc_c:"",sc_li:""},
-    {id:40020,nome:"Frísia Cooperativa Agroindustrial",setor:"Agronegócio",subsetor:"Cooperativa de Soja, Trigo e Leite",lista:"grande",fat:"R$ 6B",plantas:5,regiao:"Sul",s:3,dor:"Faturamento cresceu de R$ 5,79B para R$ 5,99B em 2025; operação diversificada em soja, trigo, leite e carnes em Ponta Grossa-PR; pressão por eficiência industrial e logística para manter competitividade frente a cooperativas maiores como Coamo (R$ 28B) e Lar (R$ 23B)",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/frisia-cooperativa-agroindustrial",fonte:"https://dcmais.com.br/campos-gerais/frisia-aumenta-faturamento-e-encerra-2025-com-quase-r-6-bi/",ceo_n:"",ceo_li:"",op_n:"",op_c:"",op_li:"",sc_n:"",sc_c:"",sc_li:""},
-    {id:50101,nome:"CSN - Companhia Siderúrgica Nacional",setor:"Metalurgia & Siderurgia",subsetor:"Aço Plano, Mineração e Cimento",lista:"grande",fat:"R$ 43.7B",plantas:8,regiao:"Sudeste",s:4,dor:"Dívida líquida de R$27B pressionando caixa; queda de EBITDA em siderurgia com importações chinesas; CEO Benjamin Steinbruch em turnaround com venda de ativos não-core e otimização das 8 plantas integradas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/companhiasiderurgicanacional",fonte:"https://moodyslocal.com.br/wp-content/uploads/2025/03/MLBR_RelatoriodeCredito_CSN_31032025_PP.pdf",ceo_n:"Benjamin Steinbruch",ceo_li:"linkedin.com/in/benjamin-steinbruch",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50102,nome:"WEG S.A.",setor:"Eletroeletrônico",subsetor:"Motores Elétricos e Automação Industrial",lista:"grande",fat:"R$ 28B",plantas:16,regiao:"Sul",s:3,dor:"Expansão global em 16 países com R$4B em internacionalização; ramp-up de plantas de motores para VEs no Brasil; pressão por excelência operacional em 16 fábricas e supply chain global de componentes críticos",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/weg",fonte:"https://ri.weg.net/",ceo_n:"Harry Schmelzer Jr.",ceo_li:"linkedin.com/in/harry-schmelzer",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50103,nome:"Hapvida NotreDame Intermédica",setor:"Saúde",subsetor:"Plano de Saúde e Rede Hospitalar Verticalizada",lista:"grande",fat:"R$ 35B",plantas:832,regiao:"Nordeste",s:4,dor:"Integração pós-fusão complexa Hapvida+NotreDame; R$2B em 10 novos hospitais 2025-2026; queda de margens com modelo verticalizado; supply chain e procurement de insumos médicos para 832 unidades necessita reestruturação urgente",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/hapvida",fonte:"https://braziljournal.com/brands/hapvida-investe-em-qualidade-e-expansao-da-rede-propria/",ceo_n:"Jorge Fontes Pinheiro",ceo_li:"linkedin.com/in/jorge-fontes-pinheiro",op_n:"",op_c:"COO",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain e Suprimentos",sc_li:""},
-    {id:50104,nome:"Rede D'Or São Luiz",setor:"Saúde",subsetor:"Hospitais e Clínicas Premium",lista:"grande",fat:"R$ 26B",plantas:78,regiao:"Sudeste",s:3,dor:"Pipeline de 4.386 novos leitos até 2028; fusão DASA-Amil complexificando supply chain; procurement de insumos hospitalares em 78 hospitais sob pressão de eficiência e padronização operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/rededor",fonte:"https://ri.rededor.com.br/",ceo_n:"Paulo Moll",ceo_li:"",op_n:"",op_c:"COO",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50105,nome:"Vibra Energia",setor:"Energia",subsetor:"Distribuição de Combustíveis e Biocombustíveis",lista:"grande",fat:"R$ 62B",plantas:9,regiao:"Sudeste",s:4,dor:"CEO Pedro Scorza implementando virada estratégica de commodities para biocombustíveis e Vibra+; M&A em 2025 integrando Comerc; supply chain de distribuição e logística nacional em reestruturação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/vibra-energia",fonte:"https://ri.vibra.com.br/",ceo_n:"Pedro Scorza",ceo_li:"linkedin.com/in/pedro-scorza",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain e Logística",sc_li:""},
-    {id:50106,nome:"Ultrapar Participações",setor:"Química & Petroquímica",subsetor:"Distribuição de Combustíveis e Gás (Ipiranga, Ultragaz)",lista:"grande",fat:"R$ 42B",plantas:22,regiao:"Sudeste",s:3,dor:"CEO Rodrigo Pizzinatto reestruturando portfólio após venda da Oxiteno; integração de 22 plantas Ultragaz e Ipiranga exige eficiência de supply chain; IPO da Ultragaz planejado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ultrapar",fonte:"https://ri.ultra.com.br/",ceo_n:"Rodrigo Pizzinatto",ceo_li:"linkedin.com/in/rodrigo-pizzinatto",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50107,nome:"Bunge Brasil",setor:"Alimentos & Bebidas",subsetor:"Processamento de Grãos e Oleaginosas",lista:"grande",fat:"R$ 50B",plantas:15,regiao:"Centro-Oeste",s:3,dor:"Fusão global Bunge-Viterra com reestruturação operacional em andamento; R$2B em novas plantas no Matopiba; otimização logística de exportação em 15 unidades como prioridade estratégica",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/bunge",fonte:"https://www.bunge.com/",ceo_n:"Marco Wöss",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50108,nome:"Cargill Brasil",setor:"Alimentos & Bebidas",subsetor:"Proteínas, Grãos e Nutrição Animal",lista:"grande",fat:"R$ 30B",plantas:20,regiao:"Centro-Oeste",s:3,dor:"Pressão ESG com compromissos de desmatamento zero; R$3B em expansão de capacidade em 20 plantas; transformação digital da supply chain agrícola; desafios logísticos de escoamento no Centro-Oeste e Norte",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cargill",fonte:"https://www.cargill.com.br/",ceo_n:"Adriana Castro",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50109,nome:"Louis Dreyfus Company Brasil",setor:"Alimentos & Bebidas",subsetor:"Trading Agroindustrial (Soja, Cana, Café)",lista:"grande",fat:"R$ 40B",plantas:12,regiao:"Sudeste",s:3,dor:"Novo modelo operacional focando em ativos de processamento e logística; eficiência em 12 unidades de processamento; otimização de supply chain e logística portuária para exportação global",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/louis-dreyfus",fonte:"https://www.ldc.com/br/",ceo_n:"Pablo Doberti",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50110,nome:"Votorantim Cimentos",setor:"Cimento & Construção",subsetor:"Cimento e Concreto",lista:"grande",fat:"R$ 29.4B",plantas:12,regiao:"Sudeste",s:3,dor:"R$5B em investimentos até 2028 com 3,7M t adicionais de capacidade; expansão de Nobres-MT e Cuiabá; CEO Osvaldo Ayres otimizando supply chain de calcário para atender boom do Minha Casa Minha Vida",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/votorantim-cimentos",fonte:"https://www.votorantimcimentos.com.br/noticia/anunciamos-investimento-de-r-5-bilhoes-em-ampliacoes-modernizacoes-logistica-e-novos-negocios-no-brasil/",ceo_n:"Osvaldo Ayres",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50111,nome:"Neoenergia S.A.",setor:"Energia",subsetor:"Distribuição de Energia Elétrica e Renováveis",lista:"grande",fat:"R$ 15B",plantas:5,regiao:"Nordeste",s:3,dor:"R$14B em investimentos até 2028 em infraestrutura de distribuição; expansão eólica e solar com integração operacional complexa; supply chain de equipamentos de rede elétrica e eficiência operacional em 5 distribuidoras",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/neoenergia",fonte:"https://ri.neoenergia.com/",ceo_n:"Eduardo Capelastegui",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50112,nome:"Engie Brasil Energia",setor:"Energia",subsetor:"Geração de Energia Renovável e Transmissão",lista:"grande",fat:"R$ 9B",plantas:12,regiao:"Sul",s:3,dor:"R$10B em investimentos 2025-2030 em parques eólicos e solar; aquisições de ativos de transmissão gerando integração operacional; eficiência de O&M em 12 ativos de geração; ramp-up de novos parques exige supply chain robusto",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/engiebrasil",fonte:"https://ri.engie.com.br/",ceo_n:"Eduardo Takamori",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50113,nome:"Sabesp",setor:"Energia",subsetor:"Saneamento Básico",lista:"grande",fat:"R$ 20B",plantas:30,regiao:"Sudeste",s:4,dor:"Privatização concluída em 2024; novo CEO Carlos Piani; R$44B em investimentos 2025-2034; reestruturação operacional urgente de 30 estações de tratamento e supply chain de insumos químicos e equipamentos",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/sabesp",fonte:"https://ri.sabesp.com.br/",ceo_n:"Carlos Piani",ceo_li:"linkedin.com/in/carlos-piani",op_n:"",op_c:"COO",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50114,nome:"JSL S.A.",setor:"Logística & Distribuição",subsetor:"Operador Logístico Integrado e Intralogística",lista:"grande",fat:"R$ 11B",plantas:200,regiao:"Sudeste",s:3,dor:"Novo CEO da Intralog (abr/2026) liderando divisão de alto valor com 16k colaboradores; meta de R$20B até 2028; integração de 5 empresas adquiridas em 2024-2025 gerando pressão de eficiência operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/jsl-sa",fonte:"https://br.advfn.com/jornal/2026/04/jsl-nomeia-novo-ceo-para-intralog-e-mira-mercado-bilionario-de-logistica-no-brasil",ceo_n:"Rodrigo Simões Gazola",ceo_li:"",op_n:"",op_c:"CEO Intralog",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50115,nome:"DASA Diagnósticos da América",setor:"Saúde",subsetor:"Diagnósticos Médicos e Laboratoriais",lista:"grande",fat:"R$ 10B",plantas:200,regiao:"Sudeste",s:4,dor:"Fusão com Amil (UnitedHealth) criando gigante de saúde; CEO trocado em 2025; dívida elevada pós-expansão; integração de 200+ laboratórios com supply chain de reagentes e equipamentos diagnósticos exige reestruturação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/dasa-diagnosticos",fonte:"https://www.nordinvestimentos.com.br/blog/dasa-amil-fusao/",ceo_n:"Carlos Marinelli",ceo_li:"",op_n:"",op_c:"COO",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50116,nome:"São Martinho S.A.",setor:"Alimentos & Bebidas",subsetor:"Açúcar e Etanol",lista:"grande",fat:"R$ 7B",plantas:5,regiao:"Sudeste",s:3,dor:"R$4B em etanol celulósico e cogeração; moagem de 27M t/ano em 5 usinas; eficiência operacional agroindustrial e supply chain de commodities na safra; meta de carbono neutro até 2030",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/saomartinho",fonte:"https://ri.saomartinho.com.br/",ceo_n:"Felipe Vicchiato",ceo_li:"linkedin.com/in/felipe-vicchiato",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50117,nome:"Alpargatas S.A.",setor:"Calçados & Couro",subsetor:"Calçados e Sandálias (Havaianas)",lista:"grande",fat:"R$ 6.8B",plantas:8,regiao:"Nordeste",s:4,dor:"Nova CEO Sônia Hess (set/2024) reestruturando operações; internacionalização das Havaianas gerando complexidade de supply chain global; margens pressionadas; desinvestimento de marcas não-core e revisão do modelo industrial em 8 fábricas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/alpargatas",fonte:"https://ri.alpargatas.com.br/",ceo_n:"Sônia Hess",ceo_li:"linkedin.com/in/sonia-hess",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50118,nome:"Bracell",setor:"Papel & Celulose",subsetor:"Celulose Solúvel e Papel Tissue",lista:"grande",fat:"R$ 8B",plantas:2,regiao:"Sudeste",s:3,dor:"R$5B em nova fábrica de papel tissue em Lençóis Paulista/SP ao lado da maior planta de celulose do mundo (3,5M t/ano); ramp-up de nova linha exige excelência operacional e supply chain de madeira e insumos",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/bracell",fonte:"https://amis.org.br/plus/modulos/noticias/ler.php?cdnoticia=655",ceo_n:"Choo Chiau Beng",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50119,nome:"Novelis Brasil",setor:"Metalurgia & Siderurgia",subsetor:"Alumínio Laminado e Reciclagem",lista:"grande",fat:"R$ 8B",plantas:4,regiao:"Sudeste",s:3,dor:"Expansão de R$1.5B em Pindamonhangaba; demanda crescente de alumínio para VEs e embalagens sustentáveis; eficiência de reciclagem e supply chain de sucata de alumínio como prioridade estratégica",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/novelis",fonte:"https://www.novelis.com/brazil/",ceo_n:"Tadeu Carneiro",ceo_li:"linkedin.com/in/tadeu-carneiro",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50120,nome:"Hydro Alunorte",setor:"Metalurgia & Siderurgia",subsetor:"Alumina e Alumínio Primário",lista:"grande",fat:"R$ 12B",plantas:3,regiao:"Norte",s:3,dor:"R$3B em expansão de Alunorte em Barcarena-PA; alta dependência de energia hidrelétrica; supply chain complexo bauxita-alumina-alumínio com gargalos logísticos fluviais; pressão ESG e licenciamento ambiental",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/hydro-alunorte",fonte:"https://www.hydro.com/pt-BR/sobre-a-hydro/hydro-no-brasil/alunorte/",ceo_n:"Egil Hogna",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50121,nome:"CBA - Companhia Brasileira de Alumínio",setor:"Metalurgia & Siderurgia",subsetor:"Alumínio Primário e Laminados",lista:"grande",fat:"R$ 5B",plantas:5,regiao:"Sudeste",s:3,dor:"Expansão de 30% da capacidade em Votorantim-SP; crescimento de embalagens de alumínio para bebidas; supply chain eficiente de alumina importada e energia elétrica; transformação digital da planta industrial",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cba-aluminio",fonte:"https://www.cba.com.br/",ceo_n:"Rafael Becker",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50122,nome:"Alcoa Brasil",setor:"Metalurgia & Siderurgia",subsetor:"Alumínio Primário e Bauxita",lista:"grande",fat:"R$ 5B",plantas:3,regiao:"Norte",s:3,dor:"Reestruturação global com possível venda de ativos; minas de Juruti-PA e planta de São Luís-MA com oportunidade de melhoria operacional; pressão de custo de energia e logística de bauxita; M&A com Ma'aden em avaliação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/alcoa",fonte:"https://www.alcoa.com/brasil/pt",ceo_n:"William Oplinger",ceo_li:"",op_n:"Celia Barroso",op_c:"Presidente Alcoa Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50123,nome:"Arezzo & Grupo SOMA",setor:"Calçados & Couro",subsetor:"Moda e Calçados Premium (Farm, NV, Arezzo, Schutz)",lista:"grande",fat:"R$ 12B",plantas:10,regiao:"Sudeste",s:4,dor:"Fusão Arezzo e SOMA concluída em 2025 criando maior grupo de moda do Brasil; integração de 10 marcas e supply chain de 10 fábricas; CEO Alexandre Birman coordenando reestruturação pós-M&A",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/arezzocia",fonte:"https://www.metropoles.com/colunas/ilca-maria-estevao/moda-entenda-o-que-representa-a-fusao-dos-grupos-soma-e-arezzo",ceo_n:"Alexandre Birman",ceo_li:"linkedin.com/in/alexandre-birman",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50124,nome:"Grendene S.A.",setor:"Calçados & Couro",subsetor:"Calçados Plásticos (Melissa, Rider, Ipanema)",lista:"grande",fat:"R$ 5B",plantas:11,regiao:"Sul",s:3,dor:"Expansão internacional para EUA e Europa aumentando complexidade de supply chain; novas fábricas no Nordeste; automação e redução de custo industrial em 11 plantas; transformação digital da cadeia produtiva",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/grendene",fonte:"https://ri.grendene.com.br/",ceo_n:"Rudolph Cavagnoli",ceo_li:"linkedin.com/in/rudolph-cavagnoli",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50125,nome:"Holcim Brasil",setor:"Cimento & Construção",subsetor:"Cimento, Concreto e Argamassas",lista:"grande",fat:"R$ 6B",plantas:8,regiao:"Sudeste",s:3,dor:"Transformação global para soluções de construção sustentável; R$1.5B em 8 fábricas; meta de reduzir emissões de CO2 em 30% até 2030; digitalização industrial e eficiência de supply chain de calcário e carvão mineral",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/holcim-brasil",fonte:"https://www.holcim.com.br/",ceo_n:"Fernando Gois",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50126,nome:"Dexco S.A.",setor:"Cimento & Construção",subsetor:"Madeira, Metais e Revestimentos (Duratex, Deca)",lista:"grande",fat:"R$ 5B",plantas:9,regiao:"Sudeste",s:4,dor:"CEO Fernando Bertolucci em reestruturação com queda de margens em painéis de madeira; R$1B em modernização das 9 fábricas; transformação de supply chain e otimização de custos industriais como prioridade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/dexco",fonte:"https://ri.dexco.com.br/",ceo_n:"Fernando Bertolucci",ceo_li:"linkedin.com/in/fernando-bertolucci",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50127,nome:"Biolab Farmacêutica",setor:"Farmacêutico & MedTech",subsetor:"Laboratório Farmacêutico Nacional",lista:"grande",fat:"R$ 5B",plantas:3,regiao:"Sudeste",s:3,dor:"Crescimento de 20% ao ano; lançamento de análogo do Ozempic em 2025; expansão fabril em Taboão da Serra-SP; aquisições de licenças internacionais; necessidade de eficiência industrial e supply chain para suportar crescimento acelerado",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/biolab-farmaceutica",fonte:"https://www.biolab.com.br/",ceo_n:"Renato Santos",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50128,nome:"Cocamar Cooperativa Agroindustrial",setor:"Alimentos & Bebidas",subsetor:"Soja, Café e Trigo",lista:"grande",fat:"R$ 7B",plantas:6,regiao:"Sul",s:3,dor:"R$500M em investimentos 2025-2026 em novas plantas de processamento de soja e café; crescimento de 18% em 2025; pressão por eficiência industrial nas 6 unidades e supply chain de grãos no Paraná e São Paulo",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/cocamar-cooperativa-agroindustrial",fonte:"https://www.cocamar.com.br/",ceo_n:"José Roberto Ricce",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50129,nome:"Coopavel Cooperativa Agroindustrial",setor:"Alimentos & Bebidas",subsetor:"Aves, Suínos e Grãos",lista:"grande",fat:"R$ 5B",plantas:5,regiao:"Sul",s:3,dor:"Projeção de crescimento de 19% em 2026 com grande safra de milho; nova planta frigorífica de aves em expansão; R$300M em modernização industrial; certificações internacionais e supply chain de aves e suínos exigem eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/coopavel-cooperativa-agroindustrial",fonte:"https://mundocoop.com.br/destaque/cooperativas-agro-projetam-2026-de-investimentos-e-diversificacao-de-produtos/",ceo_n:"Dilvo Grosskopf",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50130,nome:"ADM do Brasil",setor:"Alimentos & Bebidas",subsetor:"Processamento de Oleaginosas e Nutrição Animal",lista:"grande",fat:"R$ 15B",plantas:15,regiao:"Centro-Oeste",s:3,dor:"Reestruturação global da ADM com revisão de portfólio; queda de spread Crush pressionando margens; R$1.5B em eficiência e modernização de 15 plantas no Brasil; transformação digital de supply chain e rastreabilidade ESG",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/adm",fonte:"https://www.adm.com/pt-BR/",ceo_n:"Cristina Souza",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50131,nome:"Unipar Carbocloro",setor:"Química & Petroquímica",subsetor:"PVC, Cloro e Soda Cáustica",lista:"grande",fat:"R$ 5B",plantas:3,regiao:"Sudeste",s:3,dor:"R$1B em nova planta de cloro-soda em Camaçari-BA; R$100M de expansão em Santo André-SP; crescimento de 20% na demanda de PVC para construção civil; ramp-up exige excelência operacional e supply chain robusto",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/unipar-carbocloro",fonte:"https://jpefconsultoria.com.br/artigos/50-maiores-empresas-quimicas-e-petroquimicas-do-brasil",ceo_n:"Maurício Russomanno",ceo_li:"linkedin.com/in/mauricio-russomanno",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50132,nome:"Arauco Brasil",setor:"Papel & Celulose",subsetor:"Celulose e Painéis de Madeira",lista:"grande",fat:"R$ 5B",plantas:3,regiao:"Centro-Oeste",s:3,dor:"R$25B em nova fábrica de celulose greenfield em Inocência-MS (maior investimento privado único da América Latina); ramp-up e gestão de supply chain de planta greenfield exigem especialização em excelência operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/arauco-brasil",fonte:"https://amis.org.br/plus/modulos/noticias/ler.php?cdnoticia=655",ceo_n:"Irineu Munhoz",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50133,nome:"Aura Minerals",setor:"Mineração",subsetor:"Ouro e Cobre",lista:"grande",fat:"R$ 5.5B",plantas:5,regiao:"Centro-Oeste",s:3,dor:"Ouro em máximos históricos impulsionando expansão; ramp-up da Mina Borborema (RN) em 2025; R$400M em novos projetos; excelência operacional em 5 minas e supply chain de insumos de mineração como prioridade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/aura-minerals",fonte:"https://www1.brasilemfolhas.com.br/2025/05/ouro-atinge-valorizacao-historica-e-impulsiona-expansao-da-aura-minerals/",ceo_n:"Rodrigo Barbosa",ceo_li:"linkedin.com/in/rodrigo-barbosa-aura",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50134,nome:"Ero Copper",setor:"Mineração",subsetor:"Cobre e Ouro (MCSA, NX Gold)",lista:"grande",fat:"R$ 5B",plantas:3,regiao:"Nordeste",s:3,dor:"Produção de cobre cresce 125% até 2025-2026; Projeto Tucumã com US$375M/ano em capex; ramp-up de nova mina e eficiência de supply chain de insumos de mineração no Pará e Bahia como gargalo operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ero-copper-corp",fonte:"https://www.brasilmineral.com.br/noticias/investimentos-de-ate-us-375-milhoes-em-2022",ceo_n:"David Strang",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50135,nome:"Lundin Mining Brasil (Mina Chapada)",setor:"Mineração",subsetor:"Cobre (Mina Chapada, GO)",lista:"grande",fat:"R$ 5B",plantas:2,regiao:"Centro-Oeste",s:3,dor:"US$100M em expansão da Mina Chapada em Goiás; CEO Jack Lundin mirando top 10 mundial em cobre; expansão brownfield de 30-40kt; supply chain de insumos de mineração em região remota como desafio operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/lundin-mining",fonte:"https://www.brasilmineral.com.br/noticias/lundin-mining-investe-us-100-milhoes-em-projetos",ceo_n:"Jack Lundin",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50136,nome:"Enel Brasil",setor:"Energia",subsetor:"Distribuição de Energia Elétrica",lista:"grande",fat:"R$ 15B",plantas:3,regiao:"Nordeste",s:4,dor:"Desinvestimento da Enel São Paulo para PPLA; CEO Adriana Waltrick focando Enel Ceará e Goiás; reestruturação operacional das distribuidoras; supply chain de equipamentos de rede elétrica sob pressão pós-desinvestimento",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/enel-brasil",fonte:"https://www.enel.com.br/",ceo_n:"Adriana Waltrick",ceo_li:"linkedin.com/in/adriana-waltrick",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50137,nome:"Rumo Logística",setor:"Logística & Distribuição",subsetor:"Ferroviária de Cargas",lista:"grande",fat:"R$ 13.9B",plantas:35,regiao:"Centro-Oeste",s:3,dor:"R$6.1B em investimentos em 2026; nova ferrovia de 162km em MT até set/2026; 14 mil km de malha e 35 mil vagões; eficiência de manutenção de ativos ferroviários e supply chain de insumos como gargalo estratégico",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/rumo-logistica",fonte:"https://www.cnnbrasil.com.br/infra/rumo-deve-investir-r-6-bi-em-2026-e-preve-estreia-de-ferrovia-ate-setembro/",ceo_n:"Pedro Palma",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50138,nome:"Smurfit Westrock Brasil",setor:"Papel & Celulose",subsetor:"Embalagens de Papelão Ondulado",lista:"grande",fat:"R$ 8B",plantas:20,regiao:"Sudeste",s:4,dor:"Fusão global Smurfit Kappa e WestRock concluída em 2024; integração de 20 plantas no Brasil exige reestruturação de supply chain e operações industriais; synergies pós-M&A ainda em execução",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/smurfitkappa",fonte:"https://embalagemmarca.com.br/2025/01/maiores-fusoes-e-aquisicoes-no-setor-de-embalagens-rem-2024/",ceo_n:"Manuel Alcalá (Brasil)",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50139,nome:"Nestlé Brasil",setor:"Alimentos & Bebidas",subsetor:"Alimentos e Bebidas Industrializados",lista:"grande",fat:"R$ 15B",plantas:20,regiao:"Sudeste",s:3,dor:"Transformação digital da supply chain com R$2B em tecnologia e automação industrial; pressão ESG com meta de zero emissões até 2050; eficiência logística em 20 plantas; crescimento de portfólio de saúde exigindo flexibilidade operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/nestle",fonte:"https://www.nestle.com.br/",ceo_n:"Fabricio Carvalho",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50140,nome:"Syngenta Brasil",setor:"Química & Petroquímica",subsetor:"Agroquímicos e Sementes",lista:"grande",fat:"R$ 8B",plantas:10,regiao:"Centro-Oeste",s:3,dor:"Integração pós-aquisição pela ChemChina/Sinochem; R$1B em expansão de R&D e produção local; pressão por eficiência em supply chain de agroquímicos no Matopiba; competição crescente com genéricos chineses",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/syngenta",fonte:"https://www.syngenta.com.br/",ceo_n:"Alexandre Affonso",ceo_li:"",op_n:"",op_c:"Dir. Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50141,nome:"Yara Brasil Fertilizantes",setor:"Química & Petroquímica",subsetor:"Fertilizantes Nitrogenados e Especiais",lista:"grande",fat:"R$ 10B",plantas:12,regiao:"Centro-Oeste",s:3,dor:"Vendas cresceram 30% em 2025 após 3 anos de queda; R$90M em linha YaraVita de alta tecnologia; CEO Marcelo Altieri em expansão de rede de 50 distribuidores até 2028; supply chain de fertilizantes no Matopiba como diferencial competitivo",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/yarabroficial",fonte:"https://www.theagribiz.com/fertilizantes/depois-de-anos-dificeis-vendas-da-yara-no-brasil-voltam-a-crescer/",ceo_n:"Marcelo Altieri",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50142,nome:"Simpar",setor:"Logística & Distribuição",subsetor:"Locação de Veículos e Equipamentos (Movida, Vamos, JSL)",lista:"grande",fat:"R$ 22B",plantas:500,regiao:"Sudeste",s:4,dor:"Fernando Simões em guinada de mais com menos: capex reduzido 40%; R$3.4B em aumento de capital para desalavancagem; integração de Movida, Vamos e JSL exige otimização de operações em 500+ filiais",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/simpar",fonte:"https://www.bloomberglinea.com.br/negocios/simpar-quer-mais-com-menos-em-guinada-apos-injecao-de-capital-diz-ceo/",ceo_n:"Fernando Simões",ceo_li:"",op_n:"",op_c:"COO",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50143,nome:"Vivo / Telefônica Brasil",setor:"Telecomunicações",subsetor:"Operadora de Telecom e Soluções B2B",lista:"grande",fat:"R$ 50B",plantas:8,regiao:"Sudeste",s:3,dor:"Expansão de fibra óptica e 5G; R$10B/ano em infraestrutura; pressão por eficiência de supply chain de equipamentos de rede; transformação para empresa de tecnologia com serviços B2B para indústria",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/vivo",fonte:"https://ri.telefonica.com.br/",ceo_n:"Christian Gebara",ceo_li:"linkedin.com/in/christian-gebara",op_n:"",op_c:"VP Operações de Rede",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50144,nome:"TIM Brasil",setor:"Telecomunicações",subsetor:"Operadora de Telecomunicações",lista:"grande",fat:"R$ 20B",plantas:5,regiao:"Sudeste",s:3,dor:"Expansão do 5G e fibra FTTH; R$4B/ano em capex de rede; integração de Oi Móvel adquirida em 2022 gerando oportunidades de eficiência operacional; supply chain de equipamentos de rede exige otimização",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tim-brasil",fonte:"https://ri.tim.com.br/",ceo_n:"Alberto Griselli",ceo_li:"linkedin.com/in/alberto-griselli",op_n:"",op_c:"VP Operações de Rede",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50145,nome:"Claro Brasil",setor:"Telecomunicações",subsetor:"Operadora de Telecom, TV e Banda Larga",lista:"grande",fat:"R$ 30B",plantas:6,regiao:"Sudeste",s:3,dor:"R$7B em investimentos em rede de fibra e 5G; expansão NET fibra e Claro NET+; integração de sistemas legados complexificando eficiência operacional; pressão por redução de custo de supply chain de equipamentos de rede",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/claro-brasil",fonte:"https://www.claro.com.br/",ceo_n:"José Feitosa",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50146,nome:"Whirlpool Brasil (Multibrás)",setor:"Eletroeletrônico",subsetor:"Eletrodomésticos (Brastemp, Consul, KitchenAid)",lista:"grande",fat:"R$ 8B",plantas:3,regiao:"Sul",s:4,dor:"Reestruturação global da Whirlpool com corte de custos; pressão de importações de eletrodomésticos asiáticos; eficiência industrial e supply chain em 3 plantas no Sul do Brasil como fator crítico de competitividade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/whirlpool",fonte:"https://www.whirlpool.com.br/",ceo_n:"Alexandre Rodrigues (Brasil)",ceo_li:"",op_n:"",op_c:"VP Manufatura",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50147,nome:"Electrolux Brasil",setor:"Eletroeletrônico",subsetor:"Eletrodomésticos e Eletroeletrônicos",lista:"grande",fat:"R$ 7B",plantas:4,regiao:"Sul",s:4,dor:"Reestruturação global com demissões e fechamento de plantas; pressão de competição asiática; R$500M em automação das 4 plantas brasileiras; supply chain de componentes importados como gargalo estratégico",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/electrolux",fonte:"https://www.electrolux.com.br/",ceo_n:"Mario Ramos (Brasil)",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50148,nome:"Samsung Brasil (ZFM)",setor:"Eletroeletrônico",subsetor:"Smartphones, TVs e Eletrodomésticos",lista:"grande",fat:"R$ 12B",plantas:3,regiao:"Norte",s:3,dor:"Pressão crescente de marcas chinesas no mercado de TVs e smartphones; R$2B em modernização da Zona Franca de Manaus; eficiência industrial e supply chain de componentes eletrônicos importados como fator crítico de competitividade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/samsung-brasil",fonte:"https://www.samsung.com/br/",ceo_n:"Sergio Bastos",ceo_li:"",op_n:"",op_c:"VP Industrial Manaus",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50149,nome:"PepsiCo Brasil",setor:"Alimentos & Bebidas",subsetor:"Bebidas e Snacks (Pepsi, Lays, Quaker)",lista:"grande",fat:"R$ 10B",plantas:12,regiao:"Sudeste",s:3,dor:"R$2B em expansão de plantas de snacks e bebidas energéticas no Brasil; crescimento de 20% em bebidas premium; eficiência industrial em 12 plantas e supply chain de ingredientes e embalagens como prioridade estratégica",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/pepsico",fonte:"https://www.pepsico.com.br/",ceo_n:"Tiago Gurman",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50150,nome:"Heineken Brasil",setor:"Alimentos & Bebidas",subsetor:"Cervejas e Bebidas",lista:"grande",fat:"R$ 12B",plantas:8,regiao:"Sudeste",s:3,dor:"Nova cervejaria em Passos-MG (R$600M) ampliando pressão competitiva; R$2B em modernização de 8 plantas; CEO Mauricio Giamellaro acelerando portfólio premium; supply chain de malte, embalagens e distribuição como alavanca de eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/heineken-brasil",fonte:"https://www.heinekenbrasil.com.br/",ceo_n:"Mauricio Giamellaro",ceo_li:"linkedin.com/in/mauricio-giamellaro",op_n:"",op_c:"VP Supply Chain",op_li:"",sc_n:"Ana Claudia Castro",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50151,nome:"Vulcabras S.A.",setor:"Calçados & Couro",subsetor:"Calçados Esportivos (Mizuno, Olympikus, Under Armour BR)",lista:"midmarket",fat:"R$ 3.5B",plantas:4,regiao:"Sul",s:3,dor:"Crescimento de 25% em 2025; expansão para EUA com Olympikus; R$300M em modernização industrial; CEO Pedro Bartelle em transformação digital; supply chain de componentes esportivos e borracha como foco de eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/vulcabras",fonte:"https://ri.vulcabras.com.br/",ceo_n:"Pedro Bartelle",ceo_li:"linkedin.com/in/pedro-bartelle",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50152,nome:"Intelbras",setor:"Eletroeletrônico",subsetor:"Segurança Eletrônica, Redes e Energia Solar",lista:"midmarket",fat:"R$ 2.5B",plantas:3,regiao:"Sul",s:3,dor:"Migração de ERP causou queda de 15% na receita no 1T25; recuperação em andamento; R$150M em P&D e novos centros de distribuição; pressão de câmbio em componentes importados; supply chain de eletrônicos em reestruturação",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/intelbras",fonte:"https://tiinside.com.br/08/05/2025/intelbras-inicia-recuperacao-apos-migracao-estrategica-de-sistema/",ceo_n:"Altair Silvestri",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50153,nome:"Sequoia Logística",setor:"Logística & Distribuição",subsetor:"Logística Expressa e E-Commerce",lista:"midmarket",fat:"R$ 2B",plantas:50,regiao:"Sudeste",s:3,dor:"Crescimento acelerado no e-commerce; pressão de margens com alta competição; transformação tecnológica da plataforma logística; eficiência operacional em 50 hubs e supply chain de last-mile como diferencial competitivo",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/sequoia-logistica",fonte:"https://www.smallcaps.com.br/sequoia-logistica-seql3-principal-companhia-logistica-brasileira-focada-em-tecnologia-e-especializada-em-entregas-expressas-e-solucoes-para-o-e-commerce/",ceo_n:"Marcos Arbaitman",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50154,nome:"Indústrias Romi S.A.",setor:"Automotivo",subsetor:"Máquinas-Ferramenta e Injetoras de Plástico",lista:"midmarket",fat:"R$ 1B",plantas:3,regiao:"Sudeste",s:3,dor:"CEO Luiz Cassiano Rosolen em expansão internacional; demanda crescente de automação industrial; R$100M em novos modelos de máquinas CNC; supply chain de componentes de precisão e aço especial como gargalo",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/industrias-romi",fonte:"https://ri.romi.com.br/",ceo_n:"Luiz Cassiano Rosolen",ceo_li:"linkedin.com/in/luiz-cassiano-rosolen",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50155,nome:"Parker Hannifin Brasil",setor:"Automotivo",subsetor:"Sistemas Hidráulicos, Pneumáticos e Filtração Industrial",lista:"midmarket",fat:"R$ 2B",plantas:5,regiao:"Sudeste",s:3,dor:"Expansão de portfólio em hidráulica para mineração e agronegócio; R$200M em nova planta de filtração em Indaiatuba-SP; eficiência de supply chain de componentes de precisão; transformação digital das 5 plantas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/parker-hannifin",fonte:"https://www.parker.com/br/pt/home.html",ceo_n:"Edson Pereira",ceo_li:"",op_n:"",op_c:"VP Industrial Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50156,nome:"Gates Brasil",setor:"Automotivo",subsetor:"Correias, Mangueiras e Sistemas de Transmissão",lista:"midmarket",fat:"R$ 1B",plantas:2,regiao:"Sul",s:3,dor:"Transição para VEs afetando demanda de correias de distribuição; R$150M em diversificação para mercados industriais; supply chain de borracha e materiais compósitos sob pressão de câmbio; eficiência industrial nas 2 plantas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/gates-corporation",fonte:"https://www.gates.com/br/pt-br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Manufatura Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50157,nome:"Nakata Automotive",setor:"Automotivo",subsetor:"Autopeças de Reposição (Amortecedores, Suspensão)",lista:"midmarket",fat:"R$ 1.2B",plantas:2,regiao:"Sudeste",s:3,dor:"Crescimento de 18% no aftermarket em 2025; R$80M em automação industrial; pressão de importações asiáticas no mercado de peças de reposição; supply chain e eficiência logística para distribuidores em todo Brasil",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/nakata-automotive",fonte:"https://www.nakata.ind.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50158,nome:"Positivo Tecnologia",setor:"Eletroeletrônico",subsetor:"Computadores, Tablets e Soluções Educacionais",lista:"midmarket",fat:"R$ 3B",plantas:2,regiao:"Sul",s:3,dor:"Expansão para mercado corporativo e governo após crescimento de 30% em soluções educacionais; pressão de câmbio em componentes eletrônicos; supply chain de semicondutores e displays como vulnerabilidade estratégica",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/positivo-tecnologia",fonte:"https://ri.positivotecnologia.com.br/",ceo_n:"Hélio Rotenberg",ceo_li:"linkedin.com/in/helio-rotenberg",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50159,nome:"Oncoclínicas do Brasil",setor:"Saúde",subsetor:"Oncologia e Medicina de Alta Complexidade",lista:"midmarket",fat:"R$ 4B",plantas:80,regiao:"Sudeste",s:4,dor:"CEO Bruno Ferrari em reestruturação após dívida e queima de caixa; integração de 80 clínicas com supply chain de medicamentos oncológicos de alto custo; novo modelo de compras centralizadas para medicamentos biológicos",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/oncoclinicas",fonte:"https://ri.oncoclinicas.com.br/",ceo_n:"Bruno Ferrari",ceo_li:"linkedin.com/in/bruno-ferrari-oncoclinicas",op_n:"",op_c:"COO",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain Farmacêutico",sc_li:""},
-    {id:50160,nome:"Fleury S.A.",setor:"Saúde",subsetor:"Diagnósticos Médicos e Medicina Preventiva",lista:"midmarket",fat:"R$ 4.5B",plantas:250,regiao:"Sudeste",s:3,dor:"Integração de 250 unidades com supply chain centralizado de reagentes e equipamentos diagnósticos; transformação digital com IA em diagnósticos; expansão para novos estados; eficiência de procurement como alavanca de margem",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/fleury-medicina-e-saude",fonte:"https://ri.fleury.com.br/",ceo_n:"Jeane Tsutsui",ceo_li:"linkedin.com/in/jeane-tsutsui",op_n:"",op_c:"COO",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50161,nome:"Heringer Fertilizantes",setor:"Química & Petroquímica",subsetor:"Fertilizantes Misturados (NPK)",lista:"midmarket",fat:"R$ 4B",plantas:18,regiao:"Centro-Oeste",s:3,dor:"Alta volatilidade de margens com matéria-prima importada; expansão de 18 blendadoras no Matopiba; pressão por eficiência logística para entrega em campo; transformação digital de supply chain de fertilizantes como diferencial",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/heringer",fonte:"https://www.heringer.com.br/",ceo_n:"Dalton Heringer",ceo_li:"",op_n:"",op_c:"Dir. Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50162,nome:"ICL Brasil",setor:"Química & Petroquímica",subsetor:"Fertilizantes Fosfatados e Potássicos",lista:"midmarket",fat:"R$ 2B",plantas:5,regiao:"Sudeste",s:3,dor:"Expansão de capacidade de fosfatados em Cajati-SP; pressão ESG por mineração responsável; supply chain de fertilizantes especiais para mercado de alta precisão (fertirrigação) em crescimento",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/icl-group",fonte:"https://www.icl-group.com/",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50163,nome:"Agrale S.A.",setor:"Automotivo",subsetor:"Veículos Comerciais Leves e Implementos Agrícolas",lista:"midmarket",fat:"R$ 1.5B",plantas:3,regiao:"Sul",s:3,dor:"R$150M em nova linha de caminhões semileves elétricos e híbridos; expansão para África e América Latina; modernização industrial e supply chain de componentes para veículos especiais",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/agrale",fonte:"https://www.agrale.com.br/",ceo_n:"Márcio Martini",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50164,nome:"Schneider Electric Brasil",setor:"Eletroeletrônico",subsetor:"Automação Industrial e Gestão de Energia",lista:"midmarket",fat:"R$ 4B",plantas:4,regiao:"Sudeste",s:3,dor:"Boom de datacenters e renováveis impulsionando demanda; R$500M em expansão de transformadores e painéis elétricos; pressão de supply chain de componentes eletrônicos importados; 4 plantas industriais exigem eficiência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/schneider-electric",fonte:"https://www.se.com/br/pt/",ceo_n:"Carlos Barros",ceo_li:"",op_n:"",op_c:"VP Industrial Brasil",op_li:"",sc_n:"",sc_c:"VP Supply Chain Brasil",sc_li:""},
-    {id:50165,nome:"ABB Brasil",setor:"Eletroeletrônico",subsetor:"Automação, Robótica e Eletrificação Industrial",lista:"midmarket",fat:"R$ 3B",plantas:4,regiao:"Sudeste",s:3,dor:"Crescimento de 25% em robótica e automação para mineração e agronegócio; R$300M em produtos de mobilidade elétrica; pressão por localização de componentes; 4 plantas industriais com demanda crescente de capacidade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/abb",fonte:"https://new.abb.com/br",ceo_n:"André Carrara",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50166,nome:"Siemens Brasil",setor:"Eletroeletrônico",subsetor:"Automação, Digitalização e Infraestrutura de Energia",lista:"midmarket",fat:"R$ 4.5B",plantas:3,regiao:"Sudeste",s:3,dor:"Crescimento de demanda em transmissão de energia e automação de fábricas; R$400M em hub de manufatura de transformadores em Jundiaí-SP; pressão de supply chain global de semicondutores e componentes de potência",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/siemens",fonte:"https://new.siemens.com/br/pt.html",ceo_n:"Fábio Souza",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50167,nome:"3M Brasil",setor:"Química & Petroquímica",subsetor:"Produtos Industriais, Saúde e Segurança",lista:"midmarket",fat:"R$ 3B",plantas:4,regiao:"Sudeste",s:3,dor:"Reestruturação global da 3M com spin-off da divisão de saúde (Solventum); R$200M em modernização das 4 plantas brasileiras; supply chain de materiais especiais e eficiência de produção como prioridades",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/3m",fonte:"https://www.3m.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Manufatura Brasil",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50168,nome:"Henkel Brasil",setor:"Química & Petroquímica",subsetor:"Adesivos Industriais, Cosméticos e Detergentes",lista:"midmarket",fat:"R$ 2B",plantas:5,regiao:"Sudeste",s:3,dor:"Reestruturação global com fusão das divisões Consumer e Adhesive; modelo industrial unificado em implementação; eficiência de 5 plantas industriais e supply chain de resinas e surfactantes como foco operacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/henkel",fonte:"https://www.henkel.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50169,nome:"RHI Magnesita Brasil",setor:"Química & Petroquímica",subsetor:"Refratários para Siderurgia e Mineração",lista:"midmarket",fat:"R$ 2.5B",plantas:6,regiao:"Sudeste",s:3,dor:"Maior fornecedor de refratários para a siderurgia brasileira; R$200M em expansão de 6 plantas; crescimento de 15% com expansão da produção de aço; supply chain de magnésia e alumina importadas como gargalo crítico",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/rhi-magnesita",fonte:"https://www.rhimagnesita.com/",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50170,nome:"Solvay Brasil",setor:"Química & Petroquímica",subsetor:"Especialidades Químicas e Materiais Avançados",lista:"midmarket",fat:"R$ 2B",plantas:3,regiao:"Sudeste",s:3,dor:"Spin-off global criando Solvay e Syensqo; reestruturação pós-cisão impactando operações no Brasil; R$150M em nova linha de produtos para mineração e agronegócio; eficiência de supply chain como prioridade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/solvay",fonte:"https://www.solvay.com/en/country/brazil",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50171,nome:"Embraco / Nidec Brasil",setor:"Eletroeletrônico",subsetor:"Compressores Herméticos para Refrigeração",lista:"midmarket",fat:"R$ 2.5B",plantas:2,regiao:"Sul",s:4,dor:"Integração pós-aquisição pela Nidec (Japão); reestruturação para compressores de CO2 nova geração; R$300M em modernização das 2 plantas em Joinville-SC; supply chain de componentes de precisão como fator crítico",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/embraco",fonte:"https://www.embraco.com/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50172,nome:"DHL Supply Chain Brasil",setor:"Logística & Distribuição",subsetor:"Logística Contratada 3PL e 4PL",lista:"midmarket",fat:"R$ 3B",plantas:60,regiao:"Sudeste",s:3,dor:"Expansão de operações dedicadas para pharma, e-commerce e automotivo; R$400M em novos armazéns automatizados; eficiência de operações em 60 centros de distribuição; automação de supply chain como diferencial competitivo",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/dhl-supply-chain",fonte:"https://www.dhl.com/br-pt/home/logistics/supply-chain.html",ceo_n:"Rogério Yamashita",ceo_li:"",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50173,nome:"Kuehne+Nagel Brasil",setor:"Logística & Distribuição",subsetor:"Logística Internacional e Gestão de Supply Chain",lista:"midmarket",fat:"R$ 4B",plantas:30,regiao:"Sudeste",s:3,dor:"Crescimento de 20% em logística farmacêutica e de eletrônicos; R$200M em novos armazéns climatizados; pressão por digitalização de supply chain; eficiência operacional em 30 bases como fator de competitividade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/kuehne-nagel",fonte:"https://home.kuehne-nagel.com/br/brasil",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Operações Brasil",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50174,nome:"Movecta (ex-Localfrio)",setor:"Logística & Distribuição",subsetor:"Logística de Temperatura Controlada",lista:"midmarket",fat:"R$ 800M",plantas:22,regiao:"Sudeste",s:3,dor:"Rebranding com diversificação além de frios; R$100M em transformação digital; expansão para saúde, químicos e alimentos; eficiência operacional em 22 unidades de armazenagem climatizada como proposta de valor",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/movecta",fonte:"https://abolbrasil.org.br/noticias/noticias-do-setor/localfrio-vai-investir-r-25-milhoes-em-transformacao-digital",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50175,nome:"AGV Logística",setor:"Logística & Distribuição",subsetor:"Operador Logístico de Carga Geral e Químicos",lista:"midmarket",fat:"R$ 1B",plantas:15,regiao:"Sudeste",s:3,dor:"Crescimento de 30% em logística química e farmacêutica; R$120M em novos armazéns no corredor São Paulo-Santos; digitalização de supply chain e rastreabilidade de cargas perigosas como diferencial competitivo",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/agv-logistica",fonte:"https://www.agvlogistica.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50176,nome:"Algar Telecom",setor:"Telecomunicações",subsetor:"Operadora Regional de Telecom e Soluções B2B",lista:"midmarket",fat:"R$ 2B",plantas:5,regiao:"Sudeste",s:3,dor:"Expansão de fibra e 5G no Triângulo Mineiro e MS; R$400M em modernização de rede; CEO Luiz Eduardo Falco em transformação digital; supply chain de equipamentos de telecom e integração com soluções B2B para indústria",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/algar-telecom",fonte:"https://www.algartelecom.com.br/",ceo_n:"Luiz Eduardo Falco",ceo_li:"linkedin.com/in/luiz-eduardo-falco",op_n:"",op_c:"VP Operações de Rede",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50177,nome:"Oi S.A.",setor:"Telecomunicações",subsetor:"Infraestrutura de Fibra e Soluções Corporativas",lista:"midmarket",fat:"R$ 5B",plantas:4,regiao:"Sudeste",s:5,dor:"Recuperação judicial com dívida de R$65B; venda da Oi Móvel concluída; transformação em empresa de infraestrutura de fibra (V.tal) e B2B; CEO Rodrigo Abreu reestruturando operações; supply chain de equipamentos de rede em revisão urgente",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/oisa",fonte:"https://ri.oi.com.br/",ceo_n:"Rodrigo Abreu",ceo_li:"linkedin.com/in/rodrigo-abreu-oi",op_n:"",op_c:"COO",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50178,nome:"Hering / Grupo PEF Moda",setor:"Têxtil & Confecção",subsetor:"Moda Casual (Hering, Forum, Dzarm)",lista:"midmarket",fat:"R$ 2B",plantas:4,regiao:"Sul",s:3,dor:"Integração pós-aquisição pela SOMA (agora parte do grupo Arezzo/SOMA); R$200M em modernização de 4 plantas têxteis; pressão de fast fashion asiático; supply chain de algodão e sintéticos exige eficiência industrial",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/hering",fonte:"https://ri.hering.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50179,nome:"Santista Têxtil / Tavex",setor:"Têxtil & Confecção",subsetor:"Tecidos de Algodão e Denim",lista:"midmarket",fat:"R$ 2B",plantas:5,regiao:"Nordeste",s:3,dor:"Pressão de tecidos chineses importados no mercado de denim; R$150M em modernização de 5 fábricas; transformação para tecidos técnicos e sustentáveis; supply chain de algodão e corantes como fator de sobrevivência competitiva",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/tavex",fonte:"https://www.tavex.com.br/",ceo_n:"Gilberto Stocche",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50180,nome:"Boa Safra Sementes",setor:"Agronegócio",subsetor:"Sementes de Soja e Milho",lista:"midmarket",fat:"R$ 1.5B",plantas:5,regiao:"Centro-Oeste",s:3,dor:"Expansão agressiva com crescimento de 40% em 2025; novas unidades beneficiadoras no MATOPIBA; CEO Marino Colpo em expansão de portfólio genético; supply chain de sementes certificadas e distribuição logística como gargalo estratégico",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/boa-safra-sementes",fonte:"https://ri.boasafra.com.br/",ceo_n:"Marino Colpo",ceo_li:"linkedin.com/in/marino-colpo",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50181,nome:"Algar Agro",setor:"Agronegócio",subsetor:"Trading de Grãos e Soja",lista:"midmarket",fat:"R$ 3B",plantas:5,regiao:"Sudeste",s:3,dor:"Crescimento de 25% em 2025 com expansão para novos mercados exportadores; R$200M em armazéns no Triângulo Mineiro; pressão logística de escoamento; supply chain de grãos e eficiência de armazenagem como diferenciais",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/algar-agro",fonte:"https://www.algar.com.br/agro",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50182,nome:"Ourofino Saúde Animal",setor:"Farmacêutico & MedTech",subsetor:"Medicamentos Veterinários e Genética Animal",lista:"midmarket",fat:"R$ 1.5B",plantas:2,regiao:"Sudeste",s:3,dor:"Expansão de portfólio em parasitidas e vacinas para bovinos; R$150M em nova planta farmacêutica veterinária em Cravinhos-SP; crescimento de 20% nas exportações para América Latina e África; supply chain de princípios ativos especializados",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/ourofino",fonte:"https://ri.ourofino.com/",ceo_n:"Kleber Cesar Silveira Gomes",ceo_li:"linkedin.com/in/kleber-cesar-silveira-gomes",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50183,nome:"Phibro Brasil (CIBRA)",setor:"Química & Petroquímica",subsetor:"Fertilizantes Especiais e Nutrição Vegetal",lista:"midmarket",fat:"R$ 1.2B",plantas:4,regiao:"Centro-Oeste",s:3,dor:"Crescimento de 35% em fertirrigação e nutrição de precisão para soja e cana; R$80M em nova blendadora no Mato Grosso; expansão digital da plataforma agronômica; supply chain de micronutrientes importados como gargalo",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/phibro-animal-health",fonte:"https://www.cibra.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50184,nome:"HB Fuller Brasil",setor:"Química & Petroquímica",subsetor:"Adesivos Industriais e de Embalagens",lista:"midmarket",fat:"R$ 1B",plantas:3,regiao:"Sudeste",s:3,dor:"Crescimento de 20% em adesivos para embalagens de alimentos e eletrônicos; R$100M em nova planta de hot melt em Sorocaba-SP; pressão de câmbio em resinas importadas; supply chain de matérias-primas e eficiência industrial",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/hb-fuller",fonte:"https://www.hbfuller.com/en/regions/latin-america/brazil",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Industrial Brasil",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50185,nome:"Owens Corning Brasil",setor:"Cimento & Construção",subsetor:"Isolamento, Lã de Vidro e Composites",lista:"midmarket",fat:"R$ 1B",plantas:3,regiao:"Sudeste",s:3,dor:"Boom de construção civil e demanda por eficiência energética impulsionando vendas; R$120M em expansão de capacidade de lã de vidro; pressão por supply chain de fibra de vidro importada; digitalização industrial como prioridade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/owens-corning",fonte:"https://www.owenscorning.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Manufatura",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50186,nome:"Saint-Gobain Brasil",setor:"Cimento & Construção",subsetor:"Gesso, Vidro e Soluções de Construção",lista:"midmarket",fat:"R$ 4B",plantas:20,regiao:"Sudeste",s:3,dor:"R$500M em expansão de 20 plantas no Brasil; crescimento de 15% em gesso e drywall com boom imobiliário; transformação para soluções sustentáveis de construção; supply chain de matérias-primas minerais e eficiência logística nacional",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/saint-gobain",fonte:"https://www.saint-gobain.com.br/",ceo_n:"Carlos Siqueira",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50187,nome:"Brado Logística",setor:"Logística & Distribuição",subsetor:"Logística Ferroviária de Contêineres",lista:"midmarket",fat:"R$ 790M",plantas:15,regiao:"Centro-Oeste",s:3,dor:"Crescimento de 16% em 2025 para R$790M; expansão de terminais ferroviários no corredor Centro-Oeste; integração com Rumo para novos contratos industriais; supply chain de container e intermodalidade ferroviária como diferencial",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/brado-logistica",fonte:"https://eaemaq.com.br/noticias-do-mercado/brado-logistica-cresce-16-em-receita-e-alcanca-r-790-milhoes-em-2025/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50188,nome:"Nutriara Alimentos",setor:"Alimentos & Bebidas",subsetor:"Rações e Nutrição Animal",lista:"midmarket",fat:"R$ 1.5B",plantas:4,regiao:"Sul",s:3,dor:"Crescimento de 20% em rações premium para pets e aves; R$80M em expansão de 2 novas linhas de produção; supply chain de milho, soja e vitaminas em alta de preços; eficiência industrial como prioridade para margens",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/nutriara",fonte:"https://www.nutriara.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50189,nome:"Grupo Trombini",setor:"Papel & Celulose",subsetor:"Embalagens de Papelão e Papel Kraft",lista:"midmarket",fat:"R$ 2B",plantas:8,regiao:"Sul",s:3,dor:"Novo ciclo de expansão em embalagens industriais para agronegócio e alimentos; R$150M em modernização de 8 plantas; pressão por certificações FSC; supply chain de aparas e papel reciclado como matéria-prima crítica",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/trombini",fonte:"https://www.trombini.com.br/",ceo_n:"Renato Trombini",ceo_li:"linkedin.com/in/renato-trombini",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50190,nome:"Elekeiroz S.A.",setor:"Química & Petroquímica",subsetor:"Anidrido Maleico e Química de Petróleo",lista:"midmarket",fat:"R$ 1.5B",plantas:2,regiao:"Sudeste",s:3,dor:"Único produtor nacional de anidrido maleico; expansão de capacidade para resinas de poliéster; R$100M em nova planta em Anápolis-GO; supply chain de matérias-primas petroquímicas e eficiência industrial",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/elekeiroz",fonte:"https://www.elekeiroz.com.br/",ceo_n:"Marcos De Marchi",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50191,nome:"Videolar-Innova",setor:"Química & Petroquímica",subsetor:"Resinas de Poliestireno e Embalagens Plásticas",lista:"midmarket",fat:"R$ 2B",plantas:3,regiao:"Norte",s:4,dor:"Pressão de importações de resinas asiáticas; dívida reestruturada após dificuldades financeiras; R$150M em modernização de 3 plantas na ZFM; supply chain de benzeno e etileno importados como gargalo crítico",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/videolar-innova",fonte:"https://www.videolar-innova.com.br/",ceo_n:"Lirio Albino Parisotto",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50192,nome:"SKF Brasil",setor:"Automotivo",subsetor:"Rolamentos e Soluções para Manutenção Industrial",lista:"midmarket",fat:"R$ 2.5B",plantas:3,regiao:"Sul",s:3,dor:"Crescimento de 20% em rolamentos para eólicas e mineração; R$200M em expansão da planta de Cajamar-SP; transição para manutenção preditiva digital; supply chain de aço especial como fator crítico",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/skf",fonte:"https://www.skf.com/br",ceo_n:"Ricardo Lunas",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50193,nome:"Granol Indústria Comércio e Exportação",setor:"Alimentos & Bebidas",subsetor:"Processamento de Soja e Girassol",lista:"midmarket",fat:"R$ 3B",plantas:5,regiao:"Centro-Oeste",s:3,dor:"R$300M em nova planta de esmagamento de soja em Anápolis-GO; crescimento de 22% em farelo e óleo exportados; supply chain logístico de soja no cerrado como gargalo; eficiência industrial para competir com grandes traders",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/granol",fonte:"https://www.granol.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50194,nome:"Fertipar Fertilizantes",setor:"Química & Petroquímica",subsetor:"Fertilizantes Misturados e Distribuição",lista:"midmarket",fat:"R$ 2B",plantas:10,regiao:"Sul",s:3,dor:"Expansão de 10 centros de blendagem; crescimento de 15% com PAC agro; pressão logística no corredor Paranaguá-MT; supply chain de matérias-primas importadas e eficiência de blendagem como diferenciais",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/fertipar",fonte:"https://www.fertipar.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50195,nome:"Mahindra Brasil",setor:"Automotivo",subsetor:"Veículos Utilitários e Elétricos",lista:"midmarket",fat:"R$ 1B",plantas:2,regiao:"Sudeste",s:3,dor:"Lançamento de linha de VEs no Brasil em 2025; R$200M em nova planta de montagem em Contagem-MG; entrada no segmento de picapes elétricas; supply chain de baterias e componentes eletrônicos como desafio de competitividade",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/mahindra",fonte:"https://www.mahindra.com.br/",ceo_n:"Marcelo Netto",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50196,nome:"Evonik Brasil",setor:"Química & Petroquímica",subsetor:"Especialidades Químicas (Nutrição Animal, Cuidados Pessoais)",lista:"midmarket",fat:"R$ 1.5B",plantas:3,regiao:"Sudeste",s:3,dor:"Reestruturação global da Evonik com foco em especialidades de alto valor; R$100M em nova linha de aminoácidos para nutrição animal; supply chain de matérias-primas petroquímicas e eficiência industrial nas 3 plantas",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/evonik",fonte:"https://corporate.evonik.com/en/company/locations/brazil",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50197,nome:"Valgroup (Embalagens Plásticas)",setor:"Cimento & Construção",subsetor:"Embalagens Plásticas Industriais",lista:"midmarket",fat:"R$ 3B",plantas:15,regiao:"Sudeste",s:3,dor:"Líder em embalagens plásticas industriais para agronegócio; R$250M em novas linhas de big bags e sacos de polipropileno; crescimento de 18% com demanda agro; supply chain de resinas e eficiência das 15 plantas como prioridades",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/valgroup",fonte:"https://www.valgroup.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"VP Industrial",op_li:"",sc_n:"",sc_c:"VP Supply Chain",sc_li:""},
-    {id:50198,nome:"Copercampos Cooperativa Agroindustrial",setor:"Agronegócio",subsetor:"Grãos, Sementes e Insumos Agrícolas",lista:"midmarket",fat:"R$ 2B",plantas:4,regiao:"Sul",s:3,dor:"Expansão para novos municípios de SC e RS; R$80M em novos armazéns e unidade de beneficiamento de sementes; eficiência operacional e supply chain de insumos para competir com cooperativas maiores",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/copercampos",fonte:"https://www.copercampos.com.br/",ceo_n:"",ceo_li:"",op_n:"",op_c:"Dir. Industrial",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""},
-    {id:50199,nome:"Localiza Hertz",setor:"Logística & Distribuição",subsetor:"Locação e Gestão de Frotas de Veículos",lista:"midmarket",fat:"R$ 15B",plantas:700,regiao:"Sudeste",s:4,dor:"Fusão Localiza-Unidas forçou desinvestimentos pelo CADE; CEO Bruno Lasansky implementando novo modelo operacional; transição para VEs gerando pressão em supply chain de frota; eficiência de manutenção em 700 agências",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/localiza",fonte:"https://ri.localiza.com/",ceo_n:"Bruno Lasansky",ceo_li:"linkedin.com/in/bruno-lasansky",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"VP Supply Chain e Frota",sc_li:""},
-    {id:50200,nome:"Totvs S.A.",setor:"Eletroeletrônico",subsetor:"Tecnologia e Software Industrial (ERP, MES, WMS)",lista:"midmarket",fat:"R$ 5B",plantas:3,regiao:"Sudeste",s:3,dor:"Expansão de plataforma de gestão industrial com módulos MES e WMS; crescimento de 25% em clientes industriais; R$300M em M&A de startups de automação; parceiro potencial para transformação digital industrial da carteira Magellan",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/totvs",fonte:"https://ri.totvs.com/",ceo_n:"Dennis Herszkowicz",ceo_li:"linkedin.com/in/dennis-herszkowicz",op_n:"",op_c:"VP Operações",op_li:"",sc_n:"",sc_c:"Dir. Supply Chain",sc_li:""}
-  
+    {id:40020,nome:"Frísia Cooperativa Agroindustrial",setor:"Agronegócio",subsetor:"Cooperativa de Soja, Trigo e Leite",lista:"grande",fat:"R$ 6B",plantas:5,regiao:"Sul",s:3,dor:"Faturamento cresceu de R$ 5,79B para R$ 5,99B em 2025; operação diversificada em soja, trigo, leite e carnes em Ponta Grossa-PR; pressão por eficiência industrial e logística para manter competitividade frente a cooperativas maiores como Coamo (R$ 28B) e Lar (R$ 23B)",st:"nao_iniciado",resp:"Equipe Magellan",li:"linkedin.com/company/frisia-cooperativa-agroindustrial",fonte:"https://dcmais.com.br/campos-gerais/frisia-aumenta-faturamento-e-encerra-2025-com-quase-r-6-bi/",ceo_n:"",ceo_li:"",op_n:"",op_c:"",op_li:"",sc_n:"",sc_c:"",sc_li:""}
   ],
   monitoradas: [
     { empresa:"Plascar Participações Industriais", score:5, setor:"Autopeças", ceo:"Paulo Antonio Silvestri" },
@@ -914,45 +514,6 @@ const DATA = {
     { empresa:"Hypera Pharma", score:4, setor:"Farmacêutico", ceo:"Breno Oliveira Galvão" },
     { empresa:"Bardella S.A. Indústrias Mecânicas", score:4, setor:"Equipamentos Industriais", ceo:"—" }
   ],
-  config: {
-    scores: {
-      5: "Recuperação judicial em andamento, demissões em massa (>500 pessoas), dívida crítica acima de R$5B, fusão recente integrando duas operações grandes, perda severa de receita (>20% YoY)",
-      4: "Queda forte de resultado (lucro negativo ou EBITDA caindo >15%), troca recente de CEO ou diretoria-chave (menos de 12 meses), M&A concluída nos últimos 6 meses precisando de integração, expansão acelerada com pressão de eficiência",
-      3: "Transformação digital / Indústria 4.0 em andamento, expansão de capacidade com nova planta, pressão competitiva relevante (perda de market share), pressão ESG com impacto operacional",
-      2: "Empresa em crescimento moderado, projetos de melhoria contínua em curso, interesse em eficiência mas sem urgência crítica",
-      1: "Empresa saudável sem gatilho claro de dor operacional, interesse estratégico de longo prazo"
-    },
-    setores_foco: [],
-    regioes_foco: [],
-    listas_foco: [],
-    obs_semana: "",
-    listas: {
-      enterprise: {
-        fat_min: "R$ 15B",
-        plantas_min: 3,
-        funcionarios_min: "5000",
-        setores: ["Automotivo","Alimentos","Bebidas","Metalurgia","Mineração","Químico","Papel e Celulose","Energia","Aeronáutica","Farmacêutico"]
-      },
-      grande: {
-        fat_min: "R$ 3B",
-        plantas_min: 2,
-        funcionarios_min: "1000",
-        setores: ["Automotivo","Alimentos","Bebidas","Metalurgia","Mineração","Químico","Papel e Celulose","Energia","Cimento","Construção","Farmacêutico"]
-      },
-      midmarket: {
-        fat_min: "R$ 500M",
-        plantas_min: 2,
-        funcionarios_min: "200",
-        setores: ["Agronegócio","Logística","Distribuição","Têxtil","Calçados","Cosméticos","Saúde","Telecomunicações","Varejo","Embalagens","Eletroeletrônico","Cerâmica","Saneamento"]
-      },
-      emergente: {
-        fat_min: "R$ 100M",
-        plantas_min: 1,
-        funcionarios_min: "",
-        setores: ["Agronegócio","Logística","Têxtil","Calçados","Cosméticos","Saúde","Embalagens","Eletroeletrônico","Cerâmica","Varejo"]
-      }
-    }
-  }
 };
 
 // ═══════════════════════════════════════════════ HELPERS ═══════════════════
@@ -982,36 +543,13 @@ function renderAprovacao() {
   }
 
   const scoreLabels = {5:'Crítica',4:'Alta',3:'Média',2:'Moderada',1:'Baixa'};
-  // Render Foco da Semana summary block
-  const focoEl = document.getElementById('aprov-foco');
-  const focoContent = document.getElementById('aprov-foco-content');
-  if (focoEl && focoContent) {
-    const cfg = DATA.config;
-    const parts = [];
-    const listaLabels = {enterprise:'Enterprise',grande:'Grande',midmarket:'Midmarket',emergente:'Emergente'};
-    const listasAtivas = (cfg.listas_foco||[]).map(v => listaLabels[v]||v);
-    parts.push('<div><strong style="color:var(--text)">Listas:</strong> ' + (listasAtivas.length > 0 ? listasAtivas.join(', ') : 'Todas') + '</div>');
-    if (cfg.regioes_foco && cfg.regioes_foco.length > 0)
-      parts.push('<div><strong style="color:var(--text)">Regiões:</strong> ' + cfg.regioes_foco.join(', ') + '</div>');
-    else
-      parts.push('<div><strong style="color:var(--text)">Regiões:</strong> Todas</div>');
-    if (cfg.setores_foco && cfg.setores_foco.length > 0)
-      parts.push('<div><strong style="color:var(--text)">Setores:</strong> ' + cfg.setores_foco.join(', ') + '</div>');
-    else
-      parts.push('<div><strong style="color:var(--text)">Setores:</strong> Todos</div>');
-    if (cfg.obs_semana)
-      parts.push('<div style="width:100%"><strong style="color:var(--text)">Obs:</strong> ' + cfg.obs_semana + '</div>');
-    focoContent.innerHTML = parts.join('');
-    focoEl.style.display = total > 0 ? 'block' : 'none';
-  }
-
   document.getElementById('aprov-list').innerHTML = DATA.pendentes.map(p => `
     <div class="lead-card" id="lcard-${p.id}">
       <div class="lead-card-header">
         <div>
           <div class="lead-card-nome">${p.nome}</div>
           <div class="lead-card-meta">
-            <span class="badge ${listaBadge(getListaAuto(p))}" style="margin-right:6px">${listaLabel(getListaAuto(p))}</span>
+            <span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}" style="margin-right:6px">${p.lista==='grande'?'Grande':'Midmarket'}</span>
             ${p.setor} · ${p.subsetor||''} · ${p.regiao} · ${p.fat||'—'} · ${p.plantas||'?'} plantas
           </div>
         </div>
@@ -1115,182 +653,6 @@ function salvarDashboard() {
 }
 
 
-
-// ═══════════════════════════════════════════════ CONFIGURAÇÕES ════════════
-
-function toggleListaDef(lista) {
-  const body = document.getElementById('body-' + lista);
-  const toggle = document.getElementById('toggle-' + lista);
-  const collapsed = body.classList.toggle('collapsed');
-  toggle.textContent = collapsed ? '▶' : '▼';
-}
-
-function toggleListaSector(lista, setor) {
-  if (!DATA.config.listas) DATA.config.listas = { grande: { setores: [] }, midmarket: { setores: [] } };
-  const arr = DATA.config.listas[lista].setores;
-  const idx = arr.indexOf(setor);
-  if (idx >= 0) arr.splice(idx, 1);
-  else arr.push(setor);
-  const safe = setor.replace(/[ áãéêçíóôú]/g, c => ({' ':'_','á':'a','ã':'a','é':'e','ê':'e','ç':'c','í':'i','ó':'o','ô':'o','ú':'u'}[c]||c));
-  const el = document.getElementById(`lsc-${lista}-${safe}`);
-  if (el) el.className = 'lista-sector-chip' + (arr.includes(setor) ? (lista==='grande'?' selected-g':' selected-m') : '');
-}
-
-function renderConfiguracoes() {
-  const cfg = DATA.config;
-  // Score descriptions
-  [1,2,3,4,5].forEach(n => {
-    const el = document.getElementById('cfg-score-' + n);
-    if (el) el.value = cfg.scores[n] || '';
-  });
-  // Obs
-  const obsEl = document.getElementById('cfg-obs');
-  if (obsEl) obsEl.value = cfg.obs_semana || '';
-  // Lista foco (multi-select)
-  const lf = cfg.listas_foco || [];
-  document.getElementById('lc-all').classList.toggle('selected', lf.length === 0);
-  ['enterprise','grande','midmarket','emergente'].forEach(v => {
-    const el = document.getElementById('lc-' + v);
-    if (el) el.classList.toggle('selected', lf.includes(v));
-  });
-  // Regioes
-  ['Sudeste','Sul','Nordeste','Centro-Oeste','Norte'].forEach(r => {
-    const el = document.getElementById('rc-' + r);
-    if (el) el.classList.toggle('selected', (cfg.regioes_foco||[]).includes(r));
-  });
-  // Setores foco semana
-  document.querySelectorAll('.sector-chip').forEach(chip => {
-    const setor = chip.textContent.trim();
-    chip.classList.toggle('selected', (cfg.setores_foco||[]).includes(setor));
-  });
-  // Listas definition - 4 tiers
-  const tierColors = { enterprise:'selected-e', grande:'selected-g', midmarket:'selected-m', emergente:'selected-em' };
-  const tierPfx    = { enterprise:'e', grande:'g', midmarket:'m', emergente:'em' };
-  if (cfg.listas) {
-    ['enterprise','grande','midmarket','emergente'].forEach(lista => {
-      const l = cfg.listas[lista];
-      if (!l) return;
-      const pfx = tierPfx[lista];
-      const fatEl    = document.getElementById(`cfg-${pfx}-fat`);
-      const plantasEl= document.getElementById(`cfg-${pfx}-plantas`);
-      const funcEl   = document.getElementById(`cfg-${pfx}-func`);
-      if (fatEl) fatEl.value = l.fat_min || '';
-      if (plantasEl) plantasEl.value = l.plantas_min || '';
-      if (funcEl) funcEl.value = l.funcionarios_min || '';
-      (l.setores || []).forEach(setor => {
-        const safe = setor.replace(/[ áãéêçíóôú]/g, c => ({' ':'_','á':'a','ã':'a','é':'e','ê':'e','ç':'c','í':'i','ó':'o','ô':'o','ú':'u'}[c]||c));
-        const el = document.getElementById(`lsc-${lista}-${safe}`);
-        if (el) el.className = 'lista-sector-chip ' + (tierColors[lista] || '');
-      });
-    });
-  }
-}
-
-function toggleSector(setor) {
-  if (!DATA.config.setores_foco) DATA.config.setores_foco = [];
-  const idx = DATA.config.setores_foco.indexOf(setor);
-  if (idx >= 0) DATA.config.setores_foco.splice(idx, 1);
-  else DATA.config.setores_foco.push(setor);
-  // Update chip visual
-  const id = 'sc-' + setor.replace(/[ áãéêçíóôú]/g, c => ({' ':'_','á':'a','ã':'a','é':'e','ê':'e','ç':'c','í':'i','ó':'o','ô':'o','ú':'u'}[c]||c));
-  const el = document.getElementById(id);
-  if (el) el.classList.toggle('selected', DATA.config.setores_foco.includes(setor));
-}
-
-function toggleRegiao(regiao) {
-  if (!DATA.config.regioes_foco) DATA.config.regioes_foco = [];
-  const idx = DATA.config.regioes_foco.indexOf(regiao);
-  if (idx >= 0) DATA.config.regioes_foco.splice(idx, 1);
-  else DATA.config.regioes_foco.push(regiao);
-  const el = document.getElementById('rc-' + regiao);
-  if (el) el.classList.toggle('selected', DATA.config.regioes_foco.includes(regiao));
-}
-
-function toggleListaFoco(val) {
-  if (!DATA.config.listas_foco) DATA.config.listas_foco = [];
-  const arr = DATA.config.listas_foco;
-  const idx = arr.indexOf(val);
-  if (idx >= 0) arr.splice(idx, 1); else arr.push(val);
-  // Update visuals
-  document.getElementById('lc-all').classList.toggle('selected', arr.length === 0);
-  ['enterprise','grande','midmarket','emergente'].forEach(v => {
-    const el = document.getElementById('lc-' + v);
-    if (el) el.classList.toggle('selected', arr.includes(v));
-  });
-}
-
-function clearListasFoco() {
-  DATA.config.listas_foco = [];
-  document.getElementById('lc-all').classList.add('selected');
-  ['enterprise','grande','midmarket','emergente'].forEach(v => {
-    const el = document.getElementById('lc-' + v);
-    if (el) el.classList.remove('selected');
-  });
-}
-
-function salvarConfiguracoes() {
-  // Read score descriptions from textareas
-  [1,2,3,4,5].forEach(n => {
-    const el = document.getElementById('cfg-score-' + n);
-    if (el) DATA.config.scores[n] = el.value.trim();
-  });
-  // Obs
-  const obsEl = document.getElementById('cfg-obs');
-  if (obsEl) DATA.config.obs_semana = obsEl.value.trim();
-  // Listas definition
-  if (!DATA.config.listas) DATA.config.listas = { grande: { setores: [] }, midmarket: { setores: [] } };
-  ['enterprise','grande','midmarket','emergente'].forEach(lista => {
-    const pfxMap = {enterprise:'e',grande:'g',midmarket:'m',emergente:'em'};
-    const prefix = pfxMap[lista];
-    const fatEl = document.getElementById(`cfg-${prefix}-fat`);
-    const plantasEl = document.getElementById(`cfg-${prefix}-plantas`);
-    const funcEl = document.getElementById(`cfg-${prefix}-func`);
-    if (fatEl) DATA.config.listas[lista].fat_min = fatEl.value.trim();
-    if (plantasEl) DATA.config.listas[lista].plantas_min = parseInt(plantasEl.value) || 2;
-    if (funcEl) DATA.config.listas[lista].funcionarios_min = funcEl.value.trim();
-    // setores already updated by toggleListaSector
-  });
-
-  // Show saved message and trigger dashboard save
-  const msg = document.getElementById('cfg-saved-msg');
-  if (msg) { msg.style.display = 'inline'; setTimeout(() => msg.style.display = 'none', 4000); }
-  document.getElementById('save-btn').classList.add('visible');
-}
-
-
-// ═══════════════════════════════════════════════ AUTO LISTA ════════════════
-function parseFat(fatStr) {
-  // Converts "R$ 45B" → 45000, "R$ 500M" → 500, "R$ 1.5B" → 1500 (in millions)
-  if (!fatStr) return null;
-  const s = fatStr.toUpperCase().replace(/[R$\s\.]/g,'').replace(',','.');
-  const num = parseFloat(s);
-  if (isNaN(num)) return null;
-  if (s.includes('B')) return num * 1000;
-  if (s.includes('M')) return num;
-  if (s.includes('K')) return num / 1000;
-  return num; // assume millions
-}
-
-function getListaAuto(p) {
-  const fat = parseFat(p.fat);
-  if (fat === null) return p.lista || 'midmarket';
-  const cfg = DATA.config && DATA.config.listas;
-  const eMin = cfg && cfg.enterprise ? parseFat(cfg.enterprise.fat_min) : 15000;
-  const gMin = cfg && cfg.grande     ? parseFat(cfg.grande.fat_min)     : 3000;
-  const mMin = cfg && cfg.midmarket  ? parseFat(cfg.midmarket.fat_min)  : 500;
-  const xMin = cfg && cfg.emergente  ? parseFat(cfg.emergente.fat_min)  : 100;
-  if (fat >= (eMin || 15000)) return 'enterprise';
-  if (fat >= (gMin || 3000))  return 'grande';
-  if (fat >= (mMin || 500))   return 'midmarket';
-  if (fat >= (xMin || 100))   return 'emergente';
-  return 'emergente';
-}
-
-const LISTA_LABEL = { enterprise:'Enterprise', grande:'Grande', midmarket:'Midmarket', emergente:'Emergente' };
-const LISTA_BADGE = { enterprise:'badge-enterprise', grande:'badge-purple', midmarket:'badge-teal', emergente:'badge-emergente' };
-function listaLabel(lista) { return LISTA_LABEL[lista] || lista; }
-function listaBadge(lista) { return LISTA_BADGE[lista] || 'badge-gray'; }
-
 // ═══════════════════════════════════════════════ CONTACT TRACKING ═══════════
 function getContactStatus(p) {
   const execs = [p.ceo_n ? p.ceo_ct : null, p.op_n ? p.op_ct : null, p.sc_n ? p.sc_ct : null].filter(x => x !== null);
@@ -1348,7 +710,7 @@ function renderICP() {
   const regiao = document.getElementById('icp-regiao').value;
 
   let list = DATA.icp.filter(p => {
-    if (lista !== 'all' && getListaAuto(p) !== lista) return false;
+    if (lista !== 'all' && p.lista !== lista) return false;
     if (score !== 'all' && p.s !== parseInt(score)) return false;
     if (setor !== 'all' && p.setor !== setor) return false;
     if (regiao !== 'all' && p.regiao !== regiao) return false;
@@ -1359,13 +721,6 @@ function renderICP() {
       if (contatoFilter === 'partial' && cs.label !== 'Contato parcial') return false;
       if (contatoFilter === 'full'    && cs.label !== 'Todos contatados')return false;
     }
-    const tipoFilter = document.getElementById('icp-tipo') ? document.getElementById('icp-tipo').value : 'all';
-    if (tipoFilter === 'nacional'     && p.multinacional) return false;
-    if (tipoFilter === 'multinacional' && !p.multinacional) return false;
-    const controleFilter = document.getElementById('icp-controle') ? document.getElementById('icp-controle').value : 'all';
-    if (controleFilter === 'familiar' && !p.familiar)      return false;
-    if (controleFilter === 'bolsa'    && !p.capital_aberto) return false;
-    if (controleFilter === 'estatal'  && !p.estatal)        return false;
     if (q && !p.nome.toLowerCase().includes(q) && !p.setor.toLowerCase().includes(q) && !(p.subsetor||'').toLowerCase().includes(q)) return false;
     return true;
   });
@@ -1373,12 +728,8 @@ function renderICP() {
 
   const score5 = DATA.icp.filter(p=>p.s===5).length;
   const score4 = DATA.icp.filter(p=>p.s===4).length;
-  const totE = DATA.icp.filter(p=>getListaAuto(p)==='enterprise').length;
-  const totG = DATA.icp.filter(p=>getListaAuto(p)==='grande').length;
-  const totM = DATA.icp.filter(p=>getListaAuto(p)==='midmarket').length;
-  const totX = DATA.icp.filter(p=>getListaAuto(p)==='emergente').length;
   document.getElementById('icp-cards').innerHTML = `
-    <div class="card card-blue"><div class="card-label">Total ICP</div><div class="card-value">${DATA.icp.length}</div><div class="card-sub">${totE} Ent · ${totG} Gde · ${totM} Mid · ${totX} Emg</div></div>
+    <div class="card card-blue"><div class="card-label">Total ICP</div><div class="card-value">${DATA.icp.length}</div><div class="card-sub">empresas na base</div></div>
     <div class="card card-red"><div class="card-label">Score 5 · Crítico</div><div class="card-value">${score5}</div><div class="card-sub">dor crítica</div></div>
     <div class="card card-orange"><div class="card-label">Score 4 · Alto</div><div class="card-value">${score4}</div><div class="card-sub">dor alta</div></div>
     <div class="card card-yellow"><div class="card-label">Mostrando</div><div class="card-value">${list.length}</div><div class="card-sub">com filtros ativos</div></div>
@@ -1387,7 +738,7 @@ function renderICP() {
   document.getElementById('icp-table-body').innerHTML = list.map(p => `
     <tr style="cursor:pointer" onclick="openICPDetail(${p.id})">
       <td class="nome-col">${p.nome}<div style="font-size:11px;color:var(--text3);font-weight:400">${p.subsetor||''}</div></td>
-      <td><span class="badge ${listaBadge(getListaAuto(p))}">${listaLabel(getListaAuto(p))}</span></td>
+      <td><span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}">${p.lista==='grande'?'Grande':'Midmarket'}</span></td>
       <td>${p.setor}</td>
       <td style="color:var(--text2)">${p.fat}</td>
       <td style="color:var(--text2)">${p.plantas} plantas</td>
@@ -1406,25 +757,18 @@ function openICPDetail(id) {
     <div class="detail-nome">${p.nome}</div>
     <div class="detail-setor">${p.setor} · ${p.subsetor||''}</div>
     <div class="tag-row">
-      <span class="badge ${listaBadge(getListaAuto(p))}">${listaLabel(getListaAuto(p))}</span>
+      <span class="badge ${p.lista==='grande'?'badge-purple':'badge-teal'}">${p.lista==='grande'?'Grande':'Midmarket'}</span>
       <span class="score score-${p.s}"><span class="score-dot"></span>Score ${p.s} — ${scoreLabels[p.s]||''}</span>
       <span class="badge badge-indigo">${p.regiao}</span>
     </div>
     <div style="height:16px"></div>
     <div class="detail-section">
       <div class="detail-section-title">Dados</div>
-      <div class="detail-row"><span>Faturamento</span><span>${p.fat} <span class="badge ${listaBadge(getListaAuto(p))}" style="font-size:10px;margin-left:4px">${listaLabel(getListaAuto(p))}</span></span></div>
+      <div class="detail-row"><span>Faturamento</span><span>${p.fat}</span></div>
       <div class="detail-row"><span>Plantas</span><span>${p.plantas}</span></div>
-      ${p.hq ? `<div class="detail-row"><span>Headquarter</span><span>${p.hq}</span></div>` : ''}
       <div class="detail-row"><span>Responsável</span><span>${p.resp||'—'}</span></div>
       <div class="detail-row"><span>Status</span><span><span class="badge ${STATUS_BADGE[p.st]||'badge-gray'}">${STATUS_LABEL[p.st]||p.st}</span></span></div>
       ${p.li ? `<div class="detail-row"><span>LinkedIn</span><span><a href="https://${p.li}" target="_blank" style="color:var(--blue);font-size:12px">Ver perfil →</a></span></div>` : ''}
-      <div class="company-tags">
-        ${p.multinacional ? '<span class="badge badge-multi">🌎 Multinacional</span>' : '<span class="badge badge-nacional">🇧🇷 Nacional</span>'}
-        ${p.familiar ? '<span class="badge badge-familiar">👨‍👩‍👧 Familiar/Fundador</span>' : ''}
-        ${p.capital_aberto ? '<span class="badge badge-bolsa">📈 Capital aberto</span>' : ''}
-        ${p.estatal ? '<span class="badge badge-estatal">🏛️ Estatal</span>' : ''}
-      </div>
     </div>
     <div class="detail-section">
       <div class="detail-section-title">Razão da Dor</div>
@@ -1517,7 +861,6 @@ function closeDetail(e) {
 renderICP();
 renderMonitoradas();
 renderAprovacao();
-renderConfiguracoes();
 </script>
 </body>
 </html>
