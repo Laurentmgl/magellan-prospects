@@ -365,14 +365,14 @@
 const SUPABASE_URL = 'https://vqlmtkaqoqrxunmmpktu.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxbG10a2Fxb3FyeHVubW1wa3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4Njc0NTcsImV4cCI6MjA4NzQ0MzQ1N30.F9kiC3SgTkgSgRlTXMQ01wep8EdK_phMRYw_MXrjEeI';
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ═══════════════════════════════════════════════ AUTH ═════════════════════
 let currentUser = null;
 
 async function initAuth() {
   // Check existing session
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { session } } = await db.auth.getSession();
   if (session) {
     currentUser = session.user;
     showApp();
@@ -381,7 +381,7 @@ async function initAuth() {
   }
 
   // Listen for auth changes
-  supabase.auth.onAuthStateChange((_event, session) => {
+  db.auth.onAuthStateChange((_event, session) => {
     if (session) {
       currentUser = session.user;
       showApp();
@@ -396,7 +396,7 @@ async function loginMicrosoft() {
   const btn = document.getElementById('login-btn');
   btn.textContent = 'Entrando...';
   btn.disabled = true;
-  const { error } = await supabase.auth.signInWithOAuth({
+  const { error } = await db.auth.signInWithOAuth({
     provider: 'azure',
     options: {
       scopes: 'email profile openid',
@@ -411,7 +411,7 @@ async function loginMicrosoft() {
 }
 
 async function logout() {
-  await supabase.auth.signOut();
+  await db.auth.signOut();
 }
 
 function showLogin() {
@@ -434,9 +434,9 @@ async function loadAllData() {
   showLoading(true);
   try {
     const [icpRes, pendRes, monRes] = await Promise.all([
-      supabase.from('magellan_icp').select('*').order('s', { ascending: false }).order('nome'),
-      supabase.from('magellan_leads_pendentes').select('*').order('s', { ascending: false }),
-      supabase.from('magellan_monitoradas').select('*').order('score', { ascending: false })
+      db.from('magellan_icp').select('*').order('s', { ascending: false }).order('nome'),
+      db.from('magellan_leads_pendentes').select('*').order('s', { ascending: false }),
+      db.from('magellan_monitoradas').select('*').order('score', { ascending: false })
     ]);
     if (icpRes.error) throw icpRes.error;
     if (pendRes.error) throw pendRes.error;
@@ -527,14 +527,14 @@ async function aprovarLead(id) {
   if (card) card.style.opacity = '0.5';
 
   // Move to ICP in Supabase
-  const { error: insErr } = await supabase.from('magellan_icp').upsert({ ...lead, st: lead.st || 'nao_iniciado' });
+  const { error: insErr } = await db.from('magellan_icp').upsert({ ...lead, st: lead.st || 'nao_iniciado' });
   if (insErr) { showError('Erro ao aprovar: ' + insErr.message); if (card) card.style.opacity = '1'; return; }
 
-  const { error: delErr } = await supabase.from('magellan_leads_pendentes').delete().eq('id', id);
+  const { error: delErr } = await db.from('magellan_leads_pendentes').delete().eq('id', id);
   if (delErr) { showError('Erro ao remover da fila: ' + delErr.message); return; }
 
   // Log
-  await supabase.from('magellan_audit_log').insert({
+  await db.from('magellan_audit_log').insert({
     user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
     acao: 'aprovado', empresa_id: id, empresa_nome: lead.nome
   });
@@ -556,10 +556,10 @@ async function rejeitarLead(id) {
   const lead = DATA.pendentes.find(p => p.id === id);
   if (!lead) return;
 
-  const { error } = await supabase.from('magellan_leads_pendentes').delete().eq('id', id);
+  const { error } = await db.from('magellan_leads_pendentes').delete().eq('id', id);
   if (error) { showError('Erro ao rejeitar: ' + error.message); return; }
 
-  await supabase.from('magellan_audit_log').insert({
+  await db.from('magellan_audit_log').insert({
     user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
     acao: 'rejeitado', empresa_id: id, empresa_nome: lead.nome
   });
@@ -592,10 +592,10 @@ async function toggleContact(id, field) {
   const newVal = !p[field];
   p[field] = newVal;
 
-  const { error } = await supabase.from('magellan_icp').update({ [field]: newVal }).eq('id', id);
+  const { error } = await db.from('magellan_icp').update({ [field]: newVal }).eq('id', id);
   if (error) { showError('Erro ao salvar contato: ' + error.message); p[field] = !newVal; return; }
 
-  await supabase.from('magellan_audit_log').insert({
+  await db.from('magellan_audit_log').insert({
     user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
     acao: 'contato_marcado', empresa_id: id, empresa_nome: p.nome,
     detalhe: field + ' = ' + newVal
@@ -625,10 +625,10 @@ async function updateStatus(id, newStatus) {
   const oldStatus = p.st;
   p.st = newStatus;
 
-  const { error } = await supabase.from('magellan_icp').update({ st: newStatus }).eq('id', id);
+  const { error } = await db.from('magellan_icp').update({ st: newStatus }).eq('id', id);
   if (error) { showError('Erro ao atualizar status: ' + error.message); p.st = oldStatus; return; }
 
-  await supabase.from('magellan_audit_log').insert({
+  await db.from('magellan_audit_log').insert({
     user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
     acao: 'status_alterado', empresa_id: id, empresa_nome: p.nome,
     detalhe: oldStatus + ' → ' + newStatus
