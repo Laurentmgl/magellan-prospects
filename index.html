@@ -1397,17 +1397,12 @@ function renderRegioes() {
 }
 
 function togglePais(pais) {
-  const arr = DATA.config.paises_foco || [];
-  const idx = arr.indexOf(pais);
-  if (idx >= 0) arr.splice(idx, 1);
-  else arr.push(pais);
-  DATA.config.paises_foco = arr;
-  // Reset regioes quando muda país
+  // Seleção exclusiva — só um país por vez
+  DATA.config.paises_foco = [pais];
   DATA.config.regioes_foco = [];
-  // Update chips
   ['Brazil','USA','Europe'].forEach(p => {
     const el = document.getElementById('pc-' + p);
-    if (el) el.classList.toggle('active', arr.includes(p));
+    if (el) el.classList.toggle('active', p === pais);
   });
   renderRegioes();
 }
