@@ -239,6 +239,11 @@
   .lead-card-nome { font-size: 15px; font-weight: 700; }
   .lead-card-meta { font-size: 12px; color: var(--text2); margin-top: 3px; }
   .lead-card-dor { font-size: 12px; color: #fca5a5; background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.15); border-radius: 6px; padding: 8px 10px; margin-bottom: 10px; line-height: 1.5; }
+  .lead-card-msg { background: rgba(99,102,241,0.07); border: 1px solid rgba(99,102,241,0.2); border-radius: 6px; padding: 10px 12px; margin-bottom: 10px; }
+  .lead-card-msg-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 11px; font-weight: 600; color: #a5b4fc; text-transform: uppercase; letter-spacing: .06em; }
+  .lead-card-msg-body { font-size: 12px; color: var(--text2); line-height: 1.6; white-space: pre-wrap; }
+  .btn-copy-msg { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #a5b4fc; padding: 3px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; transition: all .15s; }
+  .btn-copy-msg:hover { background: rgba(99,102,241,0.3); }
   .lead-card-decisores { font-size: 12px; color: var(--text2); margin-bottom: 10px; }
   .lead-card-decisores span { color: var(--text); font-weight: 500; }
   .lead-card-actions { display: flex; gap: 8px; }
@@ -552,57 +557,61 @@
         <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Direciona a pesquisa de novos prospects desta semana. Se nada for selecionado, a rotina buscará em todos os setores e regiões. A aba ICP Prospects sempre mostra todos os leads, independentemente do que estiver configurado aqui.</p>
 
         <div style="margin-bottom:16px">
-          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Lista</div>
-          <div class="lista-chips" style="flex-wrap:wrap;gap:8px">
-            <div class="lista-chip" id="lc-all" onclick="clearListasFoco()">Todas</div>
-            <div class="lista-chip" id="lc-enterprise" onclick="toggleListaFoco('enterprise')">🔴 Enterprise</div>
-            <div class="lista-chip" id="lc-grande" onclick="toggleListaFoco('grande')">🟣 Grande</div>
-            <div class="lista-chip" id="lc-midmarket" onclick="toggleListaFoco('midmarket')">🩵 Midmarket</div>
-            <div class="lista-chip" id="lc-emergente" onclick="toggleListaFoco('emergente')">🔵 Emergente</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">País</div>
+          <div class="region-row">
+            <div class="region-chip" id="pc-Brazil"  onclick="togglePais('Brazil')">🇧🇷 Brazil</div>
+            <div class="region-chip" id="pc-USA"     onclick="togglePais('USA')">🇺🇸 USA</div>
+            <div class="region-chip" id="pc-Europe"  onclick="togglePais('Europe')">🇪🇺 Europe</div>
           </div>
         </div>
 
         <div style="margin-bottom:16px">
-          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Regiões prioritárias</div>
-          <div class="region-row">
-            <div class="region-chip" id="rc-Sudeste" onclick="toggleRegiao('Sudeste')">Sudeste</div>
-            <div class="region-chip" id="rc-Sul" onclick="toggleRegiao('Sul')">Sul</div>
-            <div class="region-chip" id="rc-Nordeste" onclick="toggleRegiao('Nordeste')">Nordeste</div>
-            <div class="region-chip" id="rc-Centro-Oeste" onclick="toggleRegiao('Centro-Oeste')">Centro-Oeste</div>
-            <div class="region-chip" id="rc-Norte" onclick="toggleRegiao('Norte')">Norte</div>
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">List</div>
+          <div class="lista-chips" style="flex-wrap:wrap;gap:8px">
+            <div class="lista-chip" id="lc-all"        onclick="clearListasFoco()">All</div>
+            <div class="lista-chip" id="lc-enterprise" onclick="toggleListaFoco('enterprise')">🔴 Enterprise</div>
+            <div class="lista-chip" id="lc-large"      onclick="toggleListaFoco('large')">🟣 Large</div>
+            <div class="lista-chip" id="lc-mid_market" onclick="toggleListaFoco('mid_market')">🩵 Mid-Market</div>
+            <div class="lista-chip" id="lc-emerging"   onclick="toggleListaFoco('emerging')">🔵 Emerging</div>
           </div>
+        </div>
+
+        <div style="margin-bottom:16px">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Priority Regions</div>
+          <div class="region-row" id="region-chips-container"></div>
         </div>
 
         <div style="margin-bottom:16px">
           <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Setores prioritários</div>
           <div class="sector-grid">
-          <div class="sector-chip" onclick="toggleSector('Aeronáutica')" id="sc-Aeronautica">Aeronáutica</div>
-          <div class="sector-chip" onclick="toggleSector('Agronegócio')" id="sc-Agronegocio">Agronegócio</div>
-          <div class="sector-chip" onclick="toggleSector('Alimentos')" id="sc-Alimentos">Alimentos</div>
-          <div class="sector-chip" onclick="toggleSector('Automotivo')" id="sc-Automotivo">Automotivo</div>
-          <div class="sector-chip" onclick="toggleSector('Bebidas')" id="sc-Bebidas">Bebidas</div>
-          <div class="sector-chip" onclick="toggleSector('Calçados')" id="sc-Calcados">Calçados</div>
-          <div class="sector-chip" onclick="toggleSector('Cerâmica')" id="sc-Ceramica">Cerâmica</div>
-          <div class="sector-chip" onclick="toggleSector('Cimento')" id="sc-Cimento">Cimento</div>
-          <div class="sector-chip" onclick="toggleSector('Construção')" id="sc-Construcao">Construção</div>
-          <div class="sector-chip" onclick="toggleSector('Cosméticos')" id="sc-Cosmeticos">Cosméticos</div>
-          <div class="sector-chip" onclick="toggleSector('Distribuição')" id="sc-Distribuicao">Distribuição</div>
-          <div class="sector-chip" onclick="toggleSector('Eletroeletrônico')" id="sc-Eletroeletronico">Eletroeletrônico</div>
-          <div class="sector-chip" onclick="toggleSector('Embalagens')" id="sc-Embalagens">Embalagens</div>
-          <div class="sector-chip" onclick="toggleSector('Energia')" id="sc-Energia">Energia</div>
-          <div class="sector-chip" onclick="toggleSector('Entretenimento')" id="sc-Entretenimento">Entretenimento</div>
-          <div class="sector-chip" onclick="toggleSector('Farmacêutico')" id="sc-Farmaceutico">Farmacêutico</div>
-          <div class="sector-chip" onclick="toggleSector('Financeiro')" id="sc-Financeiro">Financeiro</div>
-          <div class="sector-chip" onclick="toggleSector('Logística')" id="sc-Logistica">Logística</div>
-          <div class="sector-chip" onclick="toggleSector('Metalurgia')" id="sc-Metalurgia">Metalurgia</div>
-          <div class="sector-chip" onclick="toggleSector('Mineração')" id="sc-Mineracao">Mineração</div>
-          <div class="sector-chip" onclick="toggleSector('Papel e Celulose')" id="sc-Papel_e_Celulose">Papel e Celulose</div>
-          <div class="sector-chip" onclick="toggleSector('Químico')" id="sc-Quimico">Químico</div>
-          <div class="sector-chip" onclick="toggleSector('Saneamento')" id="sc-Saneamento">Saneamento</div>
-          <div class="sector-chip" onclick="toggleSector('Saúde')" id="sc-Saude">Saúde</div>
-          <div class="sector-chip" onclick="toggleSector('Telecomunicações')" id="sc-Telecomunicacoes">Telecomunicações</div>
-          <div class="sector-chip" onclick="toggleSector('Têxtil')" id="sc-Textil">Têxtil</div>
-          <div class="sector-chip" onclick="toggleSector('Varejo')" id="sc-Varejo">Varejo</div>
+          <div class="sector-chip" onclick="toggleSector('Aerospace')"          id="sc-Aerospace">Aerospace</div>
+          <div class="sector-chip" onclick="toggleSector('Agribusiness')"        id="sc-Agribusiness">Agribusiness</div>
+          <div class="sector-chip" onclick="toggleSector('Automotive')"          id="sc-Automotive">Automotive</div>
+          <div class="sector-chip" onclick="toggleSector('Beverages')"           id="sc-Beverages">Beverages</div>
+          <div class="sector-chip" onclick="toggleSector('Building Materials')"  id="sc-Building_Materials">Building Materials</div>
+          <div class="sector-chip" onclick="toggleSector('Cement')"              id="sc-Cement">Cement</div>
+          <div class="sector-chip" onclick="toggleSector('Ceramics')"            id="sc-Ceramics">Ceramics</div>
+          <div class="sector-chip" onclick="toggleSector('Chemical')"            id="sc-Chemical">Chemical</div>
+          <div class="sector-chip" onclick="toggleSector('Construction')"        id="sc-Construction">Construction</div>
+          <div class="sector-chip" onclick="toggleSector('Cosmetics')"           id="sc-Cosmetics">Cosmetics</div>
+          <div class="sector-chip" onclick="toggleSector('Distribution')"        id="sc-Distribution">Distribution</div>
+          <div class="sector-chip" onclick="toggleSector('Electrical Equipment')" id="sc-Electrical_Equipment">Electrical Equipment</div>
+          <div class="sector-chip" onclick="toggleSector('Energy')"              id="sc-Energy">Energy</div>
+          <div class="sector-chip" onclick="toggleSector('Entertainment')"       id="sc-Entertainment">Entertainment</div>
+          <div class="sector-chip" onclick="toggleSector('Financial')"           id="sc-Financial">Financial</div>
+          <div class="sector-chip" onclick="toggleSector('Food')"                id="sc-Food">Food</div>
+          <div class="sector-chip" onclick="toggleSector('Footwear')"            id="sc-Footwear">Footwear</div>
+          <div class="sector-chip" onclick="toggleSector('Healthcare')"          id="sc-Healthcare">Healthcare</div>
+          <div class="sector-chip" onclick="toggleSector('Industrial Equipment')" id="sc-Industrial_Equipment">Industrial Equipment</div>
+          <div class="sector-chip" onclick="toggleSector('Logistics')"           id="sc-Logistics">Logistics</div>
+          <div class="sector-chip" onclick="toggleSector('Metallurgy')"          id="sc-Metallurgy">Metallurgy</div>
+          <div class="sector-chip" onclick="toggleSector('Mining')"              id="sc-Mining">Mining</div>
+          <div class="sector-chip" onclick="toggleSector('Pharmaceutical')"      id="sc-Pharmaceutical">Pharmaceutical</div>
+          <div class="sector-chip" onclick="toggleSector('Pulp &amp; Paper')"   id="sc-Pulp_Paper">Pulp &amp; Paper</div>
+          <div class="sector-chip" onclick="toggleSector('Retail')"              id="sc-Retail">Retail</div>
+          <div class="sector-chip" onclick="toggleSector('Sanitation')"          id="sc-Sanitation">Sanitation</div>
+          <div class="sector-chip" onclick="toggleSector('Telecommunications')"  id="sc-Telecommunications">Telecommunications</div>
+          <div class="sector-chip" onclick="toggleSector('Textile')"             id="sc-Textile">Textile</div>
           </div>
         </div>
 
@@ -744,11 +753,12 @@ async function loadAllData() {
     if (!cfgRes.error && cfgRes.data) {
       const c = cfgRes.data;
       DATA.config = {
-        scores: c.scores || DATA.config.scores,
-        listas: c.listas || DATA.config.listas,
+        scores:      c.scores      || DATA.config.scores,
+        listas:      c.listas      || DATA.config.listas,
         setores_foco: c.setores_foco || [],
         regioes_foco: c.regioes_foco || [],
         listas_foco:  c.listas_foco  || [],
+        paises_foco:  c.paises_foco  || ['Brazil'],
         obs_semana:   c.obs_semana   || ''
       };
     }
@@ -802,6 +812,7 @@ async function salvarConfiguracoes() {
     setores_foco: DATA.config.setores_foco,
     regioes_foco: DATA.config.regioes_foco,
     listas_foco:  DATA.config.listas_foco,
+    paises_foco:  DATA.config.paises_foco || ['Brazil'],
     obs_semana:   DATA.config.obs_semana,
     updated_by:   currentUser?.email || '',
     updated_at:   new Date().toISOString()
@@ -876,8 +887,17 @@ function renderConfiguracoes() {
   const obsEl = document.getElementById('cfg-obs');
   if (obsEl) obsEl.value = c.obs_semana || '';
 
+  // País chips
+  ['Brazil','USA','Europe'].forEach(p => {
+    const el = document.getElementById('pc-' + p);
+    if (el) el.classList.toggle('active', (c.paises_foco||['Brazil']).includes(p));
+  });
+
+  // Regiões dinâmicas baseadas no país
+  renderRegioes();
+
   // Listas foco chips
-  const allListas = ['enterprise','grande','midmarket','emergente'];
+  const allListas = ['enterprise','large','mid_market','emerging'];
   allListas.forEach(l => {
     const el = document.getElementById('lc-' + l);
     if (el) el.classList.toggle('active', (c.listas_foco||[]).includes(l));
@@ -928,7 +948,8 @@ function toggleRegiao(regiao) {
   const idx = arr.indexOf(regiao);
   if (idx >= 0) arr.splice(idx, 1);
   else arr.push(regiao);
-  const el = document.getElementById('rc-' + regiao);
+  const id = 'rc-' + regiao.replace(/\s+/g,'-');
+  const el = document.getElementById(id);
   if (el) el.classList.toggle('active', arr.includes(regiao));
 }
 
@@ -1058,9 +1079,17 @@ function renderAprovacao() {
         ${p.op_n?`&nbsp;·&nbsp; <span>${p.op_c||'Dir. Operações'}</span>: <span>${p.op_n}</span>`:''}
         ${p.sc_n?`&nbsp;·&nbsp; <span>${p.sc_c||'Dir. Supply Chain'}</span>: <span>${p.sc_n}</span>`:''}
       </div>
+      ${p.msg_sugerida ? `
+      <div class="lead-card-msg">
+        <div class="lead-card-msg-header">
+          <span>💬 Mensagem LinkedIn sugerida</span>
+          <button class="btn-copy-msg" onclick="copiarMensagem(this, ${p.id})">📋 Copiar</button>
+        </div>
+        <div class="lead-card-msg-body" id="msg-${p.id}">${p.msg_sugerida.replace(/\n/g,'<br>')}</div>
+      </div>` : ''}
       <div class="lead-card-actions">
-        <button class="btn-approve" onclick="aprovarLead(${p.id})">✅ Aprovar → ICP</button>
-        <button class="btn-reject" onclick="rejeitarLead(${p.id})">✕ Rejeitar</button>
+        <button class="btn-approve" onclick="aprovarLead(${p.id})">✅ Approve → ICP</button>
+        <button class="btn-reject" onclick="rejeitarLead(${p.id})">✕ Reject</button>
       </div>
     </div>`;
   }).join('');
@@ -1347,6 +1376,51 @@ function closeDetail(e) {
   if (!e || e.target === document.getElementById('detail-overlay')) {
     document.getElementById('detail-overlay').classList.remove('open');
   }
+}
+
+// ══════════════════════════════════════════ PAÍS / REGIÃO ════════════════════
+const REGIOES_POR_PAIS = {
+  'Brazil':  ['Southeast','South','Northeast','Midwest','North'],
+  'USA':     ['Northeast','Southeast','Midwest','Southwest','West'],
+  'Europe':  ['Western Europe','Northern Europe','Southern Europe','Eastern Europe']
+};
+
+function renderRegioes() {
+  const container = document.getElementById('region-chips-container');
+  if (!container) return;
+  const paises = DATA.config.paises_foco || ['Brazil'];
+  const paisAtivo = paises.length > 0 ? paises[0] : 'Brazil';
+  const regioes = REGIOES_POR_PAIS[paisAtivo] || REGIOES_POR_PAIS['Brazil'];
+  container.innerHTML = regioes.map(r =>
+    `<div class="region-chip${(DATA.config.regioes_foco||[]).includes(r)?' active':''}" id="rc-${r.replace(/\s+/g,'-')}" onclick="toggleRegiao('${r}')">${r}</div>`
+  ).join('');
+}
+
+function togglePais(pais) {
+  const arr = DATA.config.paises_foco || [];
+  const idx = arr.indexOf(pais);
+  if (idx >= 0) arr.splice(idx, 1);
+  else arr.push(pais);
+  DATA.config.paises_foco = arr;
+  // Reset regioes quando muda país
+  DATA.config.regioes_foco = [];
+  // Update chips
+  ['Brazil','USA','Europe'].forEach(p => {
+    const el = document.getElementById('pc-' + p);
+    if (el) el.classList.toggle('active', arr.includes(p));
+  });
+  renderRegioes();
+}
+
+// ══════════════════════════════════════════ COPIAR MENSAGEM ══════════════════
+function copiarMensagem(btn, id) {
+  const el = document.getElementById('msg-' + id);
+  if (!el) return;
+  const text = el.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copiado!';
+    setTimeout(() => { btn.textContent = '📋 Copiar'; }, 2000);
+  });
 }
 
 // ══════════════════════════════════════════ INIT ══════════════════════════════
