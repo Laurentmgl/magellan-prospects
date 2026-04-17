@@ -244,6 +244,9 @@
   .lead-card-msg-body { font-size: 12px; color: var(--text2); line-height: 1.6; white-space: pre-wrap; }
   .btn-copy-msg { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); color: #a5b4fc; padding: 3px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; transition: all .15s; }
   .btn-copy-msg:hover { background: rgba(99,102,241,0.3); }
+  .canal-chip { padding:7px 14px;border-radius:6px;background:var(--bg3);border:1px solid var(--border);cursor:pointer;font-size:12px;font-weight:500;color:var(--text2);transition:all .15s;user-select:none; }
+  .canal-chip:hover { border-color:var(--accent);color:var(--text); }
+  .canal-chip.active { background:rgba(99,102,241,0.15);border-color:var(--accent);color:#a5b4fc; }
   .lead-card-decisores { font-size: 12px; color: var(--text2); margin-bottom: 10px; }
   .lead-card-decisores span { color: var(--text); font-weight: 500; }
   .lead-card-actions { display: flex; gap: 8px; }
@@ -650,6 +653,39 @@
   <div class="detail-panel" id="detail-panel">
     <span class="detail-close" onclick="closeDetail()">✕</span>
     <div id="detail-content"></div>
+  </div>
+</div>
+
+<!-- MODAL GERAR RESPOSTA -->
+<div id="resposta-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:300;align-items:center;justify-content:center">
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px;width:520px;max-width:95vw;max-height:90vh;overflow-y:auto;position:relative">
+    <span onclick="fecharModalResposta()" style="position:absolute;top:14px;right:18px;cursor:pointer;color:var(--text3);font-size:18px;line-height:1">✕</span>
+    <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">💬 Gerar resposta para o prospect</div>
+    <div id="modal-empresa-nome" style="font-size:12px;color:var(--text3);margin-bottom:20px"></div>
+
+    <div style="margin-bottom:14px">
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Canal</div>
+      <div style="display:flex;gap:8px">
+        <div class="canal-chip active" id="canal-LinkedIn" onclick="selecionarCanal('LinkedIn')">💼 LinkedIn</div>
+        <div class="canal-chip" id="canal-WhatsApp" onclick="selecionarCanal('WhatsApp')">📱 WhatsApp</div>
+        <div class="canal-chip" id="canal-Email" onclick="selecionarCanal('Email')">📧 E-mail</div>
+        <div class="canal-chip" id="canal-Call" onclick="selecionarCanal('Call')">📞 Ligação</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Texto da resposta recebida</div>
+      <textarea id="modal-resposta-texto" placeholder="Cole aqui o que o prospect respondeu..." style="width:100%;height:120px;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:10px 12px;font-size:13px;resize:vertical;font-family:inherit;line-height:1.5"></textarea>
+    </div>
+
+    <div style="margin-bottom:20px">
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Contexto da abordagem inicial <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text3)">(opcional)</span></div>
+      <textarea id="modal-contexto-texto" placeholder="O que foi enviado antes? Resumo da primeira mensagem..." style="width:100%;height:70px;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:10px 12px;font-size:13px;resize:vertical;font-family:inherit;line-height:1.5"></textarea>
+    </div>
+
+    <button onclick="gerarResposta()" id="btn-gerar-resposta" style="width:100%;padding:10px;background:var(--accent);border:none;color:#fff;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s">
+      ✨ Gerar resposta
+    </button>
   </div>
 </div>
 
@@ -1290,6 +1326,12 @@ function openICPDetail(id) {
         </select>
       </span></div>
       ${p.li ? `<div class="detail-row"><span>LinkedIn</span><span><a href="https://${p.li}" target="_blank" style="color:var(--blue);font-size:12px">Ver perfil →</a></span></div>` : ''}
+      ${p.st === 'reply_received' ? `
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
+        <button onclick="abrirModalResposta(${p.id})" style="width:100%;padding:9px;background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.35);color:#a5b4fc;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s" onmouseover="this.style.background='rgba(99,102,241,0.25)'" onmouseout="this.style.background='rgba(99,102,241,0.15)'">
+          💬 Gerar resposta para o prospect
+        </button>
+      </div>` : ''}
     </div>
     <div class="detail-section">
       <div class="detail-section-title">Razão da Dor</div>
@@ -1375,6 +1417,92 @@ function renderMonitoradas() {
 function closeDetail(e) {
   if (!e || e.target === document.getElementById('detail-overlay')) {
     document.getElementById('detail-overlay').classList.remove('open');
+  }
+}
+
+// ══════════════════════════════════════════ MODAL GERAR RESPOSTA ═════════════
+let _modalLeadId = null;
+let _canalSelecionado = 'LinkedIn';
+
+function abrirModalResposta(id) {
+  const p = DATA.icp.find(x => x.id === id);
+  if (!p) return;
+  _modalLeadId = id;
+  _canalSelecionado = 'LinkedIn';
+  document.getElementById('modal-empresa-nome').textContent = p.nome + ' · ' + (p.setor||'');
+  document.getElementById('modal-resposta-texto').value = '';
+  document.getElementById('modal-contexto-texto').value = '';
+  // Reset canal chips
+  ['LinkedIn','WhatsApp','Email','Call'].forEach(c => {
+    const el = document.getElementById('canal-' + c);
+    if (el) el.classList.toggle('active', c === 'LinkedIn');
+  });
+  const btn = document.getElementById('btn-gerar-resposta');
+  if (btn) { btn.textContent = '✨ Gerar resposta'; btn.disabled = false; }
+  const overlay = document.getElementById('resposta-overlay');
+  overlay.style.display = 'flex';
+  // Fecha o detail panel para não sobrepor
+  document.getElementById('detail-overlay').classList.remove('open');
+}
+
+function fecharModalResposta() {
+  document.getElementById('resposta-overlay').style.display = 'none';
+}
+
+function selecionarCanal(canal) {
+  _canalSelecionado = canal;
+  ['LinkedIn','WhatsApp','Email','Call'].forEach(c => {
+    const el = document.getElementById('canal-' + c);
+    if (el) el.classList.toggle('active', c === canal);
+  });
+}
+
+async function gerarResposta() {
+  const texto = document.getElementById('modal-resposta-texto').value.trim();
+  if (!texto) { alert('Cole o texto da resposta do prospect antes de continuar.'); return; }
+
+  const p = DATA.icp.find(x => x.id === _modalLeadId);
+  if (!p) return;
+
+  const btn = document.getElementById('btn-gerar-resposta');
+  btn.textContent = '⏳ Gerando...';
+  btn.disabled = true;
+
+  // Monta contexto completo para passar à skill via clipboard
+  const contexto = document.getElementById('modal-contexto-texto').value.trim();
+  const prompt = `Empresa: ${p.nome}
+Setor: ${p.setor||'—'} · ${p.subsetor||''}
+Região: ${p.regiao||'—'} · ${p.country||'Brazil'}
+Dor mapeada: ${p.dor||'não mapeada'} (Score ${p.s})
+Fonte: ${p.fonte||'—'}
+CEO: ${p.ceo_n||'—'}${p.ceo_li?' · linkedin.com/'+p.ceo_li:''}
+Canal: ${_canalSelecionado}
+${contexto ? 'Contexto da abordagem inicial: '+contexto : ''}
+
+Resposta recebida do prospect:
+"${texto}"
+
+---
+Use a skill classificador-resposta para classificar essa resposta e gerar as opções de mensagem A, B e C conforme as regras da skill. Gere o documento .docx com o resultado completo.`;
+
+  // Copia o prompt para o clipboard para o usuário colar no chat
+  try {
+    await navigator.clipboard.writeText(prompt);
+    fecharModalResposta();
+    // Mostra instrução ao usuário
+    const toast = document.getElementById('error-toast');
+    if (toast) {
+      toast.style.background = 'rgba(34,197,94,0.15)';
+      toast.style.borderColor = 'rgba(34,197,94,0.3)';
+      toast.style.color = '#4ade80';
+      toast.textContent = '✅ Contexto copiado! Cole no chat do Cowork para gerar o documento.';
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; toast.style.background = ''; toast.style.borderColor = ''; toast.style.color = ''; }, 6000);
+    }
+  } catch(e) {
+    btn.textContent = '✨ Gerar resposta';
+    btn.disabled = false;
+    alert('Não foi possível copiar automaticamente. Copie o texto abaixo e cole no chat:\n\n' + prompt);
   }
 }
 
