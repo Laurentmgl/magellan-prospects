@@ -1434,7 +1434,7 @@ function openICPDetail(id) {
               <div class="detail-exec-links">
                 ${c.linkedin ? `<a href="https://${c.linkedin}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>` : ''}
                 <select onchange="toggleContactStatus(${c.id},${p.id},this.value)" style="background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:2px 6px;border-radius:4px;font-size:10px;margin-left:4px">
-                  ${['new','contacted','reply_received','meeting_scheduled','proposal_sent','closed_won','closed_lost'].map(s =>
+                  ${['new','contacted','reply_received','meeting_scheduled','proposal_sent','closed_won','closed_lost','converted_to_lead'].map(s =>
                     `<option value="${s}"${c.st===s?' selected':''}>${s.replace(/_/g,' ')}</option>`
                   ).join('')}
                 </select>
