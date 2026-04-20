@@ -1220,6 +1220,45 @@ async function toggleContact(id, field) {
 }
 
 // ══════════════════════════════════════════ STATUS UPDATE ════════════════════
+async function onStatusChange(id, newStatus) {
+  await updateStatus(id, newStatus);
+  // Se mudou para reply_received, reabre o detail para mostrar o campo de texto
+  if (newStatus === 'reply_received') {
+    openICPDetail(id);
+  }
+}
+
+function copiarBlocoMsg(el) {
+  const texto = el.querySelector('div:last-child').innerText;
+  navigator.clipboard.writeText(texto).then(() => {
+    const orig = el.style.opacity;
+    el.style.opacity = '0.5';
+    setTimeout(() => { el.style.opacity = '1'; }, 400);
+  });
+}
+
+async function salvarRespostaPropect(id) {
+  const el = document.getElementById('resposta-' + id);
+  if (!el) return;
+  const texto = el.value.trim();
+  const p = DATA.icp.find(x => x.id === id);
+  if (!p) return;
+  p.resposta_prospect = texto;
+
+  const { error } = await db.from('magellan_icp').update({ resposta_prospect: texto }).eq('id', id);
+  if (error) { showError('Erro ao salvar resposta: ' + error.message); return; }
+
+  await db.from('magellan_audit_log').insert({
+    user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
+    acao: 'resposta_prospect_salva', empresa_id: id, empresa_nome: p.nome,
+    detalhe: texto.substring(0, 100)
+  });
+
+  // Feedback visual
+  const btn = el.nextElementSibling;
+  if (btn) { btn.textContent = '✅ Salvo!'; setTimeout(() => { btn.textContent = '💾 Salvar resposta'; }, 2000); }
+}
+
 async function updateStatus(id, newStatus) {
   const p = DATA.icp.find(x => x.id === id);
   if (!p) return;
@@ -1321,15 +1360,17 @@ function openICPDetail(id) {
       <div class="detail-row"><span>Plantas</span><span>${p.plantas||'—'}</span></div>
       <div class="detail-row"><span>Responsável</span><span>${p.resp||'—'}</span></div>
       <div class="detail-row"><span>Status</span><span>
-        <select onchange="updateStatus(${p.id}, this.value)" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:3px 8px;border-radius:5px;font-size:12px;">
+        <select id="status-select-${p.id}" onchange="onStatusChange(${p.id}, this.value)" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:3px 8px;border-radius:5px;font-size:12px;">
           ${Object.entries(STATUS_LABEL).map(([k,v]) => `<option value="${k}"${p.st===k?' selected':''}>${v}</option>`).join('')}
         </select>
       </span></div>
       ${p.li ? `<div class="detail-row"><span>LinkedIn</span><span><a href="https://${p.li}" target="_blank" style="color:var(--blue);font-size:12px">Ver perfil →</a></span></div>` : ''}
       ${p.st === 'reply_received' ? `
       <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
-        <button onclick="abrirModalResposta(${p.id})" style="width:100%;padding:9px;background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.35);color:#a5b4fc;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s" onmouseover="this.style.background='rgba(99,102,241,0.25)'" onmouseout="this.style.background='rgba(99,102,241,0.15)'">
-          💬 Gerar resposta para o prospect
+        <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Resposta do prospect</div>
+        <textarea id="resposta-${p.id}" placeholder="Cole aqui o que o prospect respondeu..." style="width:100%;height:90px;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:8px 10px;font-size:12px;resize:vertical;font-family:inherit;line-height:1.5">${p.resposta_prospect||''}</textarea>
+        <button onclick="salvarRespostaPropect(${p.id})" style="margin-top:8px;width:100%;padding:7px;background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.35);color:#a5b4fc;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer">
+          💾 Salvar resposta
         </button>
       </div>` : ''}
     </div>
@@ -1375,7 +1416,22 @@ function openICPDetail(id) {
           <button onclick="toggleContact(${p.id},'sc_ct')" class="${p.sc_ct?'ct-btn-done':'ct-btn'}">${p.sc_ct?'✓ Contatado':'Marcar contato'}</button>
         </div>` : ''}
       ` : `<div style="font-size:11px;color:var(--text3);font-style:italic">Contatos ainda não mapeados</div>`}
-    </div>`;
+    </div>
+    ${p.msg_sugerida ? `
+    <div class="detail-section">
+      <div class="detail-section-title" style="display:flex;justify-content:space-between;align-items:center">
+        <span>💬 Respostas sugeridas</span>
+        <span style="font-size:10px;font-weight:500;color:var(--text3);text-transform:none;letter-spacing:0">gerado pela skill · clique para copiar</span>
+      </div>
+      ${p.msg_sugerida.split(/\n(?=OPÇÃO [ABC]|OPTION [ABC])/).map((bloco, i) => {
+        const cores = ['rgba(245,245,245,0.05)','rgba(59,130,246,0.07)','rgba(34,197,94,0.07)'];
+        const bordas = ['rgba(255,255,255,0.08)','rgba(59,130,246,0.2)','rgba(34,197,94,0.2)'];
+        return `<div style="background:${cores[i]||cores[0]};border:1px solid ${bordas[i]||bordas[0]};border-radius:6px;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:opacity .15s" onclick="copiarBlocoMsg(this)" title="Clique para copiar">
+          <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">${bloco.split('\n')[0]}</div>
+          <div style="font-size:12px;color:var(--text2);line-height:1.6;white-space:pre-wrap">${bloco.split('\n').slice(1).join('\n').trim()}</div>
+        </div>`;
+      }).join('')}
+    </div>` : ''}`;
   document.getElementById('detail-overlay').classList.add('open');
 }
 
