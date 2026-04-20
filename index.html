@@ -757,7 +757,7 @@ function showError(msg) {
 
 // ══════════════════════════════════════════ DATA LAYER ══════════════════════
 let DATA = {
-  icp: [], pendentes: [], monitoradas: [],
+  icp: [], contacts: [], pendentes: [], monitoradas: [],
   config: {
     scores: { 1:'', 2:'', 3:'', 4:'', 5:'' },
     listas: {
@@ -770,22 +770,30 @@ let DATA = {
   }
 };
 
+// Helper: retorna contatos de um ICP
+function getContacts(icpId) {
+  return DATA.contacts.filter(c => c.icp_id === icpId);
+}
+
 async function loadAllData() {
   showLoading(true);
   try {
-    const [icpRes, pendRes, monRes, cfgRes] = await Promise.all([
+    const [icpRes, contactsRes, pendRes, monRes, cfgRes] = await Promise.all([
       db.from('magellan_icp').select('*').order('s', { ascending: false }).order('nome'),
+      db.from('magellan_contacts').select('*').order('id'),
       db.from('magellan_leads_pendentes').select('*').order('s', { ascending: false }),
       db.from('magellan_monitoradas').select('*').order('score', { ascending: false }),
       db.from('magellan_config').select('*').eq('id', 1).single()
     ]);
-    if (icpRes.error)  throw icpRes.error;
-    if (pendRes.error) throw pendRes.error;
-    if (monRes.error)  throw monRes.error;
+    if (icpRes.error)      throw icpRes.error;
+    if (contactsRes.error) throw contactsRes.error;
+    if (pendRes.error)     throw pendRes.error;
+    if (monRes.error)      throw monRes.error;
 
-    DATA.icp        = icpRes.data  || [];
-    DATA.pendentes  = pendRes.data || [];
-    DATA.monitoradas= monRes.data  || [];
+    DATA.icp        = icpRes.data      || [];
+    DATA.contacts   = contactsRes.data || [];
+    DATA.pendentes  = pendRes.data     || [];
+    DATA.monitoradas= monRes.data      || [];
     if (!cfgRes.error && cfgRes.data) {
       const c = cfgRes.data;
       DATA.config = {
@@ -1111,9 +1119,11 @@ function renderAprovacao() {
       </div>
       <div class="lead-card-dor">🩺 <strong>Dor:</strong> ${p.dor||'Não especificada'}${p.fonte?`<br><a href="${p.fonte}" target="_blank" style="font-size:11px;color:var(--blue)">${p.fonte}</a>`:''}</div>
       <div class="lead-card-decisores">
-        ${p.ceo_n?`👤 CEO: <span>${p.ceo_n}</span>${p.ceo_li?` <a href="https://${p.ceo_li}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>`:''}`:''}
-        ${p.op_n?`&nbsp;·&nbsp; <span>${p.op_c||'Dir. Operações'}</span>: <span>${p.op_n}</span>`:''}
-        ${p.sc_n?`&nbsp;·&nbsp; <span>${p.sc_c||'Dir. Supply Chain'}</span>: <span>${p.sc_n}</span>`:''}
+        ${(()=>{
+          const contacts = getContacts(p.id);
+          if (!contacts.length) return '<span style="color:var(--text3);font-style:italic">Contatos a mapear</span>';
+          return contacts.map(c => `👤 <span>${c.cargo||'—'}</span>: <span>${c.nome||'—'}</span>${c.linkedin?` <a href="https://${c.linkedin}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>`:''}`).join(' &nbsp;·&nbsp; ');
+        })()}
       </div>
       ${p.msg_sugerida ? `
       <div class="lead-card-msg">
@@ -1139,8 +1149,23 @@ async function aprovarLead(id) {
   const card = document.getElementById('lcard-' + id);
   if (card) card.style.opacity = '0.5';
 
-  const { error: insErr } = await db.from('magellan_icp').upsert({ ...lead, st: lead.st || 'nao_iniciado' });
+  // Prepara payload sem colunas de contato legadas
+  const { ceo_n, ceo_li, ceo_ct, op_n, op_c, op_li, op_ct, sc_n, sc_c, sc_li, sc_ct, msg_sugerida, resposta_prospect, zoho_prospect_created, ...icpPayload } = lead;
+  const { error: insErr, data: icpData } = await db.from('magellan_icp').upsert({ ...icpPayload, st: lead.st || 'new' }).select().single();
   if (insErr) { showError('Erro ao aprovar: ' + insErr.message); if (card) card.style.opacity = '1'; return; }
+
+  const newIcpId = icpData?.id || id;
+
+  // Migra contatos do lead pendente para magellan_contacts
+  const contactsToCreate = [];
+  if (ceo_n || ceo_li) contactsToCreate.push({ icp_id: newIcpId, nome: ceo_n, cargo: 'CEO', linkedin: ceo_li, contacted: ceo_ct||false });
+  if (op_n  || op_li)  contactsToCreate.push({ icp_id: newIcpId, nome: op_n,  cargo: op_c||'Dir. Operations', linkedin: op_li, contacted: op_ct||false });
+  if (sc_n  || sc_li)  contactsToCreate.push({ icp_id: newIcpId, nome: sc_n,  cargo: sc_c||'Dir. Supply Chain', linkedin: sc_li, contacted: sc_ct||false });
+  if (contactsToCreate.length) {
+    const { error: ctErr } = await db.from('magellan_contacts').insert(contactsToCreate);
+    if (ctErr) showError('Aviso: erro ao migrar contatos — ' + ctErr.message);
+    else DATA.contacts.push(...contactsToCreate.map((c,i) => ({ ...c, id: Date.now()+i, st:'new' })));
+  }
 
   const { error: delErr } = await db.from('magellan_leads_pendentes').delete().eq('id', id);
   if (delErr) { showError('Erro ao remover da fila: ' + delErr.message); return; }
@@ -1151,7 +1176,7 @@ async function aprovarLead(id) {
   });
 
   DATA.pendentes = DATA.pendentes.filter(p => p.id !== id);
-  DATA.icp.push({ ...lead, st: lead.st || 'nao_iniciado' });
+  DATA.icp.push({ ...icpPayload, id: newIcpId, st: lead.st || 'new' });
   DATA.icp.sort((a,b) => b.s - a.s || a.nome.localeCompare(b.nome));
   _aprovados++;
   if (document.getElementById('aprov-count')) document.getElementById('aprov-count').textContent = _aprovados;
@@ -1184,48 +1209,86 @@ async function rejeitarLead(id) {
 
 // ══════════════════════════════════════════ CONTACT TRACKING ════════════════
 function getContactStatus(p) {
-  const execs = [p.ceo_n ? p.ceo_ct : null, p.op_n ? p.op_ct : null, p.sc_n ? p.sc_ct : null].filter(x => x !== null);
-  const total = execs.length;
-  const done  = execs.filter(Boolean).length;
-  if (total === 0) return { label:'Sem decisores',   short:'—',          cls:'badge-gray' };
-  if (done  === 0) return { label:'Sem contato',     short:'0/'+total,   cls:'badge-ct-none' };
-  if (done < total)return { label:'Contato parcial', short:done+'/'+total,cls:'badge-ct-part' };
-  return               { label:'Todos contatados', short:done+'/'+total,cls:'badge-ct-full' };
+  const contacts = getContacts(p.id);
+  const total = contacts.length;
+  const done  = contacts.filter(c => c.contacted).length;
+  if (total === 0) return { label:'Sem decisores',   short:'—',           cls:'badge-gray' };
+  if (done  === 0) return { label:'Sem contato',     short:'0/'+total,    cls:'badge-ct-none' };
+  if (done < total)return { label:'Contato parcial', short:done+'/'+total, cls:'badge-ct-part' };
+  return               { label:'Todos contatados', short:done+'/'+total, cls:'badge-ct-full' };
 }
 
-async function toggleContact(id, field) {
-  const p = DATA.icp.find(x => x.id === id);
-  if (!p) return;
-  const newVal = !p[field];
-  p[field] = newVal;
+async function toggleContact(contactId, icpId) {
+  const contact = DATA.contacts.find(c => c.id === contactId);
+  if (!contact) return;
+  const newVal = !contact.contacted;
+  contact.contacted = newVal;
 
-  const { error } = await db.from('magellan_icp').update({ [field]: newVal }).eq('id', id);
-  if (error) { showError('Erro ao salvar contato: ' + error.message); p[field] = !newVal; return; }
+  const { error } = await db.from('magellan_contacts').update({ contacted: newVal }).eq('id', contactId);
+  if (error) { showError('Erro ao salvar contato: ' + error.message); contact.contacted = !newVal; return; }
 
+  const p = DATA.icp.find(x => x.id === icpId);
   await db.from('magellan_audit_log').insert({
     user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
-    acao: 'contato_marcado', empresa_id: id, empresa_nome: p.nome,
-    detalhe: field + ' = ' + newVal
+    acao: 'contato_marcado', empresa_id: icpId, empresa_nome: p?.nome || '',
+    detalhe: (contact.nome || contact.cargo || '') + ' contacted = ' + newVal
   });
 
-  openICPDetail(id);
-  // Update contact cell in table row
+  openICPDetail(icpId);
+  // Atualiza célula de contato na tabela
   const rows = document.querySelectorAll('#icp-table-body tr');
   rows.forEach(row => {
-    if ((row.getAttribute('onclick')||'').includes('(' + id + ')')) {
+    if ((row.getAttribute('onclick')||'').includes('(' + icpId + ')')) {
       const cells = row.querySelectorAll('td');
-      if (cells[7]) { const cs = getContactStatus(p); cells[7].innerHTML = '<span class="badge '+cs.cls+'">'+cs.short+'</span>'; }
+      if (cells[7] && p) { const cs = getContactStatus(p); cells[7].innerHTML = '<span class="badge '+cs.cls+'">'+cs.short+'</span>'; }
     }
   });
+}
+
+async function toggleContactStatus(contactId, icpId, newSt) {
+  const contact = DATA.contacts.find(c => c.id === contactId);
+  if (!contact) return;
+  const oldSt = contact.st;
+  contact.st = newSt;
+
+  const { error } = await db.from('magellan_contacts').update({ st: newSt }).eq('id', contactId);
+  if (error) { showError('Erro ao salvar status do contato: ' + error.message); contact.st = oldSt; return; }
+
+  const p = DATA.icp.find(x => x.id === icpId);
+  await db.from('magellan_audit_log').insert({
+    user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
+    acao: 'contact_status_alterado', empresa_id: icpId, empresa_nome: p?.nome || '',
+    detalhe: (contact.nome || '') + ': ' + oldSt + ' → ' + newSt
+  });
+
+  if (newSt === 'reply_received') openICPDetail(icpId);
+}
+
+async function salvarRespostaContato(contactId, icpId) {
+  const el = document.getElementById('resposta-c-' + contactId);
+  if (!el) return;
+  const texto = el.value.trim();
+  const contact = DATA.contacts.find(c => c.id === contactId);
+  if (!contact) return;
+  contact.resposta_prospect = texto;
+
+  const { error } = await db.from('magellan_contacts').update({ resposta_prospect: texto }).eq('id', contactId);
+  if (error) { showError('Erro ao salvar resposta: ' + error.message); return; }
+
+  const p = DATA.icp.find(x => x.id === icpId);
+  await db.from('magellan_audit_log').insert({
+    user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
+    acao: 'resposta_prospect_salva', empresa_id: icpId, empresa_nome: p?.nome || '',
+    detalhe: texto.substring(0, 100)
+  });
+
+  const btn = el.nextElementSibling;
+  if (btn) { btn.textContent = '✅ Salvo!'; setTimeout(() => { btn.textContent = '💾 Salvar resposta'; }, 2000); }
 }
 
 // ══════════════════════════════════════════ STATUS UPDATE ════════════════════
 async function onStatusChange(id, newStatus) {
   await updateStatus(id, newStatus);
-  // Se mudou para reply_received, reabre o detail para mostrar o campo de texto
-  if (newStatus === 'reply_received') {
-    openICPDetail(id);
-  }
 }
 
 function copiarBlocoMsg(el) {
@@ -1235,28 +1298,6 @@ function copiarBlocoMsg(el) {
     el.style.opacity = '0.5';
     setTimeout(() => { el.style.opacity = '1'; }, 400);
   });
-}
-
-async function salvarRespostaPropect(id) {
-  const el = document.getElementById('resposta-' + id);
-  if (!el) return;
-  const texto = el.value.trim();
-  const p = DATA.icp.find(x => x.id === id);
-  if (!p) return;
-  p.resposta_prospect = texto;
-
-  const { error } = await db.from('magellan_icp').update({ resposta_prospect: texto }).eq('id', id);
-  if (error) { showError('Erro ao salvar resposta: ' + error.message); return; }
-
-  await db.from('magellan_audit_log').insert({
-    user_email: currentUser?.email, user_name: currentUser?.user_metadata?.full_name,
-    acao: 'resposta_prospect_salva', empresa_id: id, empresa_nome: p.nome,
-    detalhe: texto.substring(0, 100)
-  });
-
-  // Feedback visual
-  const btn = el.nextElementSibling;
-  if (btn) { btn.textContent = '✅ Salvo!'; setTimeout(() => { btn.textContent = '💾 Salvar resposta'; }, 2000); }
 }
 
 async function updateStatus(id, newStatus) {
@@ -1365,14 +1406,6 @@ function openICPDetail(id) {
         </select>
       </span></div>
       ${p.li ? `<div class="detail-row"><span>LinkedIn</span><span><a href="https://${p.li}" target="_blank" style="color:var(--blue);font-size:12px">Ver perfil →</a></span></div>` : ''}
-      ${p.st === 'reply_received' ? `
-      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
-        <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">Resposta do prospect</div>
-        <textarea id="resposta-${p.id}" placeholder="Cole aqui o que o prospect respondeu..." style="width:100%;height:90px;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:8px 10px;font-size:12px;resize:vertical;font-family:inherit;line-height:1.5">${p.resposta_prospect||''}</textarea>
-        <button onclick="salvarRespostaPropect(${p.id})" style="margin-top:8px;width:100%;padding:7px;background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.35);color:#a5b4fc;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer">
-          💾 Salvar resposta
-        </button>
-      </div>` : ''}
     </div>
     <div class="detail-section">
       <div class="detail-section-title">Razão da Dor</div>
@@ -1390,48 +1423,45 @@ function openICPDetail(id) {
         <span>Decisores-Chave</span>
         ${(()=>{const cs=getContactStatus(p);return '<span class="badge '+cs.cls+'" style="font-size:10px">'+cs.label+'</span>';})()}
       </div>
-      ${(p.ceo_n||p.op_n||p.sc_n) ? `
-        ${p.ceo_n ? `<div class="detail-exec-row">
-          <div class="detail-exec-info">
-            <span class="detail-exec-role">CEO</span>
-            <span class="detail-exec-name">${p.ceo_n}</span>
-            <div class="detail-exec-links">${p.ceo_li?`<a href="https://${p.ceo_li}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>`:''}</div>
-          </div>
-          <button onclick="toggleContact(${p.id},'ceo_ct')" class="${p.ceo_ct?'ct-btn-done':'ct-btn'}">${p.ceo_ct?'✓ Contatado':'Marcar contato'}</button>
-        </div>` : ''}
-        ${p.op_n ? `<div class="detail-exec-row">
-          <div class="detail-exec-info">
-            <span class="detail-exec-role">${p.op_c||'Dir. Operações'}</span>
-            <span class="detail-exec-name">${p.op_n}</span>
-            <div class="detail-exec-links">${p.op_li?`<a href="https://${p.op_li}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>`:''}</div>
-          </div>
-          <button onclick="toggleContact(${p.id},'op_ct')" class="${p.op_ct?'ct-btn-done':'ct-btn'}">${p.op_ct?'✓ Contatado':'Marcar contato'}</button>
-        </div>` : ''}
-        ${p.sc_n ? `<div class="detail-exec-row">
-          <div class="detail-exec-info">
-            <span class="detail-exec-role">${p.sc_c||'Dir. Supply Chain'}</span>
-            <span class="detail-exec-name">${p.sc_n}</span>
-            <div class="detail-exec-links">${p.sc_li?`<a href="https://${p.sc_li}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>`:''}</div>
-          </div>
-          <button onclick="toggleContact(${p.id},'sc_ct')" class="${p.sc_ct?'ct-btn-done':'ct-btn'}">${p.sc_ct?'✓ Contatado':'Marcar contato'}</button>
-        </div>` : ''}
-      ` : `<div style="font-size:11px;color:var(--text3);font-style:italic">Contatos ainda não mapeados</div>`}
+      ${(()=>{
+        const contacts = getContacts(p.id);
+        if (!contacts.length) return '<div style="font-size:11px;color:var(--text3);font-style:italic">Contatos ainda não mapeados</div>';
+        return contacts.map(c => `
+          <div class="detail-exec-row">
+            <div class="detail-exec-info">
+              <span class="detail-exec-role">${c.cargo||'—'}</span>
+              <span class="detail-exec-name">${c.nome||'—'}</span>
+              <div class="detail-exec-links">
+                ${c.linkedin ? `<a href="https://${c.linkedin}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>` : ''}
+                <select onchange="toggleContactStatus(${c.id},${p.id},this.value)" style="background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:2px 6px;border-radius:4px;font-size:10px;margin-left:4px">
+                  ${['new','contacted','reply_received','meeting_scheduled','proposal_sent','closed_won','closed_lost'].map(s =>
+                    `<option value="${s}"${c.st===s?' selected':''}>${s.replace(/_/g,' ')}</option>`
+                  ).join('')}
+                </select>
+              </div>
+              ${c.st === 'reply_received' ? `
+              <div style="margin-top:8px">
+                <textarea id="resposta-c-${c.id}" placeholder="Cole a resposta do prospect..." style="width:100%;height:70px;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:6px;padding:6px 8px;font-size:11px;resize:vertical;font-family:inherit;line-height:1.5">${c.resposta_prospect||''}</textarea>
+                <button onclick="salvarRespostaContato(${c.id},${p.id})" style="margin-top:4px;width:100%;padding:5px;background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.35);color:#a5b4fc;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer">💾 Salvar resposta</button>
+              </div>` : ''}
+              ${c.msg_sugerida ? `
+              <div style="margin-top:8px">
+                ${c.msg_sugerida.split(/\n(?=OPÇÃO [ABC]|OPTION [ABC])/).map((bloco, i) => {
+                  const cores = ['rgba(245,245,245,0.05)','rgba(59,130,246,0.07)','rgba(34,197,94,0.07)'];
+                  const bordas = ['rgba(255,255,255,0.08)','rgba(59,130,246,0.2)','rgba(34,197,94,0.2)'];
+                  return `<div style="background:${cores[i]||cores[0]};border:1px solid ${bordas[i]||bordas[0]};border-radius:5px;padding:8px 10px;margin-bottom:6px;cursor:pointer;transition:opacity .15s" onclick="copiarBlocoMsg(this)" title="Clique para copiar">
+                    <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">${bloco.split('\\n')[0]}</div>
+                    <div style="font-size:11px;color:var(--text2);line-height:1.6;white-space:pre-wrap">${bloco.split('\\n').slice(1).join('\\n').trim()}</div>
+                  </div>`;
+                }).join('')}
+              </div>` : ''}
+            </div>
+            <button onclick="toggleContact(${c.id},${p.id})" class="${c.contacted?'ct-btn-done':'ct-btn'}">${c.contacted?'✓ Contacted':'Mark contact'}</button>
+          </div>`).join('');
+      })()}
     </div>
-    ${p.msg_sugerida ? `
-    <div class="detail-section">
-      <div class="detail-section-title" style="display:flex;justify-content:space-between;align-items:center">
-        <span>💬 Respostas sugeridas</span>
-        <span style="font-size:10px;font-weight:500;color:var(--text3);text-transform:none;letter-spacing:0">gerado pela skill · clique para copiar</span>
-      </div>
-      ${p.msg_sugerida.split(/\n(?=OPÇÃO [ABC]|OPTION [ABC])/).map((bloco, i) => {
-        const cores = ['rgba(245,245,245,0.05)','rgba(59,130,246,0.07)','rgba(34,197,94,0.07)'];
-        const bordas = ['rgba(255,255,255,0.08)','rgba(59,130,246,0.2)','rgba(34,197,94,0.2)'];
-        return `<div style="background:${cores[i]||cores[0]};border:1px solid ${bordas[i]||bordas[0]};border-radius:6px;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:opacity .15s" onclick="copiarBlocoMsg(this)" title="Clique para copiar">
-          <div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">${bloco.split('\n')[0]}</div>
-          <div style="font-size:12px;color:var(--text2);line-height:1.6;white-space:pre-wrap">${bloco.split('\n').slice(1).join('\n').trim()}</div>
-        </div>`;
-      }).join('')}
-    </div>` : ''}`;
+  `;
+
   document.getElementById('detail-overlay').classList.add('open');
 }
 
@@ -1526,12 +1556,15 @@ async function gerarResposta() {
 
   // Monta contexto completo para passar à skill via clipboard
   const contexto = document.getElementById('modal-contexto-texto').value.trim();
+  const contacts = getContacts(p.id);
+  const contactsStr = contacts.map(c => `  - ${c.cargo||'—'}: ${c.nome||'—'}${c.linkedin?' · linkedin.com/'+c.linkedin:''} [status: ${c.st||'new'}]`).join('\n');
   const prompt = `Empresa: ${p.nome}
 Setor: ${p.setor||'—'} · ${p.subsetor||''}
 Região: ${p.regiao||'—'} · ${p.country||'Brazil'}
 Dor mapeada: ${p.dor||'não mapeada'} (Score ${p.s})
 Fonte: ${p.fonte||'—'}
-CEO: ${p.ceo_n||'—'}${p.ceo_li?' · linkedin.com/'+p.ceo_li:''}
+Contatos:
+${contactsStr||'  (não mapeados)'}
 Canal: ${_canalSelecionado}
 ${contexto ? 'Contexto da abordagem inicial: '+contexto : ''}
 
