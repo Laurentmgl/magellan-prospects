@@ -1375,7 +1375,11 @@ function renderICP() {
       <td style="color:var(--text2)">${p.plantas||'—'} plantas</td>
       <td><span class="badge badge-indigo">${p.regiao||'—'}</span></td>
       <td><span class="score score-${p.s}"><span class="score-dot"></span>${p.s}</span>${p.fonte?'<span style="display:inline-block;margin-left:5px;font-size:9px;background:#1e3a2e;color:#4ade80;padding:1px 5px;border-radius:3px;vertical-align:middle;font-weight:600">FONTE</span>':''}</td>
-      <td>${(()=>{const cs=getContactStatus(p);return '<span class="badge '+cs.cls+'">'+cs.short+'</span>';})()}</td>
+      <td>${(()=>{
+        const cs=getContactStatus(p);
+        const hasCompanyLI = getContacts(p.id).some(c => c.linkedin && c.linkedin.includes('/company/'));
+        return '<span class="badge '+cs.cls+'">'+cs.short+'</span>'+(hasCompanyLI?' <span title="Contato com LinkedIn de empresa — corrija para perfil pessoal" style="color:#f87171;font-size:11px;cursor:help">⚠️</span>':'');
+      })()}</td>
       <td><span class="badge ${STATUS_BADGE[p.st]||'badge-gray'}">${STATUS_LABEL[p.st]||p.st}</span></td>
     </tr>`).join('');
 }
@@ -1432,7 +1436,12 @@ function openICPDetail(id) {
               <span class="detail-exec-role">${c.cargo||'—'}</span>
               <span class="detail-exec-name">${c.nome||'—'}</span>
               <div class="detail-exec-links">
-                ${c.linkedin ? `<a href="https://${c.linkedin}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>` : ''}
+                ${c.linkedin
+                  ? c.linkedin.includes('/company/')
+                    ? `<a href="https://${c.linkedin}" target="_blank" style="color:#f87171;font-size:11px" title="⚠️ Este é o LinkedIn da empresa, não da pessoa. Corrija para o perfil pessoal (/in/)">⚠️ LinkedIn empresa →</a>`
+                    : `<a href="https://${c.linkedin}" target="_blank" style="color:var(--blue);font-size:11px">LinkedIn →</a>`
+                  : '<span style="font-size:11px;color:var(--text3);font-style:italic">LinkedIn não mapeado</span>'
+                }
                 <select onchange="toggleContactStatus(${c.id},${p.id},this.value)" style="background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:2px 6px;border-radius:4px;font-size:10px;margin-left:4px">
                   ${['new','contacted','reply_received','meeting_scheduled','proposal_sent','closed_won','closed_lost','converted_to_lead'].map(s =>
                     `<option value="${s}"${c.st===s?' selected':''}>${s.replace(/_/g,' ')}</option>`
