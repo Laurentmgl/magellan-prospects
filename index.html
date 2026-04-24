@@ -324,6 +324,10 @@
       <div class="nav-item" id="nav-aprovacao" onclick="showPage('aprovacao')">
         <span class="nav-icon">✅</span><span>Aprovação <span class="pending-badge" id="pending-count" style="display:none">0</span></span>
       </div>
+      <div class="nav-section">Inbound</div>
+      <div class="nav-item" onclick="showPage('assessments')">
+        <span class="nav-icon">📊</span><span>Assessments</span>
+      </div>
     </div>
   </nav>
 
@@ -643,6 +647,41 @@
         <div id="aprov-foco-content" style="display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--text2)"></div>
       </div>
       <div id="aprov-list"></div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ ASSESSMENTS ══ -->
+    <div id="page-assessments" class="page">
+      <div class="page-header">
+        <div class="page-title">Assessments</div>
+        <div class="page-sub">Respondentes dos assessments Magellan · Leads inbound qualificados</div>
+      </div>
+      <div class="cards-row" id="asmnt-cards"></div>
+      <div class="filters">
+        <input class="search-input" id="asmnt-search" placeholder="🔍 Buscar empresa, respondente..." oninput="renderAssessments()" style="width:280px">
+        <select class="search-input" id="asmnt-tipo" onchange="renderAssessments()" style="width:200px">
+          <option value="all">Todos os tipos</option>
+          <option value="assessments">Operações</option>
+          <option value="assessments_dados_ia">Dados & IA</option>
+          <option value="assessments_manutencao">Manutenção</option>
+          <option value="assessments_pred_manutencao">Manutenção Preditiva</option>
+          <option value="assessments_planejamento_integrado">Planejamento Integrado</option>
+        </select>
+        <select class="search-input" id="asmnt-status" onchange="renderAssessments()" style="width:160px">
+          <option value="all">Todos os status</option>
+          <option value="Novo">🔵 Novo</option>
+          <option value="Em contato">🟡 Em contato</option>
+          <option value="Reunião agendada">🟢 Reunião agendada</option>
+          <option value="Sem interesse">🔴 Sem interesse</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>Respondente</th><th>Empresa</th><th>Cargo</th><th>Tipo Assessment</th><th>Score</th><th>Nível</th><th>Data</th><th>Status</th><th>Próxima ação</th>
+          </tr></thead>
+          <tbody id="asmnt-table-body"></tbody>
+        </table>
+      </div>
     </div>
 
   </main>
@@ -1320,11 +1359,13 @@ async function updateStatus(id, newStatus) {
 }
 
 // ══════════════════════════════════════════ PAGES ════════════════════════════
+let _asmntLoaded = false;
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
   if (event && event.currentTarget) event.currentTarget.classList.add('active');
+  if (id === 'assessments' && !_asmntLoaded) { _asmntLoaded = true; loadAssessments(); }
 }
 
 // ══════════════════════════════════════════ ICP ══════════════════════════════
@@ -1642,6 +1683,141 @@ function copiarMensagem(btn, id) {
     btn.textContent = '✓ Copiado!';
     setTimeout(() => { btn.textContent = '📋 Copiar'; }, 2000);
   });
+}
+
+// ══════════════════════════════════════════ ASSESSMENTS ═════════════════════
+const ASMNT_URL = 'https://gkvtudhwjkwjgjrwvptb.supabase.co';
+const ASMNT_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdrdnR1ZGh3amt3amdqcnd2cHRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3NjE5MDcsImV4cCI6MjA4NzMzNzkwN30.LRZDxJi0xU0moqU1nIAb8jJEFfB8zTZnzhY1txqZerk';
+const dbA = window.supabase.createClient(ASMNT_URL, ASMNT_KEY);
+
+const ASMNT_TABLES = [
+  { key: 'assessments',                        label: 'Operações' },
+  { key: 'assessments_dados_ia',               label: 'Dados & IA' },
+  { key: 'assessments_manutencao',             label: 'Manutenção' },
+  { key: 'assessments_pred_manutencao',        label: 'Manutenção Preditiva' },
+  { key: 'assessments_planejamento_integrado', label: 'Planejamento Integrado' },
+];
+
+const ASMNT_STATUS_BADGE = {
+  'Novo':             'badge-blue',
+  'Em contato':       'badge-yellow',
+  'Reunião agendada': 'badge-green',
+  'Sem interesse':    'badge-red',
+};
+
+let DATA_ASMNT = { respondentes: [], lead_actions: [] };
+
+async function loadAssessments() {
+  showLoading(true);
+  try {
+    const results = await Promise.all(
+      ASMNT_TABLES.map(t =>
+        dbA.from(t.key).select('id,created_at,empresa,respondente,cargo,email,setor,regiao,score_geral,nivel_geral').order('created_at', { ascending: false })
+      )
+    );
+    DATA_ASMNT.respondentes = [];
+    results.forEach((r, i) => {
+      if (r.error) { console.warn('Erro em ' + ASMNT_TABLES[i].key, r.error); return; }
+      (r.data || []).forEach(row => {
+        DATA_ASMNT.respondentes.push({ ...row, _tipo: ASMNT_TABLES[i].key, _tipoLabel: ASMNT_TABLES[i].label });
+      });
+    });
+    const laRes = await dbA.from('lead_actions').select('*');
+    DATA_ASMNT.lead_actions = laRes.data || [];
+    DATA_ASMNT.respondentes.sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+    renderAssessments();
+  } catch(err) {
+    showError('Erro ao carregar assessments: ' + err.message);
+  } finally {
+    showLoading(false);
+  }
+}
+
+function getLeadAction(id) {
+  return DATA_ASMNT.lead_actions.find(la => la.assessment_id === id);
+}
+
+async function salvarLeadAction(id, sourceTable, field, value) {
+  const existing = getLeadAction(id);
+  const payload = { assessment_id: id, source_table: sourceTable, updated_at: new Date().toISOString(), [field]: value };
+  if (existing) {
+    existing[field] = value;
+    await dbA.from('lead_actions').update(payload).eq('assessment_id', id);
+  } else {
+    const newAction = { assessment_id: id, source_table: sourceTable, status: 'Novo', next_action: '', owner: '', updated_at: new Date().toISOString(), [field]: value };
+    DATA_ASMNT.lead_actions.push(newAction);
+    await dbA.from('lead_actions').upsert(newAction);
+  }
+}
+
+function renderAssessments() {
+  const q      = (document.getElementById('asmnt-search')?.value || '').toLowerCase();
+  const tipo   = document.getElementById('asmnt-tipo')?.value   || 'all';
+  const status = document.getElementById('asmnt-status')?.value || 'all';
+
+  let list = DATA_ASMNT.respondentes.filter(r => {
+    if (tipo !== 'all' && r._tipo !== tipo) return false;
+    const la = getLeadAction(r.id);
+    if (status !== 'all' && (la?.status || 'Novo') !== status) return false;
+    if (q && !(r.empresa||'').toLowerCase().includes(q) &&
+             !(r.respondente||'').toLowerCase().includes(q) &&
+             !(r.email||'').toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  const total    = DATA_ASMNT.respondentes.length;
+  const novos    = DATA_ASMNT.respondentes.filter(r => (getLeadAction(r.id)?.status || 'Novo') === 'Novo').length;
+  const reunioes = DATA_ASMNT.respondentes.filter(r => getLeadAction(r.id)?.status === 'Reunião agendada').length;
+  const avgScore = total ? (DATA_ASMNT.respondentes.reduce((s,r) => s + parseFloat(r.score_geral||0), 0) / total).toFixed(1) : '—';
+
+  document.getElementById('asmnt-cards').innerHTML = `
+    <div class="card card-blue"><div class="card-label">Total Respondentes</div><div class="card-value">${total}</div><div class="card-sub">todos os assessments</div></div>
+    <div class="card card-orange"><div class="card-label">Novos</div><div class="card-value">${novos}</div><div class="card-sub">sem ação ainda</div></div>
+    <div class="card card-green"><div class="card-label">Reuniões agendadas</div><div class="card-value">${reunioes}</div><div class="card-sub">em andamento</div></div>
+    <div class="card card-yellow"><div class="card-label">Score médio</div><div class="card-value">${avgScore}</div><div class="card-sub">de 1 a 5</div></div>
+  `;
+
+  if (!list.length) {
+    document.getElementById('asmnt-table-body').innerHTML = '<tr><td colspan="9"><div class="empty-state">Nenhum respondente encontrado.</div></td></tr>';
+    return;
+  }
+
+  document.getElementById('asmnt-table-body').innerHTML = list.map(r => {
+    const la = getLeadAction(r.id);
+    const stLabel = la?.status || 'Novo';
+    const stBadge = ASMNT_STATUS_BADGE[stLabel] || 'badge-gray';
+    const score = parseFloat(r.score_geral || 0);
+    const scoreColor = score >= 4 ? 'var(--green)' : score >= 3 ? 'var(--yellow)' : 'var(--orange)';
+    const date = r.created_at ? new Date(r.created_at).toLocaleDateString('pt-BR') : '—';
+    return `<tr>
+      <td>
+        <div style="font-weight:600">${r.respondente||'—'}</div>
+        <div style="font-size:11px;color:var(--text3)">${r.email||''}</div>
+      </td>
+      <td>
+        <div style="font-weight:500">${r.empresa||'—'}</div>
+        <div style="font-size:11px;color:var(--text3)">${r.setor||''}</div>
+      </td>
+      <td style="color:var(--text2);font-size:12px">${r.cargo||'—'}</td>
+      <td><span class="badge badge-indigo">${r._tipoLabel}</span></td>
+      <td><span style="font-weight:700;color:${scoreColor}">${score.toFixed(1)}</span><span style="font-size:10px;color:var(--text3)">/5</span></td>
+      <td style="font-size:12px;color:var(--text2)">${r.nivel_geral||'—'}</td>
+      <td style="font-size:12px;color:var(--text3)">${date}</td>
+      <td>
+        <select onchange="salvarLeadAction('${r.id}','${r._tipo}','status',this.value)"
+          style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:3px 7px;border-radius:5px;font-size:11px">
+          ${['Novo','Em contato','Reunião agendada','Sem interesse'].map(s =>
+            `<option value="${s}"${stLabel===s?' selected':''}>${s}</option>`
+          ).join('')}
+        </select>
+      </td>
+      <td>
+        <input value="${(la?.next_action||'').replace(/"/g,'&quot;')}" placeholder="Próxima ação..."
+          onblur="salvarLeadAction('${r.id}','${r._tipo}','next_action',this.value)"
+          style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:3px 8px;border-radius:5px;font-size:11px;width:150px">
+      </td>
+    </tr>`;
+  }).join('');
 }
 
 // ══════════════════════════════════════════ INIT ══════════════════════════════
